@@ -18,7 +18,8 @@ export default class Follow extends Component {
                     {{
                         width: '100%',
                         height: '30vw',
-                        border: '1px solid red',
+                        borderTop: '1px solid black',
+                        borderBottom: '1px solid black',
                     }}>
                     <img src='images/3.jpg' style=
                         {{
@@ -45,7 +46,7 @@ export default class Follow extends Component {
                     {{
                         width: '100%',
                         height: '24vw',
-                        border: '1px solid green',
+                        borderBottom: '1px solid black',
                     }}>
                         <ul style=
                         {{
