@@ -1,8 +1,10 @@
 import React, { Component, Fragment } from 'react';
 import { Tabs } from 'antd-mobile';
 import { Map } from 'react-amap';
-import '../index.css';
+import '../../../index.css';
 import GetLocation from './GetLocation.js';
+import {createBrowserHistory} from 'history';
+const his = createBrowserHistory();
 
 // 114.517366,37.994022
 // 河北师范大学
@@ -47,6 +49,11 @@ export default class MyMap extends Component {
                 }
             });
     }
+    fanhui = ()=>{
+        console.log('click');
+        his.push('/');
+        window.location.reload();
+    }
     render() {
         const plugins = [
             'MapType',
@@ -67,7 +74,7 @@ export default class MyMap extends Component {
             <Fragment>
                 {/* 上半部分搜索学校 */}
                 <div className='qin_back'>
-                    <div className='iconfont icon-fanhui' id='qin_fanhui'></div>
+                    <div className='iconfont icon-fanhui' id='qin_fanhui' onClick={this.fanhui}></div>
                     <input placeholder='&nbsp;河北师范大学' ref={ref => this.autoFocusInst = ref} onChange={this.change} onKeyDown={this.keydown} />
                     <div className='iconfont icon-sousuo' id='qin_MapSearch' onClick={this.click}></div>
                 </div>
