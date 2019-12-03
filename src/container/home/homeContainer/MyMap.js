@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import { Tabs } from 'antd-mobile';
 import { Map } from 'react-amap';
-import '../../../index.css';
+import '../index.css';
+import GetLocation from './GetLocation.js';
 
 // 114.517366,37.994022
 // 河北师范大学
@@ -9,7 +10,7 @@ export default class MyMap extends Component {
     constructor() {
         super();
         this.state = {
-            center: {longitude:114.517366, latitude:37.994022},
+            center: { longitude: 114.517366, latitude: 37.994022 },
             school: ''
         }
     }
@@ -21,7 +22,11 @@ export default class MyMap extends Component {
             school: this.autoFocusInst.value
         })
     }
-    
+    keydown = (e) => {
+        if (e.target.value && e.keyCode === 13) {
+            this.click()
+        }
+    }
     click = (e) => {
         let address = this.state.school;
         fetch('https://restapi.amap.com/v3/geocode/geo?key=bfac02e9509fdd41a723a3f26d363663&address=' + address)
@@ -63,7 +68,7 @@ export default class MyMap extends Component {
                 {/* 上半部分搜索学校 */}
                 <div className='qin_back'>
                     <div className='iconfont icon-fanhui' id='qin_fanhui'></div>
-                    <input placeholder='&nbsp;河北师范大学' ref={ref => this.autoFocusInst = ref} onChange={this.change} />
+                    <input placeholder='&nbsp;河北师范大学' ref={ref => this.autoFocusInst = ref} onChange={this.change} onKeyDown={this.keydown} />
                     <div className='iconfont icon-sousuo' id='qin_MapSearch' onClick={this.click}></div>
                 </div>
 
@@ -71,16 +76,15 @@ export default class MyMap extends Component {
                 <div>
                     <Tabs tabs={[{ title: '我的位置' }, { title: '校内精确地点' }]} initialPage={0} animated={false} useOnPan={false}>
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '90vw', backgroundColor: '#fff' }}>
-                            <div>MyPosition</div>
+                            <GetLocation />
                         </div>
-                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '90vw', backgroundColor: '#fff' }}>                         
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '90vw', backgroundColor: '#fff' }}>
                             <Map
-                                scrollWheel={true} 
+                                scrollWheel={true}
                                 plugins={plugins}
                                 zoom={17}
                                 scrollWheel={true}
-                                mapStyle={'fresh'}
-                                // center={[114.517366,37.994022]}
+                                mapStyle={'normal'}
                                 center={this.state.center}
                                 viewMode={'3D'}
                                 amapkey={'bfac02e9509fdd41a723a3f26d363663'}
