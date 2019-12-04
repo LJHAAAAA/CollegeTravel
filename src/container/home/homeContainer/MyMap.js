@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { Tabs } from 'antd-mobile';
 import { Map } from 'react-amap';
 import '../../../index.css';
-import GetLocation from './GetLocation.js';
+import GetLocation from '../homeContainer/GetLocation';
 import {createBrowserHistory} from 'history';
 const his = createBrowserHistory();
 
@@ -51,7 +51,7 @@ export default class MyMap extends Component {
     }
     fanhui = ()=>{
         console.log('click');
-        his.push('/');
+        his.push('/Home');
         window.location.reload();
     }
     render() {

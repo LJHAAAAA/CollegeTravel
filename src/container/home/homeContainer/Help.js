@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { NavBar, Icon } from 'antd-mobile';
-import '../index.css';
+import '../../../index.css';
 export default class Help extends Component {
     render() {
         return (

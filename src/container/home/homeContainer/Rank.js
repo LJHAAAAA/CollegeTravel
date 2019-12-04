@@ -1,16 +1,21 @@
 import React, { Component } from 'react'
 import { NavBar, Icon } from 'antd-mobile';
-import '../index.css';
+import {Link} from 'react-router-dom';
+import '../../../index.css';
 export default class Rank extends Component {
     render() {
         return (
             <div>
-                <NavBar
-      mode="light"
-      icon={<Icon type="left"  />}
-      onLeftClick={() => console.log('onLeftClick')}
-    >热点排行</NavBar>
-    <div>
+                <Link to='/Home'>
+                <NavBar mode="light" icon={<Icon type="left"  />} onLeftClick={
+                    () => console.log('onLeftClick')
+                }>
+                    
+                    热点排行
+                </NavBar>
+                </Link>
+                
+            <div>
         <button className="wu_kuang">
            <p className='wu_ziti'>1</p></button>
            <p className='wu_ziti1'>武汉大学  #樱花季</p>
