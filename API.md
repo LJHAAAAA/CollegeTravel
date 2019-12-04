@@ -15,7 +15,7 @@ http://localhost:8080/Getnum
 ```
 
 #### 示例：  
-[http://localhost:8080/Getnum?moblie=12345678900](http://localhost:8080/Getnum?moblie=12345678900)  
+[http://localhost:8080/Getnum?mobile=15232192369](http://localhost:8080/Getnum?mobile=15232192369)  
 
 #### 请求方式：  
 ```
