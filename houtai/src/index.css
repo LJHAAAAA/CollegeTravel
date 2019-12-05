@@ -1,0 +1,161 @@
+*{
+    margin: 0;
+    padding: 0;
+  }
+  .all{
+    width: 100%;
+    height: 40vw;
+    border: 2px solid red;
+    background-color: aquamarine;
+  }
+  .color{
+    width: 100%;
+    height: 100vh;
+    background-color: aquamarine;
+  }
+  .red{
+    width: 100%;
+    height: 100vh;
+    background-color:red;
+  }
+  
+  /* 登陆界面 */
+  .lv_login{
+    width: 100%;
+    height: 100vh;
+    background-color: aquamarine;
+    background-image: url("https://s2.ax1x.com/2019/12/04/Q1DxOg.jpg");
+    background-size: 100vw 100vh;
+  }
+  .lv_login p{
+    display: inline-block;
+    margin-right: 1vw;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-left: -3vw;
+  }
+  .lv_login1{
+    width: 40%;
+    height: 40%;
+    background-color: rgba(255, 255, 255, 0.685);
+    margin: 0 auto;
+    position: relative;
+    top: 35vh;
+    z-index: 999;
+  }
+  
+  .lv_login2{
+    position: relative;
+    top: 10vh;
+    left: 12vw;
+  }
+
+  /** input **/
+  .liu_login1{
+    margin-top: 0vh;
+    width: 20vw;
+    height: 4.5vh;
+    line-height: 18px;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    transition: border linear 0.2s, box-shadow linear 0.2s;
+  }
+  .liu_login1:focus{
+    border-color: rgba(82, 168, 236, 0.8);
+    outline: thin dotted \9;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+  }
+
+  .liu_login2{
+    margin-top: 5vh;
+    width: 20vw;
+    height: 4.5vh;
+    line-height: 18px;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    transition: border linear 0.2s, box-shadow linear 0.2s;
+  }
+  .liu_login2:focus{
+    border-color: rgba(82, 168, 236, 0.8);
+    outline: thin dotted \9;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+  }
+  
+  .liu_login3{
+    width: 8vw;
+    height: 5vh;
+    background: rgb(27, 26, 26);
+    border: none;
+    border-radius: 100px;
+    margin-top: 3vh;
+    margin-left: 3vw;
+    color: white;
+  }
+
+
+  
+/***********************************************************************************/
+
+  a{
+    text-decoration: none;
+    color: #333;
+  }
+  /* 总体 */
+  .head{
+    float: left;
+    width: 100vw;
+    height: 10vh;
+  }
+  .left{
+    float: left;
+    width: 20vw;
+    height: 90vh;
+    background-color: chartreuse;
+  }
+  .right{
+    float: right;
+    width: 80vw;
+    height: 90vh;
+    background: url('https://s2.ax1x.com/2019/12/02/QuAd0O.jpg');
+    background-size: 100% 100%;
+  }
+  /* 头部 */
+  .lv_header{
+    background-color: aquamarine;
+    width: 100vw;
+    height: 10vh;
+  }
+  .lv_img1{
+    width: 7vh;
+    height: 7vh;
+    margin-top: 1.5vh;
+    margin-left: 1.5vh;
+    border-radius: 20px;
+    float: left;
+  }
+  .lv_word1{
+    float: left;
+    line-height: 10vh;
+    margin-left: 2vw;
+  }
+  .lv_time{
+    line-height: 10vh;
+    float: right;
+    margin-right: 4vw;
+  
+  }
+  .lv_anniu1{
+    float: right;
+    line-height: 10vh;
+    margin-right: 2vw;
+  }
+  /* 左侧 */
+  .lv_left1{
+    width: 100%;
+    height: 8vh;
+    background-color: #ffffff;
+    line-height: 8vh;
+    text-align: center;
+  }
