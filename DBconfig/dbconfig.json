@@ -1,0 +1,6 @@
+{
+    "host":"localhost",
+    "database":"dbsystem",
+    "user":"root",
+    "password":""
+}
