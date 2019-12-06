@@ -52,26 +52,39 @@ app.post('/login',function(req,res){
 app.post('/Register',(req,res)=>{
     /**获取请求体数据 */
     let data = req.body;
-    let message1 = {success:true};
-    let message2 = {success:false};
+    let message1 = {success:0}; // 注册成功
+    let message2 = {success:1};  //失败类型1  两次密码不一致
+    let message3 = {success:2};// 失败类型2 输入的用户名数据库已存在
+    var con = mysql.createConnection(dbconfig);
+    con.connect();
     // eslint-disable-next-line eqeqeq
     if(data.password != data.repassword){
         res.send(message2);
     }
     else{
-        var con = mysql.createConnection(dbconfig);
-        con.connect();
-        con.query("insert into users(username,password) values(?,?)",[data.username,data.password],(err,result)=>{
+        con.query("select count(*) from users where username ='"+data.username+"'",function(err,result){
             if(err){
                 throw err;
             }
             else{
-                console.log(result);
-                res.send(message1);
+                if(result[0]["count(*)"] === 0){
+                    con.query("insert into users(username,password) values(?,?)",[data.username,data.password],(err,result)=>{
+                        if(err){
+                            throw err;
+                        }
+                        else{
+                            res.send(message1);
+                        }
+                    })
+                }
+                else{
+                    res.send(message3);
+                }
             }
         })
     }
 })
+
 
 /**获取验证码 */
 app.get('/Getnum',(req,res)=>{
@@ -133,13 +146,35 @@ app.get('/getCity',(req,res)=>{
     })
 })
 
-/**获取和接收学校的名字 */
-// (function Name(){
-//     var SN="asdasd";
-//     var that = this;
-//     console.log(SN);
-// })()
 
+
+/**后台管理登录 */
+app.post('/loginHou',function(req,res){
+    /**获取请求体数据 */
+    let data = req.body;
+    console.log(data.username);
+    console.log(data.password);
+    let message1 = {success:true};
+    let message2 = {success:false};
+    /**连接数据库 */
+    var con = mysql.createConnection(dbconfig);
+    con.connect();
+    con.query("select * from admin where username = '"+ data.username +"' and password = '"+data.password+"'",function(err,result){
+        if(err){
+            throw err;
+        }
+        else{
+            console.log(result);
+            // eslint-disable-next-line eqeqeq
+            if(result == false){
+                res.send(message2);
+            }
+            else{
+                res.send(message1);
+            }
+        }
+    })
+})
 
 
 var server = app.listen(8080,()=>{
