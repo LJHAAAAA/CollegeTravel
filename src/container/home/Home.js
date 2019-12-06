@@ -2,6 +2,8 @@ import React, { Component, Fragment } from 'react'
 import { Carousel, Flex, WhiteSpace } from 'antd-mobile';
 import GetLocation from './homeContainer/GetLocation';
 import {Link} from 'react-router-dom';
+import {createBrowserHistory} from 'history'
+const his = createBrowserHistory();
 
 
 
@@ -41,6 +43,11 @@ export default class Home extends Component {
                 })
             }
         )
+    }
+
+    getDetails=()=>{
+        his.push('/Deatil');
+        window.location.reload();
     }
 
     detailClick1=(e)=>{
@@ -93,12 +100,17 @@ export default class Home extends Component {
         return (
             <Fragment>
                 {/* 顶部搜索栏 */}
-                <div style={{ width: '100%', height: '14.2vw', backgroundColor: 'rgba(0, 0, 0,0.8)',position:'fixed',zIndex:'999'}}>
+                <div style={{ width: '100%', height: '14.2vw', backgroundColor: '#4dc7f9',position:'fixed',zIndex:'999'}}>
                     <img src='https://s2.ax1x.com/2019/12/02/QuBqYD.png' id='qin_dingwei' alt=""/>
                     <p className='qin_city' onClick={this.cityClick}>{this.state.cityNow}</p>
+                    <Link to='/Help'>
                     <img src='https://s2.ax1x.com/2019/12/02/QusPzQ.png' style={{backgroundColor:'rgba(0,0,0,0)', float:'right', height:'14vw', marginRight:'3vw'}} alt=""/>
+                    </Link>
+                    
                 </div>
+                {/* 空div */}
                 <div style={{ width: '100%', height: '14.2vw'}}></div>
+                {/* 左上角定位下拉框 */}
                 <div className="Liu_city" style={divStyle}>
                     <ul>
                         {
@@ -128,8 +140,8 @@ export default class Home extends Component {
                         ))}
                     </Carousel>
                 </div>
-                
-                {/* 中间四个入口 */}
+                <div style={{backgroundColor:'red',borderTopLeftRadius:'4vw',borderTopRightRadius:'4vw'}}>
+                    {/* 中间四个入口 */}
                 <div className='qin_rukou'>
                     <Flex>
                         <Flex.Item>
@@ -170,7 +182,7 @@ export default class Home extends Component {
                     <p className='qin_title'>周 边 热 门 高 校</p>
                     {
                         this.state.cityData.map((item,idx)=>(
-                            <div className="Liu_hot">
+                            <div className="Liu_hot" onClick={this.getDetails}>
                                 <img src={item.collegePic} alt="" className="Liu_hot4"/>
                                 <p className="Liu_hot1" onClick={this.detailClick1}>{item.collegeName}</p>
                                 <p className="Liu_hot3" onClick={this.detailClick2}>{item.content}</p>                                 
@@ -178,6 +190,9 @@ export default class Home extends Component {
                         ))
                     }
                 </div>
+
+                </div>
+                
             </Fragment>
         )
     }
