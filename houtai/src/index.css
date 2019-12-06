@@ -1,0 +1,173 @@
+*{
+    margin: 0;
+    padding: 0;
+  }
+
+  
+  /* 登陆界面 */
+  .lv_login{
+    width: 100%;
+    height: 100vh;
+    background-color: aquamarine;
+    background-image: url("https://s2.ax1x.com/2019/12/04/Q1DxOg.jpg");
+    background-size: 100vw 100vh;
+  }
+  .lv_login p{
+    display: inline-block;
+    margin-right: 1vw;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-left: 10vw;
+    margin-top: 7vh;
+  }
+  .lv_login1{
+    width: 40%;
+    height: 40%;
+    background-color: rgba(255, 255, 255, 0.685);
+    margin: 0 auto;
+    position: relative;
+    top: 35vh;
+    z-index: 999;
+  }
+  
+  .lv_login2{
+    position: relative;
+    top: 10vh;
+    left: 12vw;
+  }
+
+  /** input **/
+  .liu_login1{
+    margin-top: 0vh;
+    width: 15vw;
+    height: 4.5vh;
+    line-height: 18px;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    transition: border linear 0.2s, box-shadow linear 0.2s;
+  }
+  .liu_login1:focus{
+    border-color: rgba(82, 168, 236, 0.8);
+    outline: thin dotted \9;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+  }
+
+  .liu_login2{
+    margin-top: 5vh;
+    width: 15vw;
+    height: 4.5vh;
+    line-height: 18px;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    transition: border linear 0.2s, box-shadow linear 0.2s;
+  }
+  .liu_login2:focus{
+    border-color: rgba(82, 168, 236, 0.8);
+    outline: thin dotted \9;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+  }
+  
+  .liu_login3{
+    width: 8vw;
+    height: 5vh;
+    background: rgb(27, 26, 26);
+    border: none;
+    border-radius: 100px;
+    margin-top: 6vh;
+    margin-left: 16vw;
+    color: white;
+  }
+
+
+  /**主页面**/
+  .liu_home{
+    width: 100%;
+    height: 100vh;
+    background-color: aquamarine;
+    background-image: url("https://s2.ax1x.com/2019/12/04/Q1DxOg.jpg");
+    background-size: 100vw 100vh;
+    position: relative;
+  }
+  .liu_p1{
+    font-size: 3.5vw;
+    font-weight: bold;
+    /* font-family: Lantinghei SC; */
+    font-family: STXingkai;
+    margin-left: 23vw;
+    padding-top: 4vh;
+    text-shadow: 10px 10px 50px rgb(238, 230, 230); 
+    color: black;
+  }
+  .liu_p2{
+    font-size: 1.1vw;
+    color: white;
+    /* font-family: STXingkai; */
+    font-family: Lantinghei SC;
+    margin-left: 84vw;
+    margin-top: -3vh;
+  }
+  .liu_p3{
+    position: absolute;
+    font-size: 1vw;
+    font-weight: bold;
+    color: rgb(236, 235, 235);
+    left: 85vw;
+    top: 5vh;
+  }
+  .liu_p4{
+    font-size: 1vw;
+    font-weight: bold;
+    color: white;
+    margin-left: 90vw;
+    margin-top: 0vh;
+  }
+  .liu_p5{
+    font-size: 2vw;
+    color: black;
+    font-weight: bold;
+    padding-top: 5vh;
+    font-family: FZShuTi;
+  }
+  
+  
+  /*主模板*/
+  .liu_home1{
+    width: 80%;
+    height: 80vh;
+    background:rgba(255, 255, 255, 0.685);
+    margin: 0 auto;
+    margin-top: 5vh;
+  }
+  .liu_home2{
+    width: 20%;
+    height: 80vh;
+    background: rgba(255, 255, 255, 0.6);
+    border-right: 1.5px solid rgb(10, 22, 14);
+  }
+  .liu_home3{
+    width: 100%;
+    height: 15vh;
+    /* background: black; */
+    text-align: center;
+  }
+  /*右侧内容展示*/
+  .liu_r{
+    display: inline-block;
+    float: right;
+    width: 80%;
+    height: 80vh;
+    margin-top: -80vh;
+  }
+  .liu_r1{
+    width: 100%;
+    height: 80vh;
+  }
+  .liu_r2{
+    width: 20%;
+    height: 20vh;
+    margin-left: 22vw;
+    margin-top: 5vh;
+    border-radius: 50%;
+  }
