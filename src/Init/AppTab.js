@@ -24,10 +24,10 @@ export default class AppTab extends React.Component {
         >
           <TabBar.Item
               icon={
-                <i style={{ fontSize: '22px', lineHeight: '22px' }} className='iconfont icon-home'></i>
+                <i style={{ fontSize: '22px', lineHeight: '22px' }} className='iconfont icon-shouye'></i>
               }
               selectedIcon={
-                <i style={{ fontSize: '22px', lineHeight: '22px' }} className='iconfont icon-home'></i>
+                <i style={{ fontSize: '22px', lineHeight: '22px' }} className='iconfont icon-shouye'></i>
               }
               title="首页"
               key="home"
@@ -61,10 +61,27 @@ export default class AppTab extends React.Component {
           </TabBar.Item>
           <TabBar.Item
               icon={
-                <i style={{ fontSize: '22px', lineHeight: '22px' }} className='iconfont icon-1801xiaoxi'></i>
+                <i style={{ fontSize: '22px', lineHeight: '22px', color:'#4dc7f9' }} className='iconfont icon-tianjia3'></i>
               }
               selectedIcon={
-                <i style={{ fontSize: '22px', lineHeight: '22px' }} className='iconfont icon-1801xiaoxi'></i>
+                <i style={{ fontSize: '22px', lineHeight: '22px', color:'#4dc7f9' }} className='iconfont icon-tianjia3'></i>
+              }
+              key="add"
+              selected={this.state.selectedTab === 'orangeTab'}
+              onPress={() => {
+                this.setState({
+                  selectedTab: 'orangeTab',
+                });
+              }}
+            >
+
+          </TabBar.Item>
+          <TabBar.Item
+              icon={
+                <i style={{ fontSize: '22px', lineHeight: '22px' }} className='iconfont icon-linggan'></i>
+              }
+              selectedIcon={
+                <i style={{ fontSize: '22px', lineHeight: '22px' }} className='iconfont icon-linggan'></i>
               }
               title="圈子"
               key="Message"
@@ -79,10 +96,10 @@ export default class AppTab extends React.Component {
           </TabBar.Item>
           <TabBar.Item
               icon={
-                <i style={{ fontSize: '22px', lineHeight: '22px' }} className='iconfont icon-my'></i>
+                <i style={{ fontSize: '22px', lineHeight: '22px' }} className='iconfont icon-wode'></i>
               }
               selectedIcon={
-                <i style={{ fontSize: '22px', lineHeight: '22px' }} className='iconfont icon-my'></i>
+                <i style={{ fontSize: '22px', lineHeight: '22px' }} className='iconfont icon-wode'></i>
               }
               title="我的"
               key="my"
