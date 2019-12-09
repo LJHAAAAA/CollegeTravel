@@ -1209,7 +1209,7 @@ ul,li{
   font-family: 楷体;
 }
 .qin_detail_visit{
-  margin-top: 15vw;
+  margin-top: 15vh;
   float: left;
   line-height: 6vw;
   font-family: 微软雅黑;
@@ -1218,7 +1218,7 @@ ul,li{
 }
 .qin_detail_visit span{
   
-  font-size: 5vw;
+  font-size: 6vw;
   color: #999;
   
 }
@@ -1244,29 +1244,62 @@ ul,li{
   width: 80vw;
   position: absolute;
 }
-/*发表评论*/
-.wu_fabiao{
-  float:right;
-  width:16vw;
-  height:3.5vh;
-  border-radius: 3px;
-  margin-right:1em;
-  margin-top:-2.6em;
-  background-color: #F5F4F4;
+/* ******************************** */
+/* 大学详情页 */
+.lv_total{
+  width: 100%;
+  height: auto;
+  /* background-color: #08c; */
 }
-.wu_pinglun_box{
-  width:100%;
-  height:30vh;
-  margin-top:-0.5em;
-  background-color:rgb(0, 195, 255);
+.lv_middle{
+  width: 100vw;
+  height: 60vh;
+  background: url('https://s2.ax1x.com/2019/12/04/QQTLDI.jpg') no-repeat;
+  /* background-size: 100vw 80vh; */
+  /* background-color: #49DD8E; */
 }
-.wu_line1{
-  margin-top:0em;
-  border:none;
-  border-top:1px solid gray;
+.lv_middle_child{
+  width: 100vw;
+  height: 60vh;
+  background-color: rgba(255,255,255,0.5);
 }
-.wu_biaoqian{
-  float:left;
-  margin-left:1em;
-  margin-top:14em;
+.lv_header1{
+  /* width: 100vw; */
+  height: 80vh;
+}
+.lv_middle_wingblank{
+  width: 100%;
+  margin-top: 2vh;
+}
+
+.lv_middle_name img{
+  float: left;
+  width: 50%;
+}
+
+.lv_line{
+  width: 90%;
+  border: 2px solid #999;
+  float: left;
+  margin-top: 2vh;
+}
+
+/* 校训 */
+.lv_title{
+  font-size: 6vw;
+  float: left;
+  margin-top: 2vh;
+  font-family: '楷体';
+}
+.lv_artical{
+  font-size: 4vw;
+  float: left;
+  margin-top: 2vh;
+  font-family: '楷体';
+}
+.lv_title1{
+  font-size: 6vw;
+  float: left;
+  font-family: '楷体';
+
 }
