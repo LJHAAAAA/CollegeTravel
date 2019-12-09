@@ -36,7 +36,7 @@ export default class Login extends Component {
         .then(
             data=>{
                 if(data.success){
-                    his.push('/home/admin');
+                    his.push('/home/admin/'+this.state.username);
                     window.location.reload();
                 }
                 else{
