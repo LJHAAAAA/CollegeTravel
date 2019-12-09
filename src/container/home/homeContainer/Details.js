@@ -14,7 +14,7 @@ export default class Details extends Component {
     render() {
         return (
             <Fragment className='lv_total'>
-                <div>
+                <div style={{position:'fixed',zIndex:'1111',width:"100%"}}>
                     <NavBar
                         mode='light'
                         icon={
@@ -26,7 +26,10 @@ export default class Details extends Component {
                         <span>河北师范大学</span>
                     </NavBar>
                 </div>
-                <div className='lv_middle'>
+                <div>
+                    <NavBar></NavBar>
+                </div>
+                <div className='lv_middle' >
                     <div className='lv_middle_child'>
                         <WhiteSpace/>
                         {/* 上下留白 WhiteSpace */}
@@ -50,6 +53,7 @@ export default class Details extends Component {
                                     全国深化创新创业教育改革示范高校、教育部来华留学示范基地建设高校。
                                 </p>
                         </WingBlank>
+                        
                     </div>  
                 </div>
                 {/* 校园风光 */}
