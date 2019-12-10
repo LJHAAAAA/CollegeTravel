@@ -6,8 +6,6 @@ import {createBrowserHistory} from 'history'
 const his = createBrowserHistory();
 
 
-
-
 export default class Home extends Component {
     // Carousel
     constructor(){
@@ -19,7 +17,6 @@ export default class Home extends Component {
             cityNow:'',
             city:['石家庄市','北京市','上海市','武汉市','厦门市','西安市','广州市'],
             cityData:[],
-            schoolName:""
         }
     }
 
@@ -44,28 +41,15 @@ export default class Home extends Component {
             }
         )
     }
-
-    getDetails=()=>{
-        his.push('/Deatil');
+    
+    detailClick = (e) => {
+        let text = e.target.innerHTML;
+        let schoolName = text.split('大学')[0] + "大学";
+        console.log(schoolName);
+        his.push('/collegeDetails/' + schoolName);
         window.location.reload();
     }
-
-    detailClick1=(e)=>{
-        console.log(e.target.innerHTML);
-        this.setState({
-            schoolName:e.target.innerHTML
-        })
-    }
-
-    detailClick2=(e)=>{
-        let text = e.target.innerHTML;
-        let schoolName = text.split('大学')[0]+"大学";
-        console.log(schoolName);
-        this.setState({
-            schoolName:schoolName
-        })
-    }
-
+    
     componentDidMount() {
         setTimeout(() => {
             this.setState({
@@ -181,13 +165,13 @@ export default class Home extends Component {
                 <div className='qin_hot'>
                     <p className='qin_title'>周 边 热 门 高 校</p>
                     {
-                        this.state.cityData.map((item,idx)=>(
-                            <div className="Liu_hot" onClick={this.getDetails}>
-                                <img src={item.collegePic} alt="" className="Liu_hot4"/>
-                                <p className="Liu_hot1" onClick={this.detailClick1}>{item.collegeName}</p>
-                                <p className="Liu_hot3" onClick={this.detailClick2}>{item.content}</p>                                 
-                            </div>
-                        ))
+                        this.state.cityData.map((item, idx) => (
+                                <div className="Liu_hot">
+                                    <img src={item.collegePic} alt="" className="Liu_hot4" />
+                                    <p className="Liu_hot1" onClick={this.detailClick}>{item.collegeName}</p>
+                                    <p className="Liu_hot3" onClick={this.detailClick}>{item.content}</p>
+                                </div>
+                            ))
                     }
                 </div>
 
