@@ -1,15 +1,23 @@
 import React, { Component } from 'react'
+import {Link} from 'react-router-dom';
+import {createBrowserHistory} from 'history';
+const his = createBrowserHistory();
 
 export default class User extends Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
             Data:[],  //所有数据
-            indexList:[],//当前页面渲染的数据
+            indexList:[],//当前页面渲染的数据量
             current:1,  //当前页码
             pageSize:6, //每页显示的数据条数
-            goValue:0, //要去的条数index
-            totalPage:0 //总页数
+            num:0, // 页码变量
+            totalPage:0, //总页数
+            display:false,
+            username:"",
+            password:"",
+            name:"",
+            phone:""
         }
     }
     componentWillMount(){
@@ -19,32 +27,134 @@ export default class User extends Component {
             data => {
                 this.setState({
                     Data:data,
-                    totalPage:Math.ceil(data.length/this.state.pageSize)
+                    totalPage:Math.ceil(data.length/this.state.pageSize),  
+                    indexList:data.slice(this.state.num,this.state.num+this.state.pageSize)  
                 })
             }
         )
     }
-    // setPage=(num)=>{
-    //     this.setState({
-    //         indexList:this.state.totalData.slice(num,num+this.state.pageSize)
-    //     })
-    // }
-    // pageNext=(num)=>{
-    //     this.setPage(num)
-    // }
-    // componentDidMount(){
-        
-        
-    // }
-    render() {
-        console.log(this.state.totalPage);
-        return (
-            <div className="liu_u">
-                <p className="liu_up1">账号</p>
-                <p className="liu_up2">密码</p>
-                <p className="liu_up3">用户名</p>
-                <p className="liu_up4">电话</p>  
-            </div>
+    setNext=()=>{
+        if(this.state.current < this.state.totalPage){
+            this.setState({
+                num:this.state.num + this.state.pageSize,
+                current:this.state.current + 1,
+                // indexList:this.state.Data.slice(this.state.num,this.state.num+this.state.pageSize)  
+            },function(){
+                this.setState({
+                    indexList:this.state.Data.slice(this.state.num,this.state.num+this.state.pageSize)  
+                })
+            })
+        }
+    }
+    setUp=()=>{
+        if(this.state.current > 1){
+            this.setState({
+                num:this.state.num - this.state.pageSize,
+                current:this.state.current - 1
+            },function(){
+                this.setState({
+                    indexList:this.state.Data.slice(this.state.num,this.state.num+this.state.pageSize)  
+                })
+            })
+        }
+    }
+    addUser=()=>{
+        this.setState({
+            display:!this.state.display
+        })
+    }
+    addUsername=(e)=>{
+        this.setState({
+            username:e.target.value
+        })
+    }
+    addPassword=(e)=>{
+        this.setState({
+            password:e.target.value
+        })
+    }
+    addName=(e)=>{
+        this.setState({
+            name:e.target.value
+        })
+    }
+    addPhone=(e)=>{
+        this.setState({
+            phone:e.target.value
+        })
+    }
+    addAll=()=>{
+        let text = {username:this.state.username,password:this.state.password,name:this.state.name,phone:this.state.phone};
+        let send = JSON.stringify(text);
+        fetch("http://localhost:8080/addHoutaiuser",{
+            method:'POST',
+            headers:{"Content-Type":"application/json;charset=utf-8"},
+            body:send
+        })
+        .then(res=>res.json())
+        .then(
+            data=>{
+                // eslint-disable-next-line eqeqeq
+                if(data.success == 0){
+                    window.alert("添加成功");
+                    this.setState({
+                        display:!this.state.display
+                    })
+                    his.push('/home/user');
+                    window.location.reload();
+                }
+                // eslint-disable-next-line eqeqeq
+                else if(data.success == 1){
+                    window.alert("该用户名已存在");
+                }
+                else{
+                    window.alert("添加失败");
+                }
+            }
         )
+    }
+    render() {
+        const divStyle = {
+            display:this.state.display?'block':'none'
+        };
+        if(this.state.indexList[0]&&this.state.indexList[0].username){
+            return (
+                <div className="liu_u">
+                    <div className="liu_uadd" style={divStyle}>
+                        <img src="https://s2.ax1x.com/2019/12/10/QDpwMq.jpg" alt="" className="add1"/>
+                        <p className="add2">账号</p><input type="text" className="add3" onChange={this.addUsername}/>
+                        <p className="add4">密码</p><input type="password" className="add5" onChange={this.addPassword}/>
+                        <p className="add6">用户名</p><input type="text" className="add7" onChange={this.addName}/>
+                        <p className="add8">手机号</p><input type="text" className="add9" onChange={this.addPhone}/>
+                        <Link onClick={this.addAll}><p className="add10">添 加</p></Link>
+                    </div>
+                    <p className="liu_up1">账号</p>
+                    <p className="liu_up2">密码</p>
+                    <p className="liu_up3">用户名</p>
+                    <p className="liu_up4">电话</p>
+                    {
+                        this.state.indexList.map((item,idx)=>(
+                            <div key={idx} className="liu_u2">
+                                <img src={item.Pic} alt="" className="liu_upic"/>
+                                <p className="liu_up5">{item.username}</p>
+                                <p className="liu_up6">{item.password}</p>
+                                <p className="liu_up7">{item.Name}</p>
+                                <p className="liu_up8">{item.Phone}</p>
+                            </div>
+                        ))
+                    }
+                    <Link className="liu_u3"><span onClick={ this.setUp } >上一页</span></Link>
+                    <span className="liu_u4">{ this.state.current }页/ { this.state.totalPage }页</span>
+                    <Link className="liu_u5"><span onClick={ this.setNext } >下一页</span></Link>
+                    <Link onClick={this.addUser}><p className="liu_u6">添加用户</p></Link>            
+                </div>
+            )
+        }
+        else{
+            return(
+                <div>
+                </div>
+            )
+        }
     }
 }
