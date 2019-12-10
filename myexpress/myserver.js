@@ -152,8 +152,6 @@ app.get('/getCity',(req,res)=>{
 app.post('/loginHou',function(req,res){
     /**获取请求体数据 */
     let data = req.body;
-    console.log(data.username);
-    console.log(data.password);
     let message1 = {success:true};
     let message2 = {success:false};
     /**连接数据库 */
@@ -164,13 +162,73 @@ app.post('/loginHou',function(req,res){
             throw err;
         }
         else{
-            console.log(result);
             // eslint-disable-next-line eqeqeq
             if(result == false){
                 res.send(message2);
             }
             else{
                 res.send(message1);
+            }
+        }
+    })
+})
+
+/**后台管理获取所有用户信息 */
+app.get("/HouAll",function(req,res){
+    var con = mysql.createConnection(dbconfig);
+    con.connect();
+    con.query("select * from users",(err,result)=>{
+        if(err){
+            throw err;
+        }
+        else{
+            res.send(result);
+        }
+    })
+})
+
+/**后台管理员信息获取 Liu */
+app.get("/adminInf",function(req,res){
+    let username = req.query.username;
+    console.log(username);
+    var con = mysql.createConnection(dbconfig);
+    con.connect();
+    con.query("select * from admin where username=?",[username],(err,result)=>{
+        if(err){
+            throw err;
+        }
+        else{
+            console.log(result);
+            res.send(result);
+        }
+    })
+})
+
+/**后台手动添加用户信息 */
+app.post("/addHoutaiuser",(req,res)=>{
+    let data = req.body;
+    let message1 = {success:0};
+    let message2 = {success:1};
+    let pic="https://s2.ax1x.com/2019/12/10/QDpwMq.jpg";
+    var con = mysql.createConnection(dbconfig);
+    con.connect();
+    con.query("select count(*) from users where username ='"+data.username+"'",function(err,result){
+        if(err){
+            throw err;
+        }
+        else{
+            if(result[0]["count(*)"] === 0){
+                con.query("insert into users(username,password,Name,Phone,Pic) values(?,?,?,?,?)",[data.username,data.password,data.name,data.phone,pic],(err,result)=>{
+                    if(err){
+                        throw err;
+                    }
+                    else{
+                        res.send(message1);
+                    }
+                })
+            }
+            else{
+                res.send(message2);
             }
         }
     })
