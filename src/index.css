@@ -1174,13 +1174,13 @@ a{
   margin-top: 20vw;
   border: 0.3vw rgb(0, 81, 255) solid;
 }
-.am-navbar-left-icon, .am-navbar-light div, .am-icon-md {
+/* .am-navbar-left-icon, .am-navbar-light div, .am-icon-md {
   background-color: #78b4f2;
   margin: 0;
 }
 .am-navbar-light {
   color:rgb(71, 160, 112);
-}
+} */
 
 
 .qin_detail{

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { NavBar, Icon } from 'antd-mobile';
-import '../index.css';
+
+import '../../index.css';
 export default class Comment extends Component {
     constructor(props) {
         super(props);
@@ -16,15 +17,13 @@ export default class Comment extends Component {
         return (
             <div>
                 <NavBar
-      mode="light"
-      icon={<Icon type="left"  />}
-      onLeftClick={() => console.log('onLeftClick')}>
+      mode="light">
     </NavBar><button className='wu_fabiao'>发表</button>
     <hr className='wu_line1'/>
     <div className='wu_pinglun_box'>
         <div className="wu_biaoqian">
         <textarea style={{float:'left',width:'98.5vw',height:'23vh',marginTop:'-14.1em',marginLeft:'-1em',backgroundColor:'rgb(0, 195, 255)', borderStyle:'none'}} placeholder="分享此刻的想法吧..."></textarea>
-        <select style={{width:'6.5em',borderRadius:'8px'}} value={this.state.value} onChange={this.handleChange}>
+        <select style={{width:'25vw',borderRadius:'8px'}} value={this.state.value} onChange={this.handleChange}>
             <option value="">选择标签</option>
             <option value="#清华大学">清华大学</option>
             <option value="#北京大学">北京大学</option>
