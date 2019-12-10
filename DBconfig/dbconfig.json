@@ -1,6 +1,7 @@
 {
-    "host":"localhost",
+    "host":"cdb-6zbhn97n.gz.tencentcdb.com",
     "database":"dbsystem",
     "user":"root",
-    "password":""
+    "password":"lvfeng503",
+    "port":"10043"
 }
