@@ -1162,132 +1162,29 @@ a{
   font-size: 4vw;
 }
 
-
-
-/* **************************************************** */
-
-/* qin_Details.js */
+/* ***************************************大学详情页 CollegeDetails.js**************************************/
 /* NavBar */
-.qin_detailstop{
-  width: 99%;
-  height: 50vw;
-  margin-top: 20vw;
-  border: 0.3vw rgb(0, 81, 255) solid;
-}
-/* .am-navbar-left-icon, .am-navbar-light div, .am-icon-md {
+.am-navbar-left-icon, .am-navbar-light div, .am-icon-md {
   background-color: #78b4f2;
   margin: 0;
 }
 .am-navbar-light {
   color:rgb(71, 160, 112);
-} */
-
-
-.qin_detail{
-  width: 88vw;
-  height: 190vw;
-  float: left;
-  margin-left: 7vw;
-}
-.qin_top_img{
-  width: 60vw;
-  height:18vw;
-  float: left;
-}
-.qin_xiahuaxian{
-  width: 80vw;
-  height: 0.5vw;
-  background-color: gold;
-  float: left;
-}
-.qin_detail_content{
-  margin-top: 3vw;
-  float: left;
-  line-height: 6vw;
-  font-family: 微软雅黑;
-  letter-spacing:0.4vw;
-  font-size: 3vw;
-}
-.qin_detail_content p{
-  font-size: 6vw;
-  font-family: 楷体;
-}
-.qin_detail_visit{
-  margin-top: 15vh;
-  float: left;
-  line-height: 6vw;
-  font-family: 微软雅黑;
-  letter-spacing:0.5vw;
-  font-size: 3vw;
-}
-.qin_detail_visit span{
-  
-  font-size: 6vw;
-  color: #999;
-  
-}
-.qin_detail_visit_title{
-  width: 30vw;
-  height: 10vw;
-  float: left;
-  border-bottom: 1vw #000 soild;
-}
-.qin_detail_visit  img{
-  margin-top: 2vw;
-}
-
-.qin_detail_head{
-  width: 60vw;
-  height: 20vw;
-  opacity:0.4;
-}
-.qin_detail_head img{
-  width: 230vw;
-}
-.qin_head2{
-  width: 80vw;
-  position: absolute;
-}
-/* ******************************** */
-/* 大学详情页 */
-.lv_total{
-  width: 100%;
-  height: auto;
-  /* background-color: #08c; */
-}
-.lv_middle{
-  width: 100vw;
-  height: 60vh;
-  background: url('https://s2.ax1x.com/2019/12/04/QQTLDI.jpg') no-repeat;
-  /* background-size: 100vw 80vh; */
-  /* background-color: #49DD8E; */
-}
-.lv_middle_child{
-  width: 100vw;
-  height: 60vh;
-  background-color: rgba(255,255,255,0.5);
-}
-.lv_header1{
-  /* width: 100vw; */
-  height: 80vh;
 }
 .lv_middle_wingblank{
   width: 100%;
   margin-top: 2vh;
 }
-
 .lv_middle_name img{
   float: left;
   width: 50%;
 }
-
 .lv_line{
   width: 90%;
-  border: 2px solid #999;
+  border: 2px solid rgb(177, 172, 172);
   float: left;
-  margin-top: 2vh;
+  margin-top: 1vh;
 }
-
 /* 校训 */
 .lv_title{
   font-size: 6vw;
@@ -1296,17 +1193,21 @@ a{
   font-family: '楷体';
 }
 .lv_artical{
-  font-size: 4vw;
+  font-size: 4.5vw;
   float: left;
   margin-top: 2vh;
   font-family: '楷体';
+  margin-left: 1.5vw;
+  margin-right: 5vw;
 }
 .lv_title1{
   font-size: 6vw;
   float: left;
   font-family: '楷体';
-
+  margin-left: 5vw;
 }
+
+
 /* ************************************* */
 /* 我的界面 */
 .lv_wode_head{
