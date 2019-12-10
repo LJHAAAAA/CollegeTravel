@@ -153,6 +153,7 @@
     text-align: center;
   }
   /*右侧内容展示*/
+  /**管理员信息**/
   .liu_r{
     display: inline-block;
     float: right;
@@ -165,9 +166,248 @@
     height: 80vh;
   }
   .liu_r2{
-    width: 20%;
-    height: 20vh;
+    width: 12vw;
+    height: 12vw;
     margin-left: 22vw;
     margin-top: 5vh;
+    border-radius: 60%;
+  }
+  .liu_rp1{
+    margin-left: 17vw;
+    margin-top: 5vh;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  .liu_rp2{
+    margin-left: 17vw;
+    margin-top: 5vh;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  .liu_rp3{
+    margin-left: 22vw;
+    margin-top: -11vh;
+    font-size: 1.2rem;
+  }
+  .liu_rp4{
+    margin-left: 22vw;
+    margin-top: 5vh;
+    font-size: 1.2rem;
+  }
+  .liu_rp5{
+    margin-left: 17vw;
+    margin-top: 5vh;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  .liu_rp6{
+    margin-left: 22vw;
+    margin-top: -3vh;
+    font-size: 1.2rem;
+  }
+  .liu_rp7{
+    margin-left: 17vw;
+    margin-top: 5vh;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+
+  /** 用户信息显示 **/
+  .liu_u{
+    width: 100%;
+    height: 80vh;
+  }  
+  .liu_u2{
+    margin: 0 auto;
+    width: 90%;
+    height: 9vh;
+    background: rgba(3, 204, 167, 0.4);
+    margin-bottom: 2vh;
+    border-radius: 20px;
+  }
+  .liu_u3{
+    position: absolute;
+    top: 91vh;
+    left: 30vw;
+  }
+  .liu_u4{
+    position: absolute;
+    top: 91vh;
+    left: 36vw;
+  }
+  .liu_u5{
+    position: absolute;
+    top: 91vh;
+    left: 42vw;
+  }
+  .liu_u6{
+    position: absolute;
+    top: 91vh;
+    left: 80vw;
+  }
+  .liu_up1{
+    font-size: 1.3rem;
+    font-family: Xingkai SC;
+    margin-left: 12vw;
+    margin-top: 3vh;
+    margin-bottom: 2vh;
+  }
+  .liu_up2{
+    font-size: 1.3rem;
+    font-family: Xingkai SC;
+    margin-left: 25vw;
+    margin-top: -5.5vh;
+    margin-bottom: 2vh;
+  }
+  .liu_up3{
+    font-size: 1.3rem;
+    font-family: Xingkai SC;
+    margin-left: 37vw;
+    margin-top: -5vh;
+    margin-bottom: 2vh;
+  }
+  .liu_up4{
+    font-size: 1.3rem;
+    font-family: Xingkai SC;
+    margin-left: 50vw;
+    margin-top: -5vh;
+    margin-bottom: 2vh;
+  }
+  .liu_up5{
+    font-size: 1rem;
+    margin-left: 8vw;
+    margin-top: -4vh;
+    color: rgb(91, 41, 41);
+  }
+  .liu_up6{
+    font-size: 1rem;
+    margin-left: 21vw;
+    margin-top: -2.6vh;
+    color: rgb(91, 41, 41);
+  }
+  .liu_up7{
+    font-size: 1rem;
+    margin-left: 34vw;
+    margin-top: -2.6vh;
+    color: rgb(91, 41, 41);
+  }
+  .liu_up8{
+    font-size: 1rem;
+    margin-left: 43vw;
+    margin-top: -2.3vh;
+    color: rgb(91, 41, 41);
+  }
+
+  .liu_upic{
+    width: 3vw;
+    height: 3vw;
     border-radius: 50%;
+    margin-left: 2vw;
+    margin-top: 2vh;
+  }
+
+  .liu_uadd{
+    width: 40%;
+    height: 50vh;
+    background:rgba(0, 0, 0, 0.5);
+    position: absolute;
+    left: 38vw;
+    top:30vh;
+    display: none;
+  }
+
+  .add1{
+    width: 5vw;
+    height: 5vw;
+    border-radius: 50%;
+    margin-left: 17vw;
+    margin-top: 3vh;
+  }
+  .add2{
+    position: absolute;
+    color: white;
+    font-size: 1.3rem;
+    left: 11vw;
+    top: 16vh;
+  }
+  .add3{
+    position: absolute;
+    width: 10vw;
+    height: 1.5vw;
+    left: 15vw;
+    top: 16vh;
+    background: none;
+    border: none;
+    border-bottom: 2px solid white;
+    color: white;
+    text-indent:2em;
+  }
+
+  .add4{
+    position: absolute;
+    color: white;
+    font-size: 1.3rem;
+    left: 11vw;
+    top: 23.5vh;
+  }
+  .add5{
+    position: absolute;
+    width: 10vw;
+    height: 1.5vw;
+    left: 15vw;
+    top: 23.5vh;
+    background: none;
+    border: none;
+    border-bottom: 2px solid white;
+    color: white;
+    text-indent:2em;
+  }
+
+  .add6{
+    position: absolute;
+    color: white;
+    font-size: 1.2rem;
+    left: 10.5vw;
+    top: 30vh;
+  }
+  .add7{
+    position: absolute;
+    width: 10vw;
+    height: 1.5vw;
+    left: 15vw;
+    top: 30vh;
+    background: none;
+    border: none;
+    border-bottom: 2px solid white;
+    color: white;
+    text-indent:2em;
+  }
+
+  .add8{
+    position: absolute;
+    color: white;
+    font-size: 1.2rem;
+    left: 10.5vw;
+    top: 38vh;
+  }
+  .add9{
+    position: absolute;
+    width: 10vw;
+    height: 1.5vw;
+    left: 15vw;
+    top: 38vh;
+    background: none;
+    border: none;
+    border-bottom: 2px solid white;
+    color: white;
+    text-indent:2em;
+  }
+  .add10{
+    font-size: 1.5rem;
+    font-weight: bold;
+    position: absolute;
+    color: white;
+    top: 43.5vh;
+    left: 17vw;
   }
