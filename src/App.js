@@ -16,10 +16,7 @@ import AppRaiders from './container/radiers/AppRaiders';
 import Shoucang from './container/community/tabs/Shoucang';
 import Quanzi from './container/community/Quanzi'
 import Mine from './container/mine/Mine';
-import Details from './container/home/homeContainer/Details';
-
-
-
+import CollegeDetails from './container/home/homeContainer/CollegeDetails';
 
 
 export default class App extends Component {
@@ -45,7 +42,7 @@ export default class App extends Component {
                     <Route path='/shoucang' component={Shoucang}/>
                     <Route path='/fanhui' component={AppTab}/>
                     <Route path='/Mine' component={Mine}/>
-                    <Route path='/Deatil' component={Details}/>
+                    <Route path='/collegeDetails/:name' component={CollegeDetails} />
                 </Switch>
             </Router>
         )
