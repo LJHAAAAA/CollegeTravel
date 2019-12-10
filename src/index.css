@@ -5,6 +5,10 @@
 ul,li{
   list-style: none;
 }
+a{
+  text-decoration: none;
+  color: rgb(95, 93, 93);
+}
 
 /** 登录注册顶部区域  **/
 .downBac1{
@@ -1303,6 +1307,70 @@ ul,li{
   font-family: '楷体';
 
 }
+/* ************************************* */
+/* 我的界面 */
+.lv_wode_head{
+  width: 100vw;
+  height: 15vh;
+  /* background-color: #49DD8E; */
+  border-bottom: 1px solid #999;
+}
+.lv_wode_img{
+  width: 25vw;
+  height: 15vh;
+  float: left;
+}
+.lv_wode_img img{
+  width: 20vw;
+  border-radius: 100vw;
+  margin-top: 1vh;
+  margin-left: 2vw;
+}
+.lv_wode_word{
+  width: 60vw;
+  height: 10vh;
+  float: left;
+  margin-top: 4vh;
+}
+.lv_wode_choose{
+  width: 100vw;
+  height: 10vh;
+  /* background-color: #C61118; */
+}
+.lv_left{
+  width: 40vw;
+  height: 10vh;
+  /* background-color: #08c; */
+  float: left;
+}
+.lv_left p{
+  /* line-height: 10vh; */
+  text-align: center;
+  margin-top: 2vh;
+}
+.lv_right{
+  width: 40vw;
+  height: 10vh;
+  /* background-color: #08c; */
+  float: right;
+}
+.lv_right p{
+  text-align: center;
+  margin-top: 2vh;
+}
+.lv_loginout{
+  width: 100vw;
+  height: 10vh;
+}
+.lv_loginout{
+  text-align: center;
+  line-height: 10vh;
+  border: 1px solid #BBBBBB;
+}
+.lv_loginout span{
+  color: #C61118;
+}
+/* ********************************** */
 /*发帖*/
 .wu_fabiao{
   float:right;
