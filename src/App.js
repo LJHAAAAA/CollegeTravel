@@ -11,6 +11,7 @@ import ReserveElse from './container/home/homeContainer/reserve/ReserveElse';
 import Help from './container/home/homeContainer/Help';
 import Rank from './container/home/homeContainer/Rank';
 import MyMap from './container/home/homeContainer/MyMap';
+import Seek from './container/home/homeContainer/Seek';
 import RaiderDetail from './container/radiers/RaiderDetail';
 import AppRaiders from './container/radiers/AppRaiders';
 import Shoucang from './container/community/tabs/Shoucang';
@@ -38,6 +39,7 @@ export default class App extends Component {
                     <Route path='/Help' component={Help}/>
                     <Route path='/Rank' component={Rank}/>
                     <Route path='/MyMap' component={ MyMap } />
+                    <Route path='/Seek' component={ Seek } />
                     <Route path='/RaiderDetail' component={ RaiderDetail}/>
                     <Route path='/shoucang' component={Shoucang}/>
                     <Route path='/fanhui' component={AppTab}/>
