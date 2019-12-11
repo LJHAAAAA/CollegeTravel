@@ -84,16 +84,16 @@ export default class Home extends Component {
         return (
             <Fragment>
                 {/* 顶部搜索栏 */}
-                <div style={{ width: '100%', height: '14.2vw', backgroundColor: '#4dc7f9',position:'fixed',zIndex:'999'}}>
-                    <img src='https://s2.ax1x.com/2019/12/02/QuBqYD.png' id='qin_dingwei' alt=""/>
-                    <p className='qin_city' onClick={this.cityClick}>{this.state.cityNow}</p>
+                <div style={{ width: '100%', height: '11vw', backgroundColor: 'rgb(93,108,193)',position:'fixed',zIndex:'999'}}>
+                    <img src='https://s2.ax1x.com/2019/12/11/Qsiou9.png' id='qin_dingwei' alt="" style={{width:'6vw',height:'6vw'}}/>
+                    <p className='qin_city' onClick={this.cityClick} style={{fontSize:'3vw'}}>[{this.state.cityNow}]</p>
                     <Link to='/Help'>
-                    <img src='https://s2.ax1x.com/2019/12/02/QusPzQ.png' style={{backgroundColor:'rgba(0,0,0,0)', float:'right', height:'14vw', marginRight:'3vw'}} alt=""/>
+                    <img src='https://s2.ax1x.com/2019/12/02/QusPzQ.png' style={{backgroundColor:'rgba(0,0,0,0)', float:'right', height:'14vw', marginRight:'3vw',width:'10vw',height:'10vw'}} alt=""/>
                     </Link>
                     
                 </div>
                 {/* 空div */}
-                <div style={{ width: '100%', height: '14.2vw'}}></div>
+                <div style={{ width: '100%', height: '10vw'}}></div>
                 {/* 左上角定位下拉框 */}
                 <div className="Liu_city" style={divStyle}>
                     <ul>
@@ -107,10 +107,11 @@ export default class Home extends Component {
                     </ul>
                 </div>
                 {/* Carousel */}
-                <div style={{ border: '0.2vw rgba(0,0,0,0) solid'}}>
+                <div style={{ border: '0.2vw rgba(0,0,0,0) solid',backgroundColor:'#fff',height:'70vw',position:'relative'}}>
                     <Carousel
                         autoplay={true}
                         infinite
+                        style={{height:'60vw',width:'95vw',margin:'0 auto',paddingTop:'3vw'}}
                     >   
                         {this.state.data.map(val => (
                             <img src={(`https://s2.ax1x.com/2019/12/02/${val}.jpg`)}
@@ -121,35 +122,37 @@ export default class Home extends Component {
                                     this.setState({ imgHeight: 'auto' });
                                 }} 
                             />
+                            
                         ))}
                     </Carousel>
+                    <div className='feng_lunbo'>热门大学一览<p>List of popular universities</p></div>
                 </div>
                 <div style={{backgroundColor:'red',borderTopLeftRadius:'4vw',borderTopRightRadius:'4vw'}}>
                     {/* 中间四个入口 */}
                 <div className='qin_rukou'>
                     <Flex>
                         <Flex.Item>
-                                <div>
-                                    <Link to="/Seek"><img src={'https://s2.ax1x.com/2019/12/02/QuUJXV.png'} alt="" /></Link>
-                                    <p>名校搜索</p>
-                                </div>
-                            </Flex.Item>
-                        <Flex.Item>
-                            <div>
-                                <Link to="/reserve/reason"><img src={'https://s2.ax1x.com/2019/12/02/QuUs6x.png'} alt=""/></Link>
-                                <p>名校预约</p>
+                            <div className='feng_rukou'>
+                                <img src={'https://s2.ax1x.com/2019/12/11/QrLAOS.png'} alt="" style={{width:'12vw',height:'12vw'}}/>
+                                <p className='feng_rukou1'>名校搜索</p>
                             </div>
                         </Flex.Item>
                         <Flex.Item>
-                            <div className='lv_ss'>
-                                <img src={'https://s2.ax1x.com/2019/12/02/QuUr11.png'} alt=""/>
-                                <Link to='/MyMap'>精准地图</Link>
+                            <div className='feng_rukou'>
+                                <Link to="/reserve/reason"><img src={'https://s2.ax1x.com/2019/12/11/QrLNk9.png'} alt="" style={{width:'14vw',height:'14vw'}}/></Link>
+                                <p className='feng_rukou2'>名校预约</p>
                             </div>
                         </Flex.Item>
                         <Flex.Item>
-                            <div className='lv_ss'>
-                                <img src={'https://s2.ax1x.com/2019/12/02/QuUDpR.png'} alt=""/>
-                                <Link to="/Rank">热点排行</Link>
+                            <div  className='feng_rukou'>
+                                <Link to='/MyMap'><img src={'https://s2.ax1x.com/2019/12/11/QrX4eS.png'} alt="" style={{width:'13vw',height:'13vw'}}/></Link>
+                                 <p className='feng_rukou3'>精准地图</p>
+                            </div>
+                        </Flex.Item>
+                        <Flex.Item>
+                            <div  className='feng_rukou'>
+                                <Link to="/Rank"><img src={'https://s2.ax1x.com/2019/12/11/QrjJ0S.png'} alt="" style={{width:'12vw',height:'12vw'}}/></Link>
+                                <p className='feng_rukou4' style={{color:'#000'}}>热点排行</p>
                             </div>
                         </Flex.Item>
                     </Flex>
@@ -163,15 +166,15 @@ export default class Home extends Component {
 
                 {/* 周边热门高校 */}
                 <div className='qin_hot'>
-                    <p className='qin_title'>周 边 热 门 高 校</p>
+                    <p className='qin_title' style={{fontFamily:'微软雅黑'}}>周 边 热 门 高 校 🚩</p>
                     {
-                        this.state.cityData.map((item, idx) => (
-                                <div className="Liu_hot">
-                                    <img src={item.collegePic} alt="" className="Liu_hot4" />
-                                    <p className="Liu_hot1" onClick={this.detailClick}>{item.collegeName}</p>
-                                    <p className="Liu_hot3" onClick={this.detailClick}>{item.content}</p>
-                                </div>
-                            ))
+                        this.state.cityData.map((item,idx)=>(
+                            <div className="Liu_hot" onClick={this.getDetails}>
+                                <img src={item.collegePic} alt="" className="Liu_hot4"/>
+                                <p className="Liu_hot1" onClick={this.detailClick1}>{item.collegeName}</p>
+                                <p className="Liu_hot3" onClick={this.detailClick2}>{item.content}</p>                                 
+                            </div>
+                        ))
                     }
                 </div>
 
