@@ -1203,3 +1203,25 @@
     margin-top:14em;
   }
   
+/************************************** wu Seek.js**********************************************/
+.wu_Seek_box{
+  width:100%;
+}
+.wu_seek{
+  width:60vw;
+  height:5vh;
+  float:left;
+  margin-top:30vh;
+  border-radius: 18px;
+  margin-left:20vw;
+  padding-left:15px;
+  border-style: none;
+  position:relative;
+}
+.wu_arrow{
+  width:5vw;
+  height:3vh;
+  position: absolute;
+  top:31vh;
+  right: 18vw;
+}
