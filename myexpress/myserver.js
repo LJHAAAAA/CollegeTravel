@@ -234,6 +234,136 @@ app.post("/addHoutaiuser",(req,res)=>{
     })
 })
 
+/**获取用户名 黄*/
+var username = ''
+app.get("/getusername",function (req,res) {
+    console.log(req.url);
+    console.log((req.url).split("="))
+    username = (req.url.split("=")[1]);
+    console.log(username)
+})
+/**获取数据库中的贴子标题及内容 黄*/
+app.get('/gettiezi',function (req,res) {
+    var con = mysql.createConnection(dbconfig);
+    con.connect();
+    con.query("select * from post",function (err,result) {
+        if(err){
+            throw err
+        }else{
+            // console.log(result[0])
+            // console.log(result[0].title.toString())
+            res.writeHead(200, {"Content-Type": "text/plain;charset=utf-8"})
+            res.end(JSON.stringify(result));
+        }
+    })
+    
+})
+
+/**发帖 黄*/
+app.post('/posting',function (req,res) {
+    let data = req.body;
+    let message1 = {success:true};
+    let message2 = {success:false};
+
+    var con = mysql.createConnection(dbconfig);
+    con.connect();
+    con.query("insert into post(title,content,collection) values(?,?)",[data.title,data.content],(err,result)=>{
+        if(err){
+            console.log(err);
+            res.send(message2)
+        }else{
+            res.send(message1)
+        }
+    })
+})
+
+/**上传帖子内容 黄*/
+var a = {}
+app.post('/postxiangqing',function (req,res) {
+    //console.log(req.body.data);
+    a = req.body;
+    a.data.username = username
+    res.send(JSON.stringify(a))
+})
+
+/**渲染详情页 黄*/
+app.get('/getxiangqing',function (req,res) {
+    res.writeHead(200, {"Content-Type": "text/plain;charset=utf-8"})
+    res.end(JSON.stringify(a));
+})
+
+/**上传评论 黄*/
+app.post('/postcomment',function (req,res) {
+    console.log(req.body);
+    var con = mysql.createConnection(dbconfig);
+    con.connect();
+    con.query("insert into comment(context,title) values(?,?)",[req.body.comment,req.body.title],(err,result)=>{
+        if(err){
+            throw err;
+        }
+        else{
+            console.log(result);
+            res.send(JSON.stringify(result))
+        }
+    })
+})
+
+/**得到评论 黄*/
+app.get('/getcomment',function (req,res) {
+    console.log(req.query.id)
+    var con = mysql.createConnection(dbconfig);
+    con.connect();
+    con.query("SELECT * FROM comment WHERE title = ?",[req.query.id],(err,result)=>{
+        if(err){
+            console.log(err)
+        }else{
+            console.log(result)
+            res.send(JSON.stringify(result))
+        }
+    })
+})
+
+/**更新某一用户的帖子收藏信息 黄*/
+app.post('/postshoucang',function (req,res) {
+    console.log(req.body.data);
+    var con = mysql.createConnection(dbconfig);
+    con.connect();
+    if(req.body.data.collection == 1){
+        con.query("insert into collection(username,postID) values(?,?)",[username,req.body.data.title],(err,result)=>{
+            if(err){
+                console.log(err);
+            }else{
+                res.send(JSON.stringify(result))
+            }
+        })
+    }
+    else{
+        con.query("delete from collection where username = ? and postID = ?",[username,req.body.data.title]
+        ,(err,result)=>{
+            if(err){
+                console.log(err);
+            }else{
+                res.send(JSON.stringify(result))
+            }
+        })
+    }
+    
+})
+
+/**获取某用户下有收藏标记的所有帖子信息 黄*/
+app.get('/getshoucang',function (req,res) {
+    var con = mysql.createConnection(dbconfig);
+    con.connect();
+    con.query("select * from collection where username = ?",username,function(err,result){
+        if(err){
+            throw err;
+        }
+        else{
+            console.log(result)
+            res.send(JSON.stringify(result))
+        }
+    })
+})
 
 var server = app.listen(8080,()=>{
     var host = server.address().address;
