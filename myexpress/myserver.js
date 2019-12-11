@@ -399,6 +399,57 @@ app.get('/gonglueshoucang',(req,res)=>{
     })
 })
 
+
+/** qin__获取大学详细信息 */
+app.get('/getCollegeDetails', function (req, res) {
+    let collegeName = req.query.collegeName;
+    var con = mysql.createConnection(dbconfig);
+    con.connect();
+    con.query("select * from collegedetails where cName=?", [collegeName], (err, result) => {
+        if (err) {
+            throw err;
+        }
+        else {
+            // console.log(result);
+            res.send(result);
+        }
+    })
+})
+
+/** qin__获取大学攻略粗略 */
+app.get('/getCollegeRaiders', function (req, res) {
+    let collegeName = req.query.collegeName;
+    
+    var con = mysql.createConnection(dbconfig);
+    con.connect();
+    con.query("select * from schoolraider where schoolName=?", [collegeName], (err, result) => {
+        if (err) {
+            throw err;
+        }
+        else {
+            console.log(result);
+            res.send(result);
+        }
+    })
+})
+
+/** qin__获取大学攻略详情页 */
+app.get('/getRaidersDetails', function (req, res) {
+    console.log(req.query.title1);
+    var con = mysql.createConnection(dbconfig);
+    con.connect();
+    con.query("select * from schoolraider where rTitleP=? and rTitleSpan=?", [req.query.title1,req.query.title2], (err, result) => {
+        if (err) {
+            throw err;
+        }
+        else {
+            console.log(result);
+            res.send(result[0]);
+        }
+    })
+})
+
+
 var server = app.listen(8080,()=>{
     var host = server.address().address;
     var port = server.address().port;
