@@ -275,21 +275,22 @@
   /* Home.js */
   /* 顶部搜索 */
   #qin_dingwei{
-    width: 9vw;
-    height:9vw;
-    float: left;
-    margin-top: 5vw;
-    margin-left: 1vw;
-    margin-right: -2vw;
-    background-color:rgb(139, 139, 139);
-  }
-  .qin_city{
-    margin-top: 5vw;
-    float: left;
-    padding: 0;
-    color: white;
-    background-color:rgb(139, 139, 139);
-  }
+  width: 5vw;
+  height:5vw;
+  float: left;
+  margin-top: 5vw;
+  margin-left: 1vw;
+  margin-right: -2vw;
+  background-color:rgb(139, 139, 139);
+}
+.qin_city{
+  margin-top: 5vw;
+  float: left;
+  padding: 0;
+  font-size: 2vw;
+  color: white;
+  background-color:rgb(139, 139, 139);
+}
   .am-search-cancel{
     height: 8vw;
     line-height: 9vw;
@@ -308,34 +309,51 @@
   .slider-decorator-0{
     display: none;
   }
+.feng_lunbo{
+  position: absolute;
+  top: 42vw;
+  left: 6vw;
+  z-index: 999;
+  color: #fff;
+  font-size: 7vw;
+}
+.feng_lunbo p{
+  font-size: 5vw;
+}
   /* 中间四个入口 */
   .qin_rukou{
-    margin-top: 1vw;
-    margin-left: 4vw;
-    width: 95%;
-    height:27vw;
-  }
-  .qin_rukou img{
-    margin-left: 2vw;
-    width:15vw;
-    height: 15vw;
-  }
-  .qin_rukou p{
-    margin-left: 10%;
-  }
-  .lv_ss a{
-    color: #000;
-    /* height: 1vh; */
-    float: left;
-    margin-left: 2vw;
-  }
-  .Liu_city{
-    width: 30vw;
-    height: 30vh;
-    background: #000;
-    position: absolute;
-    z-index: 999;
-  }
+  margin-top: 1vw;
+  margin-left: 4vw;
+  width: 95%;
+  height:27vw;
+}
+.feng_rukou{
+  width: 15vw;
+  height: 20vw;
+  float: left;
+  padding-top: 2vw;
+}
+.feng_rukou1{
+  font-size: 2vw;
+  text-align: center;
+  padding-top: 2vw;
+}
+.feng_rukou2{
+  font-size: 2vw;
+  text-align: center;
+}
+.feng_rukou3{
+  font-size: 2vw;
+  text-align: center;
+  padding-top: 1vw;
+  /* padding-right: 1vw; */
+}
+.feng_rukou4{
+  font-size: 2vw;
+  text-align: center;
+  padding-top: 2vw;
+  /* padding-right: 1vw; */
+}
   /* 地图部分 */
   .qin_map{
     margin-top: -4vw;
@@ -353,6 +371,7 @@
     text-align: center;
     line-height: 10vw;
     border:1px yellow solid;
+    text-shadow:1px 1px 0px #FFFFFF, -1px -1px 0px #FFFFFF, 2px 2px 0px #FFFFFF, -2px -2px 0px #FFFFFF, 3px 3px 0px #FFFFFF, -3px -3px 0px #FFFFFF;
   }
   
   /********************************************************* 名校预约 *********************************************/
