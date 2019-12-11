@@ -129,11 +129,11 @@ export default class Home extends Component {
                 <div className='qin_rukou'>
                     <Flex>
                         <Flex.Item>
-                            <div>
-                                <img src={'https://s2.ax1x.com/2019/12/02/QuUJXV.png'} alt=""/>
-                                <p>名校搜索</p>
-                            </div>
-                        </Flex.Item>
+                                <div>
+                                    <Link to="/Seek"><img src={'https://s2.ax1x.com/2019/12/02/QuUJXV.png'} alt="" /></Link>
+                                    <p>名校搜索</p>
+                                </div>
+                            </Flex.Item>
                         <Flex.Item>
                             <div>
                                 <Link to="/reserve/reason"><img src={'https://s2.ax1x.com/2019/12/02/QuUs6x.png'} alt=""/></Link>
