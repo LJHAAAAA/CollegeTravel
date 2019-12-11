@@ -365,6 +365,40 @@ app.get('/getshoucang',function (req,res) {
     })
 })
 
+/** 获取帖子收藏 */
+app.get('/tiezishoucang',(req,res)=>{
+    console.log(loginusername)
+    var con = mysql.createConnection(dbconfig);
+    con.connect();
+    con.query("select * from gongluesc where username='"+loginusername+"'",(err,result)=>{
+        if(err){
+            throw err;
+        }
+        else{
+            // res.send(JSON.parse(result));
+            console.log(result);
+            res.send(result)
+        }
+    })
+})
+
+/** 获取攻略收藏 */
+app.get('/gonglueshoucang',(req,res)=>{
+    console.log(loginusername)
+    var con = mysql.createConnection(dbconfig);
+    con.connect();
+    con.query("select * from gongluesc where username='"+loginusername+"'",(err,result)=>{
+        if(err){
+            throw err;
+        }
+        else{
+            // res.send(JSON.parse(result));
+            console.log(result);
+            res.send(result)
+        }
+    })
+})
+
 var server = app.listen(8080,()=>{
     var host = server.address().address;
     var port = server.address().port;
