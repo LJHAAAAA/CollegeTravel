@@ -9,7 +9,7 @@ const data = Array.from(new Array(9)).map((_val, i) => ({
     text: `name${i}`,
 }));
 
-export default class collegeDetails extends Component {
+export default class CollegeDetails extends Component {
     constructor(props) {
         super(props);
         this.state = {
