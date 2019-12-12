@@ -377,7 +377,20 @@
     border:2px yellow solid;
     text-shadow:1px 1px 0px #FFFFFF, -1px -1px 0px #FFFFFF, 2px 2px 0px #FFFFFF, -2px -2px 0px #FFFFFF, 3px 3px 0px #FFFFFF, -3px -3px 0px #FFFFFF;
   }
-  
+    /******************************************************使用帮助***********************************************/
+  .wu_ziti01{
+    font-size: 5vw;
+    margin-top: 3vw;
+    margin-bottom: 1vw;
+    margin-left: 2vw;
+  }
+  .wu_ziti02{
+    font-size: 4.5vw;
+    line-height: 8vw;
+    color: #999;
+    margin-left: 2vw;
+    border-bottom:1px dashed #999; 
+  }
   /********************************************************* 名校预约 *********************************************/
   #qin_reserve{
     width: 100%;
