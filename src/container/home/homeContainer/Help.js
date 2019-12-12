@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { NavBar, Icon } from 'antd-mobile';
-import { Link } from 'react-router-dom'
 import '../../../index.css';
 export default class Help extends Component {
     render() {
@@ -8,10 +7,9 @@ export default class Help extends Component {
             <div>
                 <NavBar
       mode="light"
-      icon={
-        <Link to='/home'><Icon type="left" /></Link>}>
-    使用帮助
-    </NavBar>
+      icon={<Icon type="left"  />}
+      onLeftClick={() => console.log('onLeftClick')}
+    >使用帮助</NavBar>
     <div>
         <p className="wu_ziti01">什么是名校预约?</p>
         <p className="wu_ziti02">部分高校需要提前申请预约，预约成功后才能去该<br/>

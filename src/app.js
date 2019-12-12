@@ -18,6 +18,7 @@ import Shoucang from './container/community/tabs/Shoucang';
 import Quanzi from './container/community/Quanzi'
 import Mine from './container/mine/Mine';
 import CollegeDetails from './container/home/homeContainer/CollegeDetails';
+import Nothing from './container/Nothing';
 
 
 export default class App extends Component {
@@ -44,6 +45,7 @@ export default class App extends Component {
                     <Route path='/shoucang' component={Shoucang}/>
                     <Route path='/fanhui' component={AppTab}/>
                     <Route path='/Mine' component={Mine}/>
+                    <Route path='/collegeDetails/Nothing' component={Nothing}/>
                     <Route path='/collegeDetails/:name' component={CollegeDetails} />
                 </Switch>
             </Router>

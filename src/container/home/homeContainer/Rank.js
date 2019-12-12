@@ -6,12 +6,14 @@ export default class Rank extends Component {
     render() {
         return (
             <div>
-                
-                <NavBar mode="light" 
-                icon={
-                    <Link to='/home'><Icon type="left" /></Link>}>热点排行
+                <Link to='/Home'>
+                <NavBar mode="light" icon={<Icon type="left"  />} onLeftClick={
+                    () => console.log('onLeftClick')
+                }>
+                    
+                    热点排行
                 </NavBar>
-            
+                </Link>
                 
             <div>
         <button className="wu_kuang">

@@ -22,10 +22,15 @@ export default class CollegeDetails extends Component {
             .then(res => res.json())
             .then(
                 data => {
-                    this.setState({
-                        collegeDetails: data[0]
-                    })
-                    console.log(data[0])
+                    if(data){
+                        this.setState({
+                            collegeDetails: data
+                        })
+                    }else{
+                        console.log('nothing')
+                        his.push('/collegeDetails/Nothing');
+                        window.location.reload();
+                    }
                 }
             )
     }

@@ -130,9 +130,9 @@ app.get('/Getnum',(req,res)=>{
 /** 获取当前城市信息 */
 app.get('/getCity',(req,res)=>{
     let cityNow = req.query.cityNow;
-    console.log(cityNow);
+    // console.log(cityNow);
     let content = JSON.stringify(cityNow);
-    console.log(content);
+    // console.log(content);
     var con = mysql.createConnection(dbconfig);
     con.connect();
     con.query("select * from college where city=?", [cityNow],(err,result)=>{
@@ -140,7 +140,7 @@ app.get('/getCity',(req,res)=>{
             throw err;
         }
         else{
-            console.log(result);
+            // console.log(result);
             res.send(result);
         }
     })
@@ -392,8 +392,7 @@ app.get('/gonglueshoucang',(req,res)=>{
             throw err;
         }
         else{
-            // res.send(JSON.parse(result));
-            console.log(result);
+            // console.log(result);
             res.send(result)
         }
     })
@@ -410,8 +409,11 @@ app.get('/getCollegeDetails', function (req, res) {
             throw err;
         }
         else {
-            // console.log(result);
-            res.send(result);
+            if(result[0] == null){
+                res.send(false);
+            }else{
+                res.send(result[0]);
+            }
         }
     })
 })
@@ -419,7 +421,6 @@ app.get('/getCollegeDetails', function (req, res) {
 /** qin__获取大学攻略粗略 */
 app.get('/getCollegeRaiders', function (req, res) {
     let collegeName = req.query.collegeName;
-    
     var con = mysql.createConnection(dbconfig);
     con.connect();
     con.query("select * from schoolraider where schoolName=?", [collegeName], (err, result) => {
@@ -427,15 +428,18 @@ app.get('/getCollegeRaiders', function (req, res) {
             throw err;
         }
         else {
-            console.log(result);
-            res.send(result);
+            if(result[0] == null){
+                res.send(false);
+            }else{
+                res.send(result);
+            }
         }
     })
 })
 
 /** qin__获取大学攻略详情页 */
 app.get('/getRaidersDetails', function (req, res) {
-    console.log(req.query.title1);
+    // console.log(req.query.title1);
     var con = mysql.createConnection(dbconfig);
     con.connect();
     con.query("select * from schoolraider where rTitleP=? and rTitleSpan=?", [req.query.title1,req.query.title2], (err, result) => {
@@ -443,7 +447,7 @@ app.get('/getRaidersDetails', function (req, res) {
             throw err;
         }
         else {
-            console.log(result);
+            // console.log(result);
             res.send(result[0]);
         }
     })

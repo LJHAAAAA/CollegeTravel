@@ -40,18 +40,46 @@ export default class AppRaiders extends Component {
         if (e.target.value && e.keyCode === 13) {
             this.click();
         }
-    }
+    } 
+    // click = ()=>{
+    //     fetch('http://localhost:8080/getCollegeRaiders?collegeName=' + this.state.collegeName)
+    //         .then(res => res.json())
+    //         .then(
+    //             data => {
+    //                 this.setState({
+    //                     CollegeRaiders: data
+    //                 })
+    //             }
+    //         )
+    // }
+
     click = ()=>{
-        fetch('http://localhost:8080/getCollegeRaiders?collegeName=' + this.state.collegeName)
+        let s = this.state.collegeName.length;
+        if(s >= 0 && s < 4){
+            alert("请输入正确的大学名称");
+        }
+        else {
+            fetch('http://localhost:8080/getCollegeRaiders?collegeName=' + this.state.collegeName)
             .then(res => res.json())
             .then(
                 data => {
-                    this.setState({
-                        CollegeRaiders: data
-                    })
-                }
+                    if(!data){
+                        console.log('nothing')
+                        his.push('/collegeDetails/Nothing');
+                        window.location.reload();
+                    }else{
+                        this.setState({
+                            CollegeRaiders: data
+                        })
+                        console.log(data)
+                    }
+                    
+                } 
+
             )
+        }
     }
+
     showDetail = (e) => {
         let whole= e.target.parentNode.innerHTML;
         let title1 = whole.split('</p>')[1].split('《')[1];
