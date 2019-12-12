@@ -234,13 +234,28 @@ app.post("/addHoutaiuser",(req,res)=>{
     })
 })
 
-/**获取用户名 黄*/
-var username = ''
+/**获取用户名 更新数据库，反馈用户收藏信息 黄*/
+var loginusername = ''
 app.get("/getusername",function (req,res) {
     console.log(req.url);
     console.log((req.url).split("="))
-    username = (req.url.split("=")[1]);
-    console.log(username)
+    loginusername = (req.url.split("=")[1]);
+    console.log(loginusername);
+    var con = mysql.createConnection(dbconfig);
+    con.connect();
+    con.query("update post set collection = 0")
+    con.query("select postID from collection where username = ?",[loginusername],(err,result)=>{
+        if(err){
+            throw err
+        }else{
+            console.log(result);
+            
+            for(let i = 0;i<result.length;i++){
+                console.log(result[i].postID)
+                con.query("update post set collection=1 where ID= ?",[result[i].postID])
+            }
+        }
+    })
 })
 /**获取数据库中的贴子标题及内容 黄*/
 app.get('/gettiezi',function (req,res) {
@@ -250,8 +265,6 @@ app.get('/gettiezi',function (req,res) {
         if(err){
             throw err
         }else{
-            // console.log(result[0])
-            // console.log(result[0].title.toString())
             res.writeHead(200, {"Content-Type": "text/plain;charset=utf-8"})
             res.end(JSON.stringify(result));
         }
@@ -267,7 +280,7 @@ app.post('/posting',function (req,res) {
 
     var con = mysql.createConnection(dbconfig);
     con.connect();
-    con.query("insert into post(title,content,collection) values(?,?)",[data.title,data.content],(err,result)=>{
+    con.query("insert into post(username,title,content,collection) values(?,?,?,?)",[username,data.title,data.content,0],(err,result)=>{
         if(err){
             console.log(err);
             res.send(message2)
@@ -282,7 +295,7 @@ var a = {}
 app.post('/postxiangqing',function (req,res) {
     //console.log(req.body.data);
     a = req.body;
-    a.data.username = username
+    a.data.username = loginusername
     res.send(JSON.stringify(a))
 })
 
@@ -329,23 +342,28 @@ app.post('/postshoucang',function (req,res) {
     var con = mysql.createConnection(dbconfig);
     con.connect();
     if(req.body.data.collection == 1){
-        con.query("insert into collection(username,postID) values(?,?)",[username,req.body.data.title],(err,result)=>{
+        con.query("update post set collection = 1 where ID = ?",[req.body.data.ID])
+        con.query("select * from post ",(err,result)=>{
             if(err){
-                console.log(err);
+                throw err
             }else{
-                res.send(JSON.stringify(result))
+                console.log(result)
+                res.send(result)
             }
         })
+        con.query("insert into collection(username,postID) values(?,?)",[loginusername,req.body.data.ID])
     }
     else{
-        con.query("delete from collection where username = ? and postID = ?",[username,req.body.data.title]
-        ,(err,result)=>{
+        con.query("update post set collection = 0 where ID = ?",[req.body.data.ID])
+        con.query("select * from post ",(err,result)=>{
             if(err){
-                console.log(err);
+                throw err
             }else{
-                res.send(JSON.stringify(result))
+                console.log(result)
+                res.send(result)
             }
         })
+        con.query("delete from collection where username = ? and postID = ?",[loginusername,req.body.data.ID])
     }
     
 })
@@ -354,7 +372,7 @@ app.post('/postshoucang',function (req,res) {
 app.get('/getshoucang',function (req,res) {
     var con = mysql.createConnection(dbconfig);
     con.connect();
-    con.query("select * from collection where username = ?",username,function(err,result){
+    con.query("select * from collection where username = ?",[username],function(err,result){
         if(err){
             throw err;
         }
