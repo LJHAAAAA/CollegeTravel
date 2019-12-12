@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
 import Admin from './Admin';
 import User from './User';
+import College from './College';
 
 export default class Home extends Component {
     constructor(props){
@@ -125,6 +126,7 @@ export default class Home extends Component {
                     <div className="liu_r">
                         <Route path="/home/admin/:name" exact component={Admin}></Route>
                         <Route path="/home/user" component={User}></Route>
+                        <Route path="/home/college" component={College}/>
                     </div>
                 </div>
             </div>

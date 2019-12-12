@@ -3,7 +3,6 @@ import {createBrowserHistory} from 'history';
 const his = createBrowserHistory();
 
 export default class Login extends Component {
-
     constructor(props){
         super(props);
         this.state={
