@@ -327,50 +327,54 @@
   width: 95%;
   height:27vw;
 }
+.qin_rukou img{
+  margin-left: 2vw;
+}
 .feng_rukou{
   width: 15vw;
   height: 20vw;
   float: left;
   padding-top: 2vw;
+  color: rgb(117, 116, 116);
 }
 .feng_rukou1{
   font-size: 2vw;
   text-align: center;
   padding-top: 2vw;
+  margin-left: 2vw;
 }
 .feng_rukou2{
   font-size: 2vw;
   text-align: center;
+  margin-left: 2vw;
 }
 .feng_rukou3{
   font-size: 2vw;
   text-align: center;
   padding-top: 1vw;
-  /* padding-right: 1vw; */
+  margin-left: 2vw;
 }
 .feng_rukou4{
   font-size: 2vw;
   text-align: center;
   padding-top: 2vw;
-  /* padding-right: 1vw; */
+  margin-left: 1vw;
 }
   /* 地图部分 */
   .qin_map{
-    margin-top: -4vw;
-    width:99%;
-    height: 80vw;
-    border:1px red solid;
+    margin-top: -1vw;
+    width:100%;
+    height: 77vw;
+    border:5px rgb(231, 230, 230) solid;
   }
   /* 周边热门高校 */
   .qin_hot{
-    width: 99%;
-    height: 35vw;
-    border:1px rgb(94, 92, 207) solid;
+    width: 100%;
   }
   .qin_title{
     text-align: center;
-    line-height: 10vw;
-    border:1px yellow solid;
+    height: 12vw;
+    border:2px yellow solid;
     text-shadow:1px 1px 0px #FFFFFF, -1px -1px 0px #FFFFFF, 2px 2px 0px #FFFFFF, -2px -2px 0px #FFFFFF, 3px 3px 0px #FFFFFF, -3px -3px 0px #FFFFFF;
   }
   
@@ -1028,33 +1032,40 @@
     font-size: 1.5rem;
     font-family: STXingkai;
   }
-  .Liu_hot{
+   .Liu_hot{
     width: 100%;
-    border: 1px solid black;
+    border-bottom: 5px solid rgb(231, 230, 230);
+    padding-top: 1vw;
     height: 20vh;
     background: white;
   }
   .Liu_hot4{
-    width: 30vw;
-    height: 15vh;
-    background: url("https://s2.ax1x.com/2019/12/04/QQRgGn.jpg");
-    margin-left: 1vw;
+    width: 26vw;
+    height: 13vh;
+    margin-left: 2vw;
+    margin-top: 2vw;
+    border: 1px solid rgb(231, 230, 230);
+  }
+  .feng_hot{
+    float:right;
+    width: 63vw;
+    height: 20vw;
   }
   .Liu_hot1{
-    font-family: STLiti;
+    font-family: '微软雅黑';
     margin-top:0.5vh;
-    margin-left: 3vw;
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+    float: left;
   }
   .Liu_hot3{
     width: 63vw;
     overflow: hidden;
     display: inline-block;
-    float: right;
-    margin-top: -17vh;
+    float: left;
     line-height: 4vh;
-    margin-left: -3vw;
+    margin-top: 1vw;
+    color: rgb(117, 116, 116);
   }
   /*****************************************************************************************************/
   
