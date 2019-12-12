@@ -53,7 +53,7 @@ export default class Home extends Component {
     componentDidMount() {
         setTimeout(() => {
             this.setState({
-                data: ['Qugp0s', 'Qug97n'],
+                data: ['D7FJ', 'DLS1','DjOK'],
             });
         }, 100);
 
@@ -114,7 +114,7 @@ export default class Home extends Component {
                         style={{ height: '60vw', width: '95vw', margin: '0 auto', paddingTop: '3vw' }}
                     >
                         {this.state.data.map(val => (
-                            <img src={(`https://s2.ax1x.com/2019/12/02/${val}.jpg`)}
+                            <img src={(`https://s2.ax1x.com/2019/12/12/Qy${val}.jpg`)}
                                 alt=""
                                 style={{ width: '100%', height: '60vw', verticalAlign: 'top', clear: 'both' }}
                                 onLoad={() => {
@@ -126,8 +126,9 @@ export default class Home extends Component {
                         ))}
                     </Carousel>
                     <div className='feng_lunbo'>热门大学一览<p>List of popular universities</p></div>
+                    {/* <p style={{paddingTop:'4.6vw'}}>The most comprehensive guide to college travel</p> */}
                 </div>
-                <div style={{ backgroundColor: 'red', borderTopLeftRadius: '4vw', borderTopRightRadius: '4vw' }}>
+                <div style={{ borderTopLeftRadius: '4vw', borderTopRightRadius: '4vw' }}>
                     {/* 中间四个入口 */}
                     <div className='qin_rukou'>
                         <Flex>
@@ -154,17 +155,18 @@ export default class Home extends Component {
                             <Flex.Item>
                                 <div className='feng_rukou'>
                                     <Link to="/Rank"><img src={'https://s2.ax1x.com/2019/12/11/QrjJ0S.png'} alt="" style={{ width: '12vw', height: '12vw' }} /></Link>
-                                    <p className='feng_rukou4' style={{ color: '#000' }}>热点排行</p>
+                                    <p className='feng_rukou4'>热点排行</p>
                                 </div>
                             </Flex.Item>
                         </Flex>
                         <WhiteSpace size="lg" />
                     </div>
-
+                    <div style={{width:'100%',height:'1vw',backgroundColor:'#fff',float:'left',marginTop:'-5vw'}}></div>
                     {/* 地图 */}
                     <div className='qin_map'>
                         <GetLocation />
                     </div>
+                    <div style={{width:'100%',height:'1vw',backgroundColor:'#fff',float:'left',marginTop:'-5vw'}}></div>
 
                     {/* 周边热门高校 */}
                     <div className='qin_hot'>
@@ -173,8 +175,10 @@ export default class Home extends Component {
                             this.state.cityData.map((item, idx) => (
                                 <div className="Liu_hot">
                                     <img src={item.collegePic} alt="" className="Liu_hot4" />
+                                    <div className='feng_hot'>
                                     <p className="Liu_hot1" onClick={this.detailClick}>{item.collegeName}</p>
                                     <p className="Liu_hot3" onClick={this.detailClick}>{item.content}</p>
+                                    </div>
                                 </div>
                             ))
                         }
