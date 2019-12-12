@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import {Link} from 'react-router-dom';
 import Reason from './Reason.js';
 import {createBrowserHistory} from 'history'
 const his = createBrowserHistory();
@@ -41,13 +40,18 @@ export default class Reserve extends Component {
             }
         }
     }
+    fanhui = ()=>{
+        console.log('click');
+        his.push('/Home');
+        window.location.reload();
+    }
     render() {
         return (
             <Fragment>
                 {/* 上半部分搜索学校 */}
                 <div className='qin_back' id='qin_reserve'>
                     <div className="liu_cover">
-                        <Link to="/home"><div className='iconfont icon-fanhui' id='liu_fanhui'></div></Link>
+                        <div className='iconfont icon-fanhui' id='liu_fanhui' onClick={this.fanhui}></div>
                         <input placeholder='&nbsp;&nbsp;&nbsp;&nbsp;请输入想预约的高校' ref={ref => this.autoFocusInst = ref} className="liu_search" onKeyDown = {this.inputHandle} />
                     </div>
                 </div>
