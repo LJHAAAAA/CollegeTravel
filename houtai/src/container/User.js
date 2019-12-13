@@ -181,10 +181,10 @@ export default class User extends Component {
                             </div>
                         ))
                     }
-                    <Link className="liu_u3"><span onClick={ this.setUp } >上一页</span></Link>
+                    <Link className="liu_u3"><span onClick={ this.setUp } className="liu_u3_span">上 一 页</span></Link>
                     <span className="liu_u4">{ this.state.current }页/ { this.state.totalPage }页</span>
-                    <Link className="liu_u5"><span onClick={ this.setNext } >下一页</span></Link>
-                    <Link onClick={this.addUser}><p className="liu_u6">添加用户</p></Link>
+                    <Link className="liu_u5"><span onClick={ this.setNext } className="liu_u5_span">下 一 页</span></Link>
+                    <Link onClick={this.addUser}><p className="liu_u6">添 加 用 户</p></Link>
                     <Link onClick={this.delUser}><p className="liu_u7">删除用户</p></Link>
                 </div>
             )

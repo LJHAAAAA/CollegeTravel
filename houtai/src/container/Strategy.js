@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom';
 
-export default class College extends Component {
+export default class Strategy extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -14,10 +14,11 @@ export default class College extends Component {
         }
     }
     componentWillMount(){
-        fetch("http://localhost:8080/HouCollege")
+        fetch("http://localhost:8080/HouStrategy")
         .then(res=>res.json())
         .then(
             data => {
+                console.log(data);
                 this.setState({
                     Data:data,
                     totalPage:Math.ceil(data.length/this.state.pageSize),  
@@ -51,19 +52,19 @@ export default class College extends Component {
         }
     }
     render() {
-        if(this.state.indexList[0]&&this.state.indexList[0].collegeName){
+        if(this.state.indexList[0]&&this.state.indexList[0].schoolName){
             return (
                 <div className="liu_u">
                     <p className="liu_uc1">高校名称</p>
-                    <p className="liu_uc2">所在城市</p>
-                    <p className="liu_uc3">简介</p>
+                    <p className="liu_uc2">攻略类型</p>
+                    <p className="liu_uc3">详情简介</p>
                     {
                         this.state.indexList.map((item,idx)=>(
                             <div key={idx} className="liu_u2">
-                                <img src={item.collegePic} alt="" className="liu_upic"/>
-                                <p className="liu_uc4">{item.collegeName}</p>
-                                <p className="liu_uc5">{item.city}</p>
-                                <p className="liu_uc6">{item.content}</p>
+                                <img src={item.rImg} alt="" className="liu_upic"/>
+                                <p className="liu_uc4">{item.schoolName}</p>
+                                <p className="liu_uc5">{item.rTag}</p>
+                                <p className="liu_uc6">{item.rDetai1}</p>
                             </div>
                         ))
                     }

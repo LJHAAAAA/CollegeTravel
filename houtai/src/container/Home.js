@@ -4,6 +4,7 @@ import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
 import Admin from './Admin';
 import User from './User';
 import College from './College';
+import Strategy from './Strategy';
 
 export default class Home extends Component {
     constructor(props){
@@ -119,7 +120,7 @@ export default class Home extends Component {
                             <Link to="/home/message"><p className="liu_p5" style={S4} onClick={this.onClick4}>帖子信息</p></Link>
                         </div>
                         <div className="liu_home3">
-                            <Link><p className="liu_p5" style={S5} onClick={this.onClick5}>志愿者信息</p></Link>
+                            <Link to="/home/strategy"><p className="liu_p5" style={S5} onClick={this.onClick5}>攻略信息</p></Link>
                         </div>
                     </div>
                     {/* 右侧具体展示 */}
@@ -127,6 +128,7 @@ export default class Home extends Component {
                         <Route path="/home/admin/:name" exact component={Admin}></Route>
                         <Route path="/home/user" component={User}></Route>
                         <Route path="/home/college" component={College}/>
+                        <Route path="/home/strategy" component={Strategy}/>
                     </div>
                 </div>
             </div>
