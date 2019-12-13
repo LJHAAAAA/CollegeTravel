@@ -1037,15 +1037,15 @@
     width: 99%;
     height: 65vw;
   }
-  .qin_title{
+    .qin_title{
     text-align: center;
     line-height: 10vw;
     color: black;
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 6vw;
     font-family: STXingkai;
   }
-   .Liu_hot{
+  .Liu_hot{
     width: 100%;
     border-bottom: 5px solid rgb(231, 230, 230);
     padding-top: 1vw;
@@ -1053,22 +1053,22 @@
     background: white;
   }
   .Liu_hot4{
-    width: 26vw;
-    height: 13vh;
-    margin-left: 2vw;
+    width: 28vw;
+    height: 15bvh;
+    margin-left: 3vw;
     margin-top: 2vw;
     border: 1px solid rgb(231, 230, 230);
   }
   .feng_hot{
     float:right;
-    width: 63vw;
-    height: 20vw;
+    width: 65vw;
+    height: 21vw;
   }
   .Liu_hot1{
     font-family: '微软雅黑';
     margin-top:0.5vh;
     font-weight: bold;
-    font-size: 1.4rem;
+    font-size: 5vw;
     float: left;
   }
   .Liu_hot3{
@@ -1076,7 +1076,8 @@
     overflow: hidden;
     display: inline-block;
     float: left;
-    line-height: 4vh;
+    line-height: 3.3vh;
+    font-size: 3.6vw;
     margin-top: 1vw;
     color: rgb(117, 116, 116);
   }
