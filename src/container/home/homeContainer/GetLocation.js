@@ -49,7 +49,7 @@ export default class GetLocation extends Component {
             }
         ]
         return (
-            <div style={{ width: '100%', height: '100%' }}>
+            <div style={{ width: '100%', height: '42vh' }}>
                 <Map
                     scrollWheel={true}
                     plugins={plugins}

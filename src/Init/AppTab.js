@@ -5,6 +5,7 @@ import RaiderDetail from '../container/radiers/RaiderDetail';
 import AppRaiders from '../container/radiers/AppRaiders';
 import Quanzi from '../container/community/Quanzi';
 import Mine from '../container/mine/Mine'
+import Xietie from '../container/community/tabs/Xietie'
 
 
 export default class AppTab extends React.Component {
@@ -13,6 +14,10 @@ export default class AppTab extends React.Component {
     this.state = {
       selectedTab: 'home',
     };
+  }
+  componentDidMount(){
+    console.log(this.props);
+    fetch("http://localhost:8080/getusername"+this.props.location.search,{method:'GET'})
   }
   render() {
     return (
@@ -74,6 +79,7 @@ export default class AppTab extends React.Component {
                 });
               }}
             >
+              <Xietie/>
 
           </TabBar.Item>
           <TabBar.Item

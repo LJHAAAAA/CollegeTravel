@@ -40,46 +40,18 @@ export default class AppRaiders extends Component {
         if (e.target.value && e.keyCode === 13) {
             this.click();
         }
-    } 
-    // click = ()=>{
-    //     fetch('http://localhost:8080/getCollegeRaiders?collegeName=' + this.state.collegeName)
-    //         .then(res => res.json())
-    //         .then(
-    //             data => {
-    //                 this.setState({
-    //                     CollegeRaiders: data
-    //                 })
-    //             }
-    //         )
-    // }
-
+    }
     click = ()=>{
-        let s = this.state.collegeName.length;
-        if(s >= 0 && s < 4){
-            alert("请输入正确的大学名称");
-        }
-        else {
-            fetch('http://localhost:8080/getCollegeRaiders?collegeName=' + this.state.collegeName)
+        fetch('http://localhost:8080/getCollegeRaiders?collegeName=' + this.state.collegeName)
             .then(res => res.json())
             .then(
                 data => {
-                    if(!data){
-                        console.log('nothing')
-                        his.push('/collegeDetails/Nothing');
-                        window.location.reload();
-                    }else{
-                        this.setState({
-                            CollegeRaiders: data
-                        })
-                        console.log(data)
-                    }
-                    
-                } 
-
+                    this.setState({
+                        CollegeRaiders: data
+                    })
+                }
             )
-        }
     }
-
     showDetail = (e) => {
         let whole= e.target.parentNode.innerHTML;
         let title1 = whole.split('</p>')[1].split('《')[1];
@@ -87,31 +59,14 @@ export default class AppRaiders extends Component {
         his.push('/RaiderDetail?title1='+title1+'&title2='+title2);
         window.location.reload();
     } 
-    
-    // shoucang=(e)=>{
-    //     console.log('1')
-    //     if(this.state.data[e].collection == 0){
-    //         this.state.data[e].collection = 1
-    //     }else{
-    //         this.state.data[e].collection = 0
-    //     }
-    //     console.log(this.state.data);
-    //     let text = {
-    //         data:this.state.data[e]
-    //     }
-        
-    //     let send = JSON.stringify(text);
-    //     fetch("http://localhost:8080/postgonglvshoucang",{
-    //         method:'POST',
-    //         headers:{"Content-Type":"application/json;charset=utf-8"},
-    //         body:send
-    //     }).then(res=>res.json())
-    //     .then(
-    //         (res)=>{console.log(res)}
-    //     )
-    // }
 
     render() {
+        const Rstyle = {
+            color: this.state.colorR ? "red" : "black"
+        };
+        const Ystyle = {
+            color: this.state.colorY ? "#ffe700" : "black"
+        }
         if(this.state.CollegeRaiders && this.state.CollegeRaiders[0].rImg){
             let raiders = this.state.CollegeRaiders;
         return (
@@ -134,9 +89,9 @@ export default class AppRaiders extends Component {
                             <p>《{raiders[0].rTitleP}</p>
                             <p className='feng_title2'>{raiders[0].rTitleSpan}</p><span>》</span>
                         </div>
-                        <div className='feng_icon'>
-                            <img src='https://s2.ax1x.com/2019/12/04/QQszZ9.png' className='feng_cover_icon' />
-                        </div>
+                       
+                        <i className='feng_icon iconfont icon-collection'></i>
+                        
                     </div>
                     <div className='feng_cover' >
                         <img src={raiders[1].rImg} className='feng_cover_img' />

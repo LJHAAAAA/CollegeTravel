@@ -4,7 +4,7 @@ import { createBrowserHistory } from 'history';
 const his = createBrowserHistory();
 // import { directive } from '@babel/types';
 
-export default class Shoucang extends Component {
+export default class Shoucanggl extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -16,7 +16,7 @@ export default class Shoucang extends Component {
         window.location.reload();
     }
     componentDidMount(){
-        fetch("http://localhost:8080/getshoucang").then(res => res.json()).then(date => {
+        fetch("http://localhost:8080/getshoucanggl").then(res => res.json()).then(date => {
             console.log(date);
             this.setState({
                 data: date

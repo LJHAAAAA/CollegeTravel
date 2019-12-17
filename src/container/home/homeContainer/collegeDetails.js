@@ -9,7 +9,7 @@ const data = Array.from(new Array(9)).map((_val, i) => ({
     text: `name${i}`,
 }));
 
-export default class CollegeDetails extends Component {
+export default class collegeDetails extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -22,15 +22,11 @@ export default class CollegeDetails extends Component {
             .then(res => res.json())
             .then(
                 data => {
-                    if(data){
-                        this.setState({
-                            collegeDetails: data
-                        })
-                    }else{
-                        console.log('nothing')
-                        his.push('/collegeDetails/Nothing');
-                        window.location.reload();
-                    }
+                    console.log(data)
+                    this.setState({
+                        collegeDetails: data
+                    })
+                    console.log(data)
                 }
             )
     }

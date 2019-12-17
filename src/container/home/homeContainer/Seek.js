@@ -22,15 +22,9 @@ export default class Seek extends Component {
         }
     }
     click = ()=>{
-        let s = this.state.collegeName.length;
-        if(s >= 0 && s < 4){
-            alert("请输入正确的大学名称");
-        }
-        else {
-            console.log(this.state.collegeName);
-            his.push('/collegeDetails/' + this.state.collegeName);
-            window.location.reload();
-        }
+        console.log(this.state.collegeName);
+        his.push('/collegeDetails/' + this.state.collegeName);
+        window.location.reload();
     }
     render() {
         return (

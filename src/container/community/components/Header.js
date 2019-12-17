@@ -9,10 +9,6 @@ import AppTab from '../../../Init/AppTab';
 const his=createBrowserHistory();
 
 export default class Header extends Component {
-    shoucang=()=>{
-        his.push('/shoucang');
-        window.location.reload();
-    }
     render() {
         return (
             <div className='mu_header'>
@@ -20,12 +16,11 @@ export default class Header extends Component {
                     <div>
                         <img src={'https://s2.ax1x.com/2019/12/03/QMA7jI.png'} alt='header' className='mu_tou' />
                         <SearchBar placeholder="搜索大学" maxLength={8} className="mu_search"/>
-                        <span className='iconfont icon-shoucang1 mu_xing' onClick={this.shoucang}></span>
+                        
                     </div>
                     <div className='tab'>
                         <Tabs tabs={[
                             { title: <Badge >热门</Badge> },
-                            { title: <Badge >推荐</Badge> },
                             { title: <Badge >我的</Badge> },
                         ]}
                             initialPage={1}
@@ -36,14 +31,10 @@ export default class Header extends Component {
                                 <Remen />
                             </div>
                             <div style={{ display: 'flex',justifyContent: 'center', height: '150vw', backgroundColor: '#E0E0E0' }}>
-                                <Tuijian />
-                            </div>
-                            <div style={{ display: 'flex',justifyContent: 'center', height: '150vw', backgroundColor: '#E0E0E0' }}>
                                 <Wode />
                             </div>
                         </Tabs>
                     </div>
-                    
                 </header>
             </div>
         )

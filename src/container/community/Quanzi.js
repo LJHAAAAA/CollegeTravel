@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Header from '../community/components/Header'
+import Header from './components/Header'
 import AppTab from '../../Init/AppTab';
 
 export default class Quanzi extends Component {

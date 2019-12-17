@@ -257,6 +257,20 @@ app.get("/getusername",function (req,res) {
         }
     })
 })
+
+/**帖子_热门渲染 */
+app.get('/tiezi',function(req,res){
+    /**连接数据库 */
+    var con = mysql.createConnection(dbconfig);
+    con.connect();
+    con.query("select * from tiezi",function(err,result){
+        if(err){
+            throw err;
+        }else{
+           res.send(result);
+        }
+    })
+})
 /**获取数据库中的贴子标题及内容 黄*/
 app.get('/gettiezi',function (req,res) {
     var con = mysql.createConnection(dbconfig);
@@ -275,12 +289,13 @@ app.get('/gettiezi',function (req,res) {
 /**发帖 黄*/
 app.post('/posting',function (req,res) {
     let data = req.body;
+    console.log(data)
     let message1 = {success:true};
     let message2 = {success:false};
 
     var con = mysql.createConnection(dbconfig);
     con.connect();
-    con.query("insert into post(username,title,content,collection) values(?,?,?,?)",[username,data.title,data.content,0],(err,result)=>{
+    con.query("insert into post(username,title,content,collection) values(?,?,?,?)",[loginusername,data.title,data.content,0],(err,result)=>{
         if(err){
             console.log(err);
             res.send(message2)
@@ -293,7 +308,8 @@ app.post('/posting',function (req,res) {
 /**上传帖子内容 黄*/
 var a = {}
 app.post('/postxiangqing',function (req,res) {
-    //console.log(req.body.data);
+    console.log(req.body)
+    console.log(req.body.data);
     a = req.body;
     a.data.username = loginusername
     res.send(JSON.stringify(a))
@@ -301,6 +317,7 @@ app.post('/postxiangqing',function (req,res) {
 
 /**渲染详情页 黄*/
 app.get('/getxiangqing',function (req,res) {
+    console.log(a)
     res.writeHead(200, {"Content-Type": "text/plain;charset=utf-8"})
     res.end(JSON.stringify(a));
 })
@@ -372,7 +389,7 @@ app.post('/postshoucang',function (req,res) {
 app.get('/getshoucang',function (req,res) {
     var con = mysql.createConnection(dbconfig);
     con.connect();
-    con.query("select * from collection where username = ?",[username],function(err,result){
+    con.query("select * from post where ID in (select postID from collection where username = ?)",[loginusername],function(err,result){
         if(err){
             throw err;
         }
@@ -383,35 +400,19 @@ app.get('/getshoucang',function (req,res) {
     })
 })
 
-/** 获取帖子收藏 */
-app.get('/tiezishoucang',(req,res)=>{
-    console.log(loginusername)
-    var con = mysql.createConnection(dbconfig);
-    con.connect();
-    con.query("select * from gongluesc where username='"+loginusername+"'",(err,result)=>{
-        if(err){
-            throw err;
-        }
-        else{
-            // res.send(JSON.parse(result));
-            console.log(result);
-            res.send(result)
-        }
-    })
-})
+
 
 /** 获取攻略收藏 */
-app.get('/gonglueshoucang',(req,res)=>{
-    console.log(loginusername)
+app.get('/getshoucanggl',function (req,res) {
     var con = mysql.createConnection(dbconfig);
     con.connect();
-    con.query("select * from gongluesc where username='"+loginusername+"'",(err,result)=>{
+    con.query("select * from schoolraider where ID in (select postID from gonglvesc where username = ?)",[loginusername],function(err,result){
         if(err){
             throw err;
         }
         else{
-            // console.log(result);
-            res.send(result)
+            console.log(result)
+            res.send(JSON.stringify(result))
         }
     })
 })
@@ -430,6 +431,7 @@ app.get('/getCollegeDetails', function (req, res) {
             if(result[0] == null){
                 res.send(false);
             }else{
+                console.log(result[0])
                 res.send(result[0]);
             }
         }

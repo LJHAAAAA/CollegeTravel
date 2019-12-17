@@ -6,9 +6,6 @@ export default class Todoinput extends Component {
     handleInput = (e)=>{
         if(e.keyCode === 13){
             this.props.add(e.target.value);
-            this.setState({
-              InputValue : ""
-            })
         }
     }
     handleGetInputValue = (e) => {

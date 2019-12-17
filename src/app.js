@@ -10,15 +10,19 @@ import ReserveWu from './container/home/homeContainer/reserve/ReserveWu';
 import ReserveElse from './container/home/homeContainer/reserve/ReserveElse';
 import Help from './container/home/homeContainer/Help';
 import Rank from './container/home/homeContainer/Rank';
-import MyMap from './container/home/homeContainer/MyMap';
 import Seek from './container/home/homeContainer/Seek';
+import MyMap from './container/home/homeContainer/MyMap';
 import RaiderDetail from './container/radiers/RaiderDetail';
 import AppRaiders from './container/radiers/AppRaiders';
 import Shoucang from './container/community/tabs/Shoucang';
 import Quanzi from './container/community/Quanzi'
 import Mine from './container/mine/Mine';
 import CollegeDetails from './container/home/homeContainer/CollegeDetails';
-import Nothing from './container/Nothing';
+import Xiangqing from './container/community/tabs/Xiangqing'
+import Shoucanggl from './container/community/tabs/Shoucanggl';
+
+
+
 
 
 export default class App extends Component {
@@ -42,11 +46,15 @@ export default class App extends Component {
                     <Route path='/MyMap' component={ MyMap } />
                     <Route path='/Seek' component={ Seek } />
                     <Route path='/RaiderDetail' component={ RaiderDetail}/>
-                    <Route path='/shoucang' component={Shoucang}/>
+                    <Route path='/tiezi/shoucang' component={Shoucang}/>
+                    <Route path='/gonglue/shoucang' component={Shoucanggl}/>
                     <Route path='/fanhui' component={AppTab}/>
                     <Route path='/Mine' component={Mine}/>
-                    <Route path='/collegeDetails/Nothing' component={Nothing}/>
                     <Route path='/collegeDetails/:name' component={CollegeDetails} />
+                    {/* <Route path="/xietie" component={Xietie}/> */}
+                    <Route path="/tiezi/xiangqing" component={Xiangqing}/>
+                    <Route path="/fanhuiQ" component={Quanzi}/>
+                    <Route path="/fanhuiW" component={AppTab}/>
                 </Switch>
             </Router>
         )

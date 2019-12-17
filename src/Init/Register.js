@@ -43,11 +43,8 @@ export default class Register extends Component {
         let send = JSON.stringify(text);
         console.log(this.state.checkNum);
         console.log(this.state.trueNum);
-        if(this.checkNum === ""){
-            window.alert("验证码不能为空");
-        }
         // eslint-disable-next-line eqeqeq
-        else if(this.state.checkNum == this.state.trueNum){  
+        if(this.state.checkNum == this.state.trueNum){
             fetch("http://localhost:8080/Register",{
                 method:'POST',
                 headers:{"Content-Type":"application/json;charset=utf-8"},
@@ -56,16 +53,11 @@ export default class Register extends Component {
             .then(res=>res.json())
             .then(
                 data=>{
-                    // eslint-disable-next-line eqeqeq
-                    if(data.success == 0){
+                    if(data.success){
                         window.alert("注册成功");
                     }
-                    // eslint-disable-next-line eqeqeq
-                    else if(data.success == 1){
-                        window.alert("注册失败，请输入一致的密码");
-                    }
                     else{
-                        window.alert("注册失败，用户名已存在");
+                        window.alert("注册失败");
                     }
                 }
             )
@@ -105,15 +97,17 @@ export default class Register extends Component {
                     <div className="Register-1 iconfont icon-zhucedenglushoujihao">
                         <input type="text" name="pwd" className="Register-2" placeholder="请输入手机号码" onChange={this.mobileChange}/>
                     </div>
+                    <input type="submit" value="获取验证码" className="lv_zhuce" onClick={this.getCode}/>
                     <div className="Register-1 iconfont icon-anquandunyanzhengma">
                         <input type="text" name="pwd" className="Register-2" placeholder="请输入验证码" onChange={this.numChange}/>
                     </div>
+                    
                     <div className='Register-3'>
                         <input type="submit" value="注册" className="Register-4" onClick={this.getConnect}/>
                     </div>
-                    <div className='Register-3'>
+                    {/* <div className='Register-3'>
                         <input type="submit" value="获取验证码" className="Register-5" onClick={this.getCode}/>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         )
