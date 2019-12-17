@@ -15,7 +15,7 @@ export default class Topfix extends Component {
         const TabExample = () => (
             <div>
               <Tabs tabs={tabs}
-                initialPage={1}
+                initialPage={0}
                 onChange={(tab, index) => { console.log('onChange', index, tab); }}
                 onTabClick={(tab, index) => { console.log('onTabClick', index, tab); }}
               >

@@ -46,9 +46,15 @@ export default class AppRaiders extends Component {
             .then(res => res.json())
             .then(
                 data => {
-                    this.setState({
-                        CollegeRaiders: data
-                    })
+                    if(data){
+                        this.setState({
+                            CollegeRaiders: data
+                        })
+                    }else{
+                        console.log('nothing')
+                        his.push('/RaidersTab/NothingRaider');
+                        window.location.reload();
+                    }
                 }
             )
     }
@@ -56,7 +62,7 @@ export default class AppRaiders extends Component {
         let whole= e.target.parentNode.innerHTML;
         let title1 = whole.split('</p>')[1].split('《')[1];
         let title2 = whole.split('</p>')[2].split('>')[1];
-        his.push('/RaiderDetail?title1='+title1+'&title2='+title2);
+        his.push('/RaidersTab/RaiderDetail?title1='+title1+'&title2='+title2);
         window.location.reload();
     } 
 

@@ -9,7 +9,7 @@ const data = Array.from(new Array(9)).map((_val, i) => ({
     text: `name${i}`,
 }));
 
-export default class collegeDetails extends Component {
+export default class CollegeDetails extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -22,11 +22,15 @@ export default class collegeDetails extends Component {
             .then(res => res.json())
             .then(
                 data => {
-                    console.log(data)
-                    this.setState({
-                        collegeDetails: data
-                    })
-                    console.log(data)
+                    if(data){
+                        this.setState({
+                            collegeDetails: data
+                        })
+                    }else{
+                        console.log('nothing')
+                        his.push('/home/seek/nothingCollege');
+                        window.location.reload();
+                    }
                 }
             )
     }
@@ -37,7 +41,7 @@ export default class collegeDetails extends Component {
                     <NavBar
                         mode='light'
                         icon={
-                            <Link to='/home'>
+                            <Link to='/home/seek'>
                                 <Icon type='left' />
                             </Link>
                         }
@@ -118,6 +122,19 @@ export default class collegeDetails extends Component {
                         </Card>
                     </div>
                 </WingBlank>
+                <button style={{
+                        width:'20vw', height:'5vh',
+                        backgroundColor:'rgb(120,180,242)',
+                        border:'none', 
+                        borderRadius:'3vw',
+                        marginTop:'3vh',
+                        marginBottom:'1vh',
+                        marginLeft:'40%'
+                    }}
+                    onClick={()=>{his.push('/home');window.location.reload()}}
+                    >
+                        返回主页
+                    </button>
             </Fragment>
         )
     }

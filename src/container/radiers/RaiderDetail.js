@@ -28,7 +28,7 @@ export default class RaiderDetail extends Component {
             )
     }
     raidersDetailsFanhui = () => {
-        his.push('/home');
+        his.push('/RaidersTab');
         window.location.reload();
     }
     render() {
@@ -37,7 +37,7 @@ export default class RaiderDetail extends Component {
         return (
             <Router>
                 <div style={{ width: '100vw', position: 'fixed', top: '0' }}>
-                    <Link to='/home'>
+                    <Link to='/RaidersTab'>
                         <NavBar
                             mode="dark"
                             leftContent="<"

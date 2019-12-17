@@ -295,7 +295,7 @@ app.post('/posting',function (req,res) {
 
     var con = mysql.createConnection(dbconfig);
     con.connect();
-    con.query("insert into post(username,title,content,collection) values(?,?,?,?)",[loginusername,data.title,data.content,0],(err,result)=>{
+    con.query("insert into post(username,title,tzcontent,collection,time,lable) values(?,?,?,?,?,?)",[loginusername,data.title,data.content,0,data.date,data.value],(err,result)=>{
         if(err){
             console.log(err);
             res.send(message2)
@@ -359,7 +359,7 @@ app.post('/postshoucang',function (req,res) {
     var con = mysql.createConnection(dbconfig);
     con.connect();
     if(req.body.data.collection == 1){
-        con.query("update post set collection = 1 where ID = ?",[req.body.data.ID])
+        con.query("update post set collection = 1 where ID = ?",[req.body.data.id])
         con.query("select * from post ",(err,result)=>{
             if(err){
                 throw err
@@ -368,10 +368,10 @@ app.post('/postshoucang',function (req,res) {
                 res.send(result)
             }
         })
-        con.query("insert into collection(username,postID) values(?,?)",[loginusername,req.body.data.ID])
+        con.query("insert into collection(username,postID) values(?,?)",[loginusername,req.body.data.id])
     }
     else{
-        con.query("update post set collection = 0 where ID = ?",[req.body.data.ID])
+        con.query("update post set collection = 0 where id = ?",[req.body.data.id])
         con.query("select * from post ",(err,result)=>{
             if(err){
                 throw err
@@ -380,7 +380,7 @@ app.post('/postshoucang',function (req,res) {
                 res.send(result)
             }
         })
-        con.query("delete from collection where username = ? and postID = ?",[loginusername,req.body.data.ID])
+        con.query("delete from collection where username = ? and postID = ?",[loginusername,req.body.data.id])
     }
     
 })
@@ -472,6 +472,28 @@ app.get('/getRaidersDetails', function (req, res) {
         }
     })
 })
+
+// 获取资料
+app.get('/getziliao',function (req,res) {
+    var con = mysql.createConnection(dbconfig);
+    con.connect();
+    con.query("select * from ziliao where username=?",[loginusername],function (err,result) {
+        if(err){
+            throw err
+        }else{
+            res.writeHead(200, {"Content-Type": "text/plain;charset=utf-8"})
+            res.end(JSON.stringify(result));
+        }
+    })
+    
+})
+// 更新用户资料
+// app.post('/postziliao',function(req,res){
+//     var con = mysql.createConnection(dbconfig);
+//     con.connect();
+//     con.query("update ziliao set nicheng=? and jianjie=? where username=?",[req.query.data.nicheng,req.query.data.jianjie,loginusername]);
+
+// })
 
 
 var server = app.listen(8080,()=>{

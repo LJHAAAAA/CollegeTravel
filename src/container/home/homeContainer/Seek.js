@@ -23,7 +23,7 @@ export default class Seek extends Component {
     }
     click = ()=>{
         console.log(this.state.collegeName);
-        his.push('/collegeDetails/' + this.state.collegeName);
+        his.push('/home/seek/' + this.state.collegeName);
         window.location.reload();
     }
     render() {

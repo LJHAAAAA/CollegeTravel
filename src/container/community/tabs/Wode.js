@@ -105,7 +105,7 @@ export default class Header extends Component {
                             <img src={'https://s2.ax1x.com/2019/12/03/QMALHf.png'} className='mu_usertou' alt='用户头像'></img>
                             <span className='mu_userming'>{item.username}</span>
                         </div>
-                        <div className='huang_1'>{item.content}</div>
+                        <div className='mu_yhwenzi'>{item.tzcontent}</div>
                         <div className='mu_zan'>
                             <i className='iconfont icon-dianzan' style={Rstyle} onClick={this.setColorR}></i>
                             <span className='mu_zi'>{item.dznum}</span>

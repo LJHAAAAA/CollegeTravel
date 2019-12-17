@@ -92,7 +92,7 @@ export default class Xiangqing extends Component {
                     <p className='mu_riqi'>2019-12-10</p>
                 </div>
                 <div>
-                    <WingBlank className='mu_zw'>{this.state.data.content}
+                    <WingBlank className='mu_zw'>{this.state.data.tzcontent}
                     </WingBlank>
                     <p className='mu_xue'>#清华大学</p>
                 </div>

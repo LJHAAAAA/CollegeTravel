@@ -1,12 +1,9 @@
 import React from 'react';
 import { TabBar } from 'antd-mobile';
 import Home from '../container/home/Home';
-import RaiderDetail from '../container/radiers/RaiderDetail';
 import AppRaiders from '../container/radiers/AppRaiders';
 import Quanzi from '../container/community/Quanzi';
 import Mine from '../container/mine/Mine'
-import Xietie from '../container/community/tabs/Xietie'
-
 import { createBrowserHistory } from 'history'
 const his = createBrowserHistory();
 
@@ -14,12 +11,8 @@ export default class AppTab extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedTab: 'yellowTab',
+      selectedTab: 'blueTab',
     };
-  }
-  componentDidMount(){
-    console.log(this.props);
-    fetch("http://localhost:8080/getusername"+this.props.location.search,{method:'GET'})
   }
   render() {
     return (
@@ -43,9 +36,11 @@ export default class AppTab extends React.Component {
                 this.setState({
                   selectedTab: 'yellowTab',
                 });
+                his.push('/home');
+                window.location.reload()
               }}
             >
-              <Home/>
+              {/* <Home /> */}
           </TabBar.Item>
           <TabBar.Item
               icon={
@@ -61,11 +56,9 @@ export default class AppTab extends React.Component {
                 this.setState({
                   selectedTab: 'blueTab',
                 });
-                his.push('/RaidersTab');
-                window.location.reload();
               }}
             >
-              {/* <AppRaiders/> */}
+            <AppRaiders />  
 
           </TabBar.Item>
           <TabBar.Item
@@ -81,11 +74,8 @@ export default class AppTab extends React.Component {
                 this.setState({
                   selectedTab: 'orangeTab',
                 });
-
               }}
             >
-              <Xietie/>
-
           </TabBar.Item>
           <TabBar.Item
               icon={
@@ -101,11 +91,9 @@ export default class AppTab extends React.Component {
                 this.setState({
                   selectedTab: 'redTab',
                 });
-                his.push('/communityTab');
-                window.location.reload();
               }}
             >
-              {/* <Quanzi/> */}
+              <Quanzi/>
           </TabBar.Item>
           <TabBar.Item
               icon={
@@ -121,11 +109,9 @@ export default class AppTab extends React.Component {
                 this.setState({
                   selectedTab: 'greenTab',
                 });
-                his.push('/MineTab');
-                window.location.reload();
               }}
             >
-              {/* <Mine/> */}
+              <Mine/>
           </TabBar.Item>
         </TabBar>
       </div>

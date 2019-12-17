@@ -33,7 +33,7 @@ export default class Shoucang extends Component {
                 <span className='mu_sc'>我的收藏</span>
             </div>
             <div className='mu_lankuai'>
-                <span className='iconfont icon-shequ2 mu_neirong'>共6条内容</span>
+                <span className='iconfont icon-shequ2 mu_neirong'>共{this.state.data.length}条内容</span>
             </div>
             
             {
@@ -45,7 +45,7 @@ export default class Shoucang extends Component {
                                 {/* <img src={require('../images/m-2.png')} className='mu_usertou' alt='用户头像'></img> */}
                                 <span className='mu_userming'>黄金鸡</span>
                             </div>
-                            <div>{item.content}</div>
+                            <div className='mu_yhwenzi'>{item.tzcontent}</div>
                         </div>
                     )
                 }

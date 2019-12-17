@@ -26,7 +26,6 @@ export default class Mine extends Component {
                 </div>
                 <div className='lv_wode_choose'>
                     <div className='lv_left'>
-                        <p>13</p>
                         <p>
                         <Link to='/tiezi/shoucang'>
                             帖子收藏
@@ -34,7 +33,6 @@ export default class Mine extends Component {
                         </p>
                     </div>
                     <div className='lv_right'>
-                        <p>13</p>
                         <p>
                         <Link to='/gonglue/shoucang'>
                             攻略收藏
@@ -42,6 +40,9 @@ export default class Mine extends Component {
                         </p>  
                     </div>
 
+                </div>
+                <div className='lv_xiugaiziliao'>
+                    <Link to="xiugai">修改资料</Link>
                 </div>
                 <div className="lv_loginout">
                     <Link to='/'>

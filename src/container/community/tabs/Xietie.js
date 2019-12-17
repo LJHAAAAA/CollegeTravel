@@ -9,7 +9,8 @@ export default class Shoucang extends Component {
         this.state = {
             value: '',
             title: '',
-            content: ''
+            content: '',
+            date: new Date().getFullYear()+"/"+(new Date().getMonth()+1)+"/"+new Date().getDate()+" "+((new Date().getHours() < 10) ? "0" : "") + new Date().getHours()+':'+((new Date().getMinutes() < 10) ? "0" : "") + new Date().getMinutes()
         };
     }
     titleChange = (e) => {//标题改变
@@ -23,7 +24,9 @@ export default class Shoucang extends Component {
         console.log("1")
         let text = {
             title: this.state.title,
-            content: this.state.content
+            content: this.state.content,
+            value: this.state.value,
+            date: this.state.date
         }
         
         let send = JSON.stringify(text);
