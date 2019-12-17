@@ -31,9 +31,10 @@ import NothingRaider from './container/NothingRaider';
 /*************************************圈子 *************************************/
 import communityTab from './container/community/CommunityTab'
 import Quanzi from './container/community/Quanzi'
-
+ 
 /*************************************我的 *************************************/
 import MineTab from './container/mine/MineTab'
+import Editor from './container/mine/mineContainer/Editor'
 import Mine from './container/mine/Mine';
 import Shoucang from './container/community/tabs/Shoucang';
 import Shoucanggl from './container/community/tabs/Shoucanggl';
@@ -75,11 +76,13 @@ export default class App extends Component {
                     <Route path="/communityTab" component={communityTab} />
                     
                     {/************************************** 我的 *********************************/}
-                    <Route path="/MineTab" component={MineTab} />
+                    <Route path="/MineTab" exact component={MineTab} />
+                    <Route path='/MineTab/editor' component={Editor} />
                     <Route path='/Mine' component={Mine} />
                     <Route path='/tiezi/shoucang' component={Shoucang} />
                     <Route path='/gonglue/shoucang' component={Shoucanggl} />
                     <Route path='/fanhui' component={AppTab} />
+
                     
 
                     {/* <Route path="/xietie" component={Xietie}/> */}

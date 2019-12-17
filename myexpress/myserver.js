@@ -21,6 +21,7 @@ app.use(express.static('public'));
 
 
 /**登录 */
+var User = '';
 app.post('/login',function(req,res){
     /**获取请求体数据 */
     let data = req.body;
@@ -42,6 +43,7 @@ app.post('/login',function(req,res){
                 res.send(message2);
             }
             else{
+                User = data.username;
                 res.send(message1);
             }
         }
@@ -473,27 +475,22 @@ app.get('/getRaidersDetails', function (req, res) {
     })
 })
 
-// 获取资料
-app.get('/getziliao',function (req,res) {
+
+/**qin__获取users表信息 —— 用于编辑资料 */
+app.get('/getEditor',function (req,res) {
     var con = mysql.createConnection(dbconfig);
     con.connect();
-    con.query("select * from ziliao where username=?",[loginusername],function (err,result) {
+    con.query("select * from users where username=?",[User],function (err,result) {
         if(err){
             throw err
         }else{
+            console.log(111)
+            console.log(result[0])
             res.writeHead(200, {"Content-Type": "text/plain;charset=utf-8"})
-            res.end(JSON.stringify(result));
+            res.end(JSON.stringify(result[0]));
         }
     })
-    
 })
-// 更新用户资料
-// app.post('/postziliao',function(req,res){
-//     var con = mysql.createConnection(dbconfig);
-//     con.connect();
-//     con.query("update ziliao set nicheng=? and jianjie=? where username=?",[req.query.data.nicheng,req.query.data.jianjie,loginusername]);
-
-// })
 
 
 var server = app.listen(8080,()=>{

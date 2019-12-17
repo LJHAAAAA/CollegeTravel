@@ -1517,3 +1517,71 @@
   width: 80vw;
   height: 6vh;
   }
+
+  /* *********************************************** */
+  /*我的  */
+  .lv_headImg{
+    width: 100vw;
+    height: 22.5vh;
+    background-color: #C61118;
+  }
+  .lv_touxiang{
+    width: 25vw;
+    height: 25vw;
+    border-radius: 20vw;
+    background-color: #C61118;
+    position: relative;
+    top: -6vh;
+    left: 38vw;
+  }
+  .lv_touxiang img{
+    width: 25vw;
+    height: 25vw;
+    border-radius: 20vw;
+  }
+  .lv_back{
+    width: 100vw;
+    height: 10vh;
+    background-color: #C61118;
+    position: relative;
+    top: -5vh;
+  }
+
+.qinMineContent{
+  width: 100%;
+  height: 50%;
+  background-color: white;
+  margin-top: -2vh;
+
+}
+.qinMineEvery{
+  padding-top: 3%;
+  padding-left: 10%;
+  width: 100%;
+  height: 8vh;
+  border-bottom:1px rgb(0, 140, 255) solid;
+  font-size: 5.5vw;
+  font-family: '微软雅黑';
+}
+.qinMineEvery p{
+  padding-top: 3%;
+  float: left;
+  font-size: 5vw;
+  font-family: '微软雅黑';
+}
+.qinMineEvery img{
+  float: left;
+  width: 6vw;
+  height: 6vw;
+  margin-top: 1.5vh;
+  margin-right: 2vw;
+}
+.qinMineExit{
+  margin-top: 10%;
+  margin-left: 33%;
+  width: 35%;
+  height: 5vh;
+  border:none;
+  border-radius: 3vw;
+  background-color: rgb(103, 181, 233);
+}
