@@ -75,7 +75,7 @@ export default class Xiangqing extends Component {
         
     }
     fanhui = ()=>{
-        his.push('/home');
+        his.push('/communityTab');
         window.location.reload();
     }
     render() {

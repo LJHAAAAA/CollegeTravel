@@ -8,11 +8,11 @@ var bodyParser = require("body-parser"); //解析POST的body
 app.use(bodyParser.json());//使用body parser用于解析post的body
 app.use(bodyParser.urlencoded({ extended: true }));//使用body parser用于解析post的body
 
-app.all('*', function(req, res, next) {
+app.all('*', function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With,Content-Type,Access-Token");
-    res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
-    res.header("X-Powered-By",' 3.2.1')
+    res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
+    res.header("X-Powered-By", ' 3.2.1')
     res.header("Content-Type", "application/json;charset=utf-8");
     next();
 });
@@ -22,27 +22,27 @@ app.use(express.static('public'));
 
 /**登录 */
 var User = '';
-app.post('/login',function(req,res){
+app.post('/login', function (req, res) {
     /**获取请求体数据 */
     let data = req.body;
     console.log(data.username);
     console.log(data.password);
-    let message1 = {success:true};
-    let message2 = {success:false};
+    let message1 = { success: true };
+    let message2 = { success: false };
     /**连接数据库 */
     var con = mysql.createConnection(dbconfig);
     con.connect();
-    con.query("select * from users where username = '"+ data.username +"' and password = '"+data.password+"'",function(err,result){
-        if(err){
+    con.query("select * from users where username = '" + data.username + "' and password = '" + data.password + "'", function (err, result) {
+        if (err) {
             throw err;
         }
-        else{
+        else {
             console.log(result);
             // eslint-disable-next-line eqeqeq
-            if(result == false){
+            if (result == false) {
                 res.send(message2);
             }
-            else{
+            else {
                 User = data.username;
                 res.send(message1);
             }
@@ -51,35 +51,35 @@ app.post('/login',function(req,res){
 })
 
 /**注册 */
-app.post('/Register',(req,res)=>{
+app.post('/Register', (req, res) => {
     /**获取请求体数据 */
     let data = req.body;
-    let message1 = {success:0}; // 注册成功
-    let message2 = {success:1};  //失败类型1  两次密码不一致
-    let message3 = {success:2};// 失败类型2 输入的用户名数据库已存在
+    let message1 = { success: 0 }; // 注册成功
+    let message2 = { success: 1 };  //失败类型1  两次密码不一致
+    let message3 = { success: 2 };// 失败类型2 输入的用户名数据库已存在
     var con = mysql.createConnection(dbconfig);
     con.connect();
     // eslint-disable-next-line eqeqeq
-    if(data.password != data.repassword){
+    if (data.password != data.repassword) {
         res.send(message2);
     }
-    else{
-        con.query("select count(*) from users where username ='"+data.username+"'",function(err,result){
-            if(err){
+    else {
+        con.query("select count(*) from users where username ='" + data.username + "'", function (err, result) {
+            if (err) {
                 throw err;
             }
-            else{
-                if(result[0]["count(*)"] === 0){
-                    con.query("insert into users(username,password) values(?,?)",[data.username,data.password],(err,result)=>{
-                        if(err){
+            else {
+                if (result[0]["count(*)"] === 0) {
+                    con.query("insert into users(username,password) values(?,?)", [data.username, data.password], (err, result) => {
+                        if (err) {
                             throw err;
                         }
-                        else{
+                        else {
                             res.send(message1);
                         }
                     })
                 }
-                else{
+                else {
                     res.send(message3);
                 }
             }
@@ -89,14 +89,14 @@ app.post('/Register',(req,res)=>{
 
 
 /**获取验证码 */
-app.get('/Getnum',(req,res)=>{
+app.get('/Getnum', (req, res) => {
     function randomn(n) {
         if (n > 21) return null
-        return parseInt((Math.random() + 1) * Math.pow(10,n-1))
+        return parseInt((Math.random() + 1) * Math.pow(10, n - 1))
     }
     var trueCode = randomn(6);
-    let message1 = {success:true,trueNum:trueCode};
-    let phoneNum = JSON.parse(req.query.mobile); 
+    let message1 = { success: true, trueNum: trueCode };
+    let phoneNum = JSON.parse(req.query.mobile);
     // let message2 = {success:false};
     var QcloudSms = require("qcloudsms_js");
     // 短信应用 SDK AppID
@@ -123,25 +123,25 @@ app.get('/Getnum',(req,res)=>{
     var ssender = qcloudsms.SmsSingleSender();
     var params = [trueCode];
     ssender.sendWithParam("86", phoneNumbers[0], templateId,
-    params, smsSign, "", "", callback);
+        params, smsSign, "", "", callback);
     res.send(message1);
 })
 
 
 
 /** 获取当前城市信息 */
-app.get('/getCity',(req,res)=>{
+app.get('/getCity', (req, res) => {
     let cityNow = req.query.cityNow;
     // console.log(cityNow);
     let content = JSON.stringify(cityNow);
     // console.log(content);
     var con = mysql.createConnection(dbconfig);
     con.connect();
-    con.query("select * from college where city=?", [cityNow],(err,result)=>{
-        if(err){
+    con.query("select * from college where city=?", [cityNow], (err, result) => {
+        if (err) {
             throw err;
         }
-        else{
+        else {
             // console.log(result);
             res.send(result);
         }
@@ -151,24 +151,24 @@ app.get('/getCity',(req,res)=>{
 
 
 /**后台管理登录 */
-app.post('/loginHou',function(req,res){
+app.post('/loginHou', function (req, res) {
     /**获取请求体数据 */
     let data = req.body;
-    let message1 = {success:true};
-    let message2 = {success:false};
+    let message1 = { success: true };
+    let message2 = { success: false };
     /**连接数据库 */
     var con = mysql.createConnection(dbconfig);
     con.connect();
-    con.query("select * from admin where username = '"+ data.username +"' and password = '"+data.password+"'",function(err,result){
-        if(err){
+    con.query("select * from admin where username = '" + data.username + "' and password = '" + data.password + "'", function (err, result) {
+        if (err) {
             throw err;
         }
-        else{
+        else {
             // eslint-disable-next-line eqeqeq
-            if(result == false){
+            if (result == false) {
                 res.send(message2);
             }
-            else{
+            else {
                 res.send(message1);
             }
         }
@@ -176,30 +176,30 @@ app.post('/loginHou',function(req,res){
 })
 
 /**后台管理获取所有用户信息 */
-app.get("/HouAll",function(req,res){
+app.get("/HouAll", function (req, res) {
     var con = mysql.createConnection(dbconfig);
     con.connect();
-    con.query("select * from users",(err,result)=>{
-        if(err){
+    con.query("select * from users", (err, result) => {
+        if (err) {
             throw err;
         }
-        else{
+        else {
             res.send(result);
         }
     })
 })
 
 /**后台管理员信息获取 Liu */
-app.get("/adminInf",function(req,res){
+app.get("/adminInf", function (req, res) {
     let username = req.query.username;
     console.log(username);
     var con = mysql.createConnection(dbconfig);
     con.connect();
-    con.query("select * from admin where username=?",[username],(err,result)=>{
-        if(err){
+    con.query("select * from admin where username=?", [username], (err, result) => {
+        if (err) {
             throw err;
         }
-        else{
+        else {
             console.log(result);
             res.send(result);
         }
@@ -207,29 +207,29 @@ app.get("/adminInf",function(req,res){
 })
 
 /**后台手动添加用户信息 */
-app.post("/addHoutaiuser",(req,res)=>{
+app.post("/addHoutaiuser", (req, res) => {
     let data = req.body;
-    let message1 = {success:0};
-    let message2 = {success:1};
-    let pic="https://s2.ax1x.com/2019/12/10/QDpwMq.jpg";
+    let message1 = { success: 0 };
+    let message2 = { success: 1 };
+    let pic = "https://s2.ax1x.com/2019/12/10/QDpwMq.jpg";
     var con = mysql.createConnection(dbconfig);
     con.connect();
-    con.query("select count(*) from users where username ='"+data.username+"'",function(err,result){
-        if(err){
+    con.query("select count(*) from users where username ='" + data.username + "'", function (err, result) {
+        if (err) {
             throw err;
         }
-        else{
-            if(result[0]["count(*)"] === 0){
-                con.query("insert into users(username,password,Name,Phone,Pic) values(?,?,?,?,?)",[data.username,data.password,data.name,data.phone,pic],(err,result)=>{
-                    if(err){
+        else {
+            if (result[0]["count(*)"] === 0) {
+                con.query("insert into users(username,password,Name,Phone,Pic) values(?,?,?,?,?)", [data.username, data.password, data.name, data.phone, pic], (err, result) => {
+                    if (err) {
                         throw err;
                     }
-                    else{
+                    else {
                         res.send(message1);
                     }
                 })
             }
-            else{
+            else {
                 res.send(message2);
             }
         }
@@ -238,7 +238,7 @@ app.post("/addHoutaiuser",(req,res)=>{
 
 /**获取用户名 更新数据库，反馈用户收藏信息 黄*/
 var loginusername = ''
-app.get("/getusername",function (req,res) {
+app.get("/getusername", function (req, res) {
     console.log(req.url);
     console.log((req.url).split("="))
     loginusername = (req.url.split("=")[1]);
@@ -246,62 +246,62 @@ app.get("/getusername",function (req,res) {
     var con = mysql.createConnection(dbconfig);
     con.connect();
     con.query("update post set collection = 0")
-    con.query("select postID from collection where username = ?",[loginusername],(err,result)=>{
-        if(err){
+    con.query("select postID from collection where username = ?", [loginusername], (err, result) => {
+        if (err) {
             throw err
-        }else{
+        } else {
             console.log(result);
-            
-            for(let i = 0;i<result.length;i++){
+
+            for (let i = 0; i < result.length; i++) {
                 console.log(result[i].postID)
-                con.query("update post set collection=1 where ID= ?",[result[i].postID])
+                con.query("update post set collection=1 where ID= ?", [result[i].postID])
             }
         }
     })
 })
 
 /**帖子_热门渲染 */
-app.get('/tiezi',function(req,res){
+app.get('/tiezi', function (req, res) {
     /**连接数据库 */
     var con = mysql.createConnection(dbconfig);
     con.connect();
-    con.query("select * from tiezi",function(err,result){
-        if(err){
+    con.query("select * from tiezi", function (err, result) {
+        if (err) {
             throw err;
-        }else{
-           res.send(result);
+        } else {
+            res.send(result);
         }
     })
 })
 /**获取数据库中的贴子标题及内容 黄*/
-app.get('/gettiezi',function (req,res) {
+app.get('/gettiezi', function (req, res) {
     var con = mysql.createConnection(dbconfig);
     con.connect();
-    con.query("select * from post",function (err,result) {
-        if(err){
+    con.query("select * from post", function (err, result) {
+        if (err) {
             throw err
-        }else{
-            res.writeHead(200, {"Content-Type": "text/plain;charset=utf-8"})
+        } else {
+            res.writeHead(200, { "Content-Type": "text/plain;charset=utf-8" })
             res.end(JSON.stringify(result));
         }
     })
-    
+
 })
 
 /**发帖 黄*/
-app.post('/posting',function (req,res) {
+app.post('/posting', function (req, res) {
     let data = req.body;
     console.log(data)
-    let message1 = {success:true};
-    let message2 = {success:false};
+    let message1 = { success: true };
+    let message2 = { success: false };
 
     var con = mysql.createConnection(dbconfig);
     con.connect();
-    con.query("insert into post(username,title,tzcontent,collection,time,lable) values(?,?,?,?,?,?)",[loginusername,data.title,data.content,0,data.date,data.value],(err,result)=>{
-        if(err){
+    con.query("insert into post(username,title,tzcontent,collection,time,lable) values(?,?,?,?,?,?)", [loginusername, data.title, data.content, 0, data.date, data.value], (err, result) => {
+        if (err) {
             console.log(err);
             res.send(message2)
-        }else{
+        } else {
             res.send(message1)
         }
     })
@@ -309,7 +309,7 @@ app.post('/posting',function (req,res) {
 
 /**上传帖子内容 黄*/
 var a = {}
-app.post('/postxiangqing',function (req,res) {
+app.post('/postxiangqing', function (req, res) {
     console.log(req.body)
     console.log(req.body.data);
     a = req.body;
@@ -318,22 +318,22 @@ app.post('/postxiangqing',function (req,res) {
 })
 
 /**渲染详情页 黄*/
-app.get('/getxiangqing',function (req,res) {
+app.get('/getxiangqing', function (req, res) {
     console.log(a)
-    res.writeHead(200, {"Content-Type": "text/plain;charset=utf-8"})
+    res.writeHead(200, { "Content-Type": "text/plain;charset=utf-8" })
     res.end(JSON.stringify(a));
 })
 
 /**上传评论 黄*/
-app.post('/postcomment',function (req,res) {
+app.post('/postcomment', function (req, res) {
     console.log(req.body);
     var con = mysql.createConnection(dbconfig);
     con.connect();
-    con.query("insert into comment(context,title) values(?,?)",[req.body.comment,req.body.title],(err,result)=>{
-        if(err){
+    con.query("insert into comment(context,title) values(?,?)", [req.body.comment, req.body.title], (err, result) => {
+        if (err) {
             throw err;
         }
-        else{
+        else {
             console.log(result);
             res.send(JSON.stringify(result))
         }
@@ -341,14 +341,14 @@ app.post('/postcomment',function (req,res) {
 })
 
 /**得到评论 黄*/
-app.get('/getcomment',function (req,res) {
+app.get('/getcomment', function (req, res) {
     console.log(req.query.id)
     var con = mysql.createConnection(dbconfig);
     con.connect();
-    con.query("SELECT * FROM comment WHERE title = ?",[req.query.id],(err,result)=>{
-        if(err){
+    con.query("SELECT * FROM comment WHERE title = ?", [req.query.id], (err, result) => {
+        if (err) {
             console.log(err)
-        }else{
+        } else {
             console.log(result)
             res.send(JSON.stringify(result))
         }
@@ -356,46 +356,46 @@ app.get('/getcomment',function (req,res) {
 })
 
 /**更新某一用户的帖子收藏信息 黄*/
-app.post('/postshoucang',function (req,res) {
+app.post('/postshoucang', function (req, res) {
     console.log(req.body.data);
     var con = mysql.createConnection(dbconfig);
     con.connect();
-    if(req.body.data.collection == 1){
-        con.query("update post set collection = 1 where ID = ?",[req.body.data.id])
-        con.query("select * from post ",(err,result)=>{
-            if(err){
+    if (req.body.data.collection == 1) {
+        con.query("update post set collection = 1 where ID = ?", [req.body.data.id])
+        con.query("select * from post ", (err, result) => {
+            if (err) {
                 throw err
-            }else{
+            } else {
                 console.log(result)
                 res.send(result)
             }
         })
-        con.query("insert into collection(username,postID) values(?,?)",[loginusername,req.body.data.id])
+        con.query("insert into collection(username,postID) values(?,?)", [loginusername, req.body.data.id])
     }
-    else{
-        con.query("update post set collection = 0 where id = ?",[req.body.data.id])
-        con.query("select * from post ",(err,result)=>{
-            if(err){
+    else {
+        con.query("update post set collection = 0 where id = ?", [req.body.data.id])
+        con.query("select * from post ", (err, result) => {
+            if (err) {
                 throw err
-            }else{
+            } else {
                 console.log(result)
                 res.send(result)
             }
         })
-        con.query("delete from collection where username = ? and postID = ?",[loginusername,req.body.data.id])
+        con.query("delete from collection where username = ? and postID = ?", [loginusername, req.body.data.id])
     }
-    
+
 })
 
 /**获取某用户下有收藏标记的所有帖子信息 黄*/
-app.get('/getshoucang',function (req,res) {
+app.get('/getshoucang', function (req, res) {
     var con = mysql.createConnection(dbconfig);
     con.connect();
-    con.query("select * from post where ID in (select postID from collection where username = ?)",[loginusername],function(err,result){
-        if(err){
+    con.query("select * from post where ID in (select postID from collection where username = ?)", [loginusername], function (err, result) {
+        if (err) {
             throw err;
         }
-        else{
+        else {
             console.log(result)
             res.send(JSON.stringify(result))
         }
@@ -405,14 +405,14 @@ app.get('/getshoucang',function (req,res) {
 
 
 /** 获取攻略收藏 */
-app.get('/getshoucanggl',function (req,res) {
+app.get('/getshoucanggl', function (req, res) {
     var con = mysql.createConnection(dbconfig);
     con.connect();
-    con.query("select * from schoolraider where ID in (select postID from gonglvesc where username = ?)",[loginusername],function(err,result){
-        if(err){
+    con.query("select * from schoolraider where ID in (select postID from gonglvesc where username = ?)", [loginusername], function (err, result) {
+        if (err) {
             throw err;
         }
-        else{
+        else {
             console.log(result)
             res.send(JSON.stringify(result))
         }
@@ -430,9 +430,9 @@ app.get('/getCollegeDetails', function (req, res) {
             throw err;
         }
         else {
-            if(result[0] == null){
+            if (result[0] == null) {
                 res.send(false);
-            }else{
+            } else {
                 console.log(result[0])
                 res.send(result[0]);
             }
@@ -450,9 +450,9 @@ app.get('/getCollegeRaiders', function (req, res) {
             throw err;
         }
         else {
-            if(result[0] == null){
+            if (result[0] == null) {
                 res.send(false);
-            }else{
+            } else {
                 res.send(result);
             }
         }
@@ -464,7 +464,7 @@ app.get('/getRaidersDetails', function (req, res) {
     // console.log(req.query.title1);
     var con = mysql.createConnection(dbconfig);
     con.connect();
-    con.query("select * from schoolraider where rTitleP=? and rTitleSpan=?", [req.query.title1,req.query.title2], (err, result) => {
+    con.query("select * from schoolraider where rTitleP=? and rTitleSpan=?", [req.query.title1, req.query.title2], (err, result) => {
         if (err) {
             throw err;
         }
@@ -477,24 +477,53 @@ app.get('/getRaidersDetails', function (req, res) {
 
 
 /**qin__获取users表信息 —— 用于编辑资料 */
-app.get('/getEditor',function (req,res) {
+app.get('/getEditor', function (req, res) {
     var con = mysql.createConnection(dbconfig);
     con.connect();
-    con.query("select * from users where username=?",[User],function (err,result) {
-        if(err){
+    con.query("select * from users where username=?", [User], function (err, result) {
+        if (err) {
             throw err
-        }else{
-            console.log(111)
-            console.log(result[0])
-            res.writeHead(200, {"Content-Type": "text/plain;charset=utf-8"})
-            res.end(JSON.stringify(result[0]));
+        } else {
+            if(result[0]){
+                res.writeHead(200, { "Content-Type": "text/plain;charset=utf-8" })
+                res.end(JSON.stringify(result[0]));
+            }
+            else{
+                res.end(JSON.stringify(false));
+            }
+        }
+    })
+})
+
+/**qin__编辑users表信息 —— 用于编辑资料 */
+app.post('/changeEditor', function (req, res) {
+    /**获取请求体数据 */
+    let data = req.body;
+    let message1 = { success: true };
+    let message2 = { success: false };
+    /**连接数据库 */
+    var con = mysql.createConnection(dbconfig);
+    con.connect();
+    con.query("update users set username=?, Signature=? where username=?", [data.username, data.signature, User], function (err, result) {
+        if (err) {
+            throw err;
+        }
+        else {
+            if (result == false) {
+                res.send(message2);
+            }
+            else {
+                User = data.username;
+                res.send(message1);
+            }
         }
     })
 })
 
 
-var server = app.listen(8080,()=>{
+
+var server = app.listen(8080, () => {
     var host = server.address().address;
     var port = server.address().port;
-    console.log("访问地址为http://%s:%s",host,port);
+    console.log("访问地址为http://%s:%s", host, port);
 })

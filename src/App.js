@@ -35,6 +35,7 @@ import Quanzi from './container/community/Quanzi'
 /*************************************我的 *************************************/
 import MineTab from './container/mine/MineTab'
 import Editor from './container/mine/mineContainer/Editor'
+import About from './container/mine/mineContainer/About'
 import Mine from './container/mine/Mine';
 import Shoucang from './container/community/tabs/Shoucang';
 import Shoucanggl from './container/community/tabs/Shoucanggl';
@@ -78,6 +79,7 @@ export default class App extends Component {
                     {/************************************** 我的 *********************************/}
                     <Route path="/MineTab" exact component={MineTab} />
                     <Route path='/MineTab/editor' component={Editor} />
+                    <Route path='/MineTab/about' component={About} />
                     <Route path='/Mine' component={Mine} />
                     <Route path='/tiezi/shoucang' component={Shoucang} />
                     <Route path='/gonglue/shoucang' component={Shoucanggl} />

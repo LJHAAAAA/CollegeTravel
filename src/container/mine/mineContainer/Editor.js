@@ -8,7 +8,9 @@ export default class Editor extends Component {
     constructor(props){
         super(props);
         this.state={
-            data:[]
+            data:[],
+            username:'',
+            signature:''
         } 
     }
     componentDidMount = ()=>{
@@ -17,17 +19,48 @@ export default class Editor extends Component {
         .then(
             (res)=>{
                 this.setState({
-                    data:res
+                    data:res,
+                    username:res.username,
+                    signature:res.Signature
                 })
-                console.log('res');
-                console.log(this.state.data)
             }
         )
     }
-   
+    
+    userchange = (e)=>{
+        this.setState({
+            username:e.target.value
+        })
+    }
+
+    sigchange = (e)=>{
+        this.setState({
+            signature:e.target.value
+        })
+    }
+
+    click = ()=>{
+        let obj = {username:this.state.username, signature:this.state.signature};
+        let send = JSON.stringify(obj);
+        fetch("http://localhost:8080/changeEditor",{
+            method:'POST',
+            headers:{"Content-Type":"application/json;charset=utf-8"},
+            body:send
+        }).then(res=>res.json())
+        .then(
+            (res)=>{
+                if(res.success){
+                    alert('编辑成功！')
+                }else{
+                    alert('编辑失败！')
+                }
+            }
+        )
+    }
+
     render() {
             return (
-                <Fragment>
+                <div style={{width:'100%', height:'100vh', backgroundColor:'white'}}>
                     <div>
                     <NavBar
                         mode="light"
@@ -38,22 +71,15 @@ export default class Editor extends Component {
                     </div>
                     <WhiteSpace/>
                     <WingBlank>
-                        <div className='lv_input'>
-                            <span>
-                                用户名：
-                            </span>
-                            {/* <input placeholder={this.state.data[0].nicheng}></input> */}
-                        </div>
-                        <div className='lv_input'>
-                            <span>
-                                个性签名：
-                            </span>
-                            {/* <input placeholder={this.state.data[0].jianjie}></input> */}
+                        <div className='qinEditorContent'>
+                            <p>用户名：</p>
+                            <input defaultValue={this.state.data.username} onChange={this.userchange}></input>
+                            <p>个性签名：</p>
+                            <input defaultValue={this.state.data.Signature} onChange={this.sigchange}></input>
+                            <button onClick={this.click}>提交</button>
                         </div>
                     </WingBlank>
-                    {/* <div onClick={this.changeName}>提交</div> */}
-                </Fragment>             
+                </div>             
             )
-        
     }
 }

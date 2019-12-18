@@ -7,7 +7,10 @@ export default class Mine extends Component {
     constructor(props){
         super(props);
         this.state={
-            data:[]
+            data:{
+                username:'未登录',
+                Signature:'暂未编辑'
+            }
         } 
     }
     componentDidMount = ()=>{
@@ -15,20 +18,34 @@ export default class Mine extends Component {
         .then(res=>res.json())
         .then(
             (res)=>{
-                this.setState({
-                    data:res
-                })
-                console.log('res');
-                console.log(this.state.data)
+                if(res){ 
+                    this.setState({
+                        data:res
+                    })
+                    console.log('res');
+                    console.log(this.state.data)
+                }                
             }
         )
     }
         
     
-    editor = () => {
-        // console.log(1)
+    editor = ()=>{
         his.push('/MineTab/editor');
         window.location.reload();
+    }
+    about = ()=>{
+        his.push('/MineTab/about');
+        window.location.reload();
+    }
+    Exit = ()=>{
+        var confirm = window.confirm("确认退出？");
+        if(confirm){
+            his.push('/');
+            window.location.reload();
+        }else{
+            
+        }
     }
     render() {
         return (
@@ -38,7 +55,7 @@ export default class Mine extends Component {
                     <NavBar
                         style={{ zIndex: '999', backgroundColor: 'rgb(77,199,249)', position: 'fixed', width: '100vw' }}
                         mode="light"
-                    >我的</NavBar>
+                    ><span style={{color:'white',fontFamily:'楷体',fontWeight:'bolder',fontSize:'6.5vw'}}>我&nbsp;&nbsp;的</span></NavBar>
                 </div>
                 <div><NavBar></NavBar></div>
                 <div className='lv_headImg'>
@@ -65,15 +82,12 @@ export default class Mine extends Component {
                         <img src='https://s2.ax1x.com/2019/12/17/QoqKyT.png' />
                         <p>编辑资料</p> 
                     </div>
-                    <div className='qinMineEvery'>
+                    <div className='qinMineEvery' onClick={this.about}>
                         <img src='https://s2.ax1x.com/2019/12/17/QoqeWq.png' />
                         <p>关于我们</p> 
                     </div>
-                    <button className='qinMineExit'>退出登录</button>
+                    <button className='qinMineExit' onClick={this.Exit}>退出登录</button>
                 </div>
-
-
-
             </Fragment>
         )
     }
