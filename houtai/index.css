@@ -340,7 +340,7 @@
   }
   .liu_up8{
     font-size: 1rem;
-    margin-left: 43vw;
+    margin-left: 45vw;
     margin-top: -2.3vh;
     color: rgb(91, 41, 41);
   }
@@ -535,12 +535,137 @@
   .liu_uc5{
     font-weight: bold;
     font-size: 1rem;
-    margin-left: 22vw;
+    margin-left: 20vw;
     margin-top: -2.7vh;
     color: rgb(91, 41, 41);
   }
   .liu_uc6{
     width: 27vw;
     margin-left: 30vw;
-    margin-top: -4.5vh;
+    margin-top: -4vh;
+    font-weight: bold;
+    font-size: 0.8rem;
+    color: rgb(91, 41, 41);
+  }
+  .liu_str6{
+    font-weight: bold;
+    font-size: 0.8rem;
+    color: rgb(91, 41, 41);
+    width: 20vw;
+    height: 7.5vh;
+    margin-left: 34vw;
+    margin-top: -5.7vh;
+    overflow: hidden;
+    text-indent:2em;
+  }
+
+  .tiezi1{
+    font-size: 1.3rem;
+    font-family: Xingkai SC;
+    margin-left: 5vw;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+  }
+  .tiezi2{
+    font-size: 1.3rem;
+    font-family: Xingkai SC;
+    margin-left: 10vw;
+    margin-top: -6.3vh;
+    margin-bottom: 3vh;
+  }
+  .tiezi3{
+    font-size: 1.3rem;
+    font-family: Xingkai SC;
+    margin-left: 19vw;
+    margin-top: -3vw;
+    margin-bottom: 3vh;
+  }
+  .tiezi4{
+    font-size: 1.3rem;
+    font-family: Xingkai SC;
+    margin-left: 30vw;
+    margin-top: -3vw;
+    margin-bottom: 3vh;
+  }
+  .tiezi5{
+    font-size: 1.3rem;
+    font-family: Xingkai SC;
+    margin-left: 45vw;
+    margin-top: -3vw;
+    margin-bottom: 3vh;
+  }
+  .tiezi6{
+    font-weight: bold;
+    font-size: 1rem;
+    margin-left: 2vw;
+    padding-top: 3.2vh;
+    color: rgb(91, 41, 41);
+  }
+  .tiezi7{
+    font-weight: bold;
+    font-size: 1rem;
+    margin-left: 6vw;
+    margin-top: -2.3vh;
+    color: rgb(91, 41, 41);
+  }
+  .tiezi8{
+    width: 7vw;
+    height: 4.2vh;
+    overflow: hidden;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-left: 14vw;
+    margin-top: -2.8vh;
+    color: rgb(91, 41, 41);
+  }
+  .tiezi9{
+    width: 14vw;
+    height: 5.2vh;
+    overflow: hidden;
+    font-weight: bold;
+    font-size: 0.75rem;
+    margin-left: 24.5vw;
+    margin-top: -5vh;
+    color: rgb(91, 41, 41);
+  }
+  .tiezi10{
+    font-size: 1.3rem;
+    font-family: Xingkai SC;
+    margin-left: 54.5vw;
+    margin-top: -3vw;
+    margin-bottom: 3vh;
+  }
+  .tiezi11{
+    width: 14vw;
+    height: 5.2vh;
+    overflow: hidden;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-left: 42.5vw;
+    margin-top: -4vh;
+    color: rgb(91, 41, 41);
+  }
+  .tiezi12{
+    width: 14vw;
+    height: 5.2vh;
+    overflow: hidden;
+    font-weight: bold;
+    font-size: 0.7rem;
+    margin-left: 50vw;
+    margin-top: -5vh;
+    color: rgb(91, 41, 41);
+  }
+  .tiezi13{
+    font-weight: bold;
+    position: absolute;
+    top: 90.5vh;
+    left: 30vw;
+    width: 8vw;
+    height: 3vh;
+    padding-top: 1vh;
+    text-align: center;
+    border-radius: 10px;
+    background: rgb(8, 111, 84);
+    position: absolute;
+    color: rgb(142, 218, 163);
   }
