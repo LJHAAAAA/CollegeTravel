@@ -541,6 +541,7 @@ app.get('/getEditor', function (req, res) {
     })
 })
 
+
 /**qin__编辑users表信息 —— 用于编辑资料 */
 app.post('/changeEditor', function (req, res) {
     /**获取请求体数据 */
@@ -550,7 +551,7 @@ app.post('/changeEditor', function (req, res) {
     /**连接数据库 */
     var con = mysql.createConnection(dbconfig);
     con.connect();
-    con.query("update users set username=?, Signature=? where username=?", [data.username, data.signature, loginusername], function (err, result) {
+    con.query("update users set username=?, Signature=?, Phone=? where username=? ", [data.username, data.signature, data.Phone, loginusername], function (err, result) {
         if (err) {
             throw err;
         }
@@ -565,7 +566,6 @@ app.post('/changeEditor', function (req, res) {
         }
     })
 })
-
 
 
 
