@@ -85,12 +85,12 @@ export default class Xiangqing extends Component {
                         <div className='mu_yhxx'>
                             <img src={'https://s2.ax1x.com/2019/12/18/QTHeo9.png'} className='mu_usertou2' alt='用户头像'></img>
                             <p className='mu_userming2'>{this.state.data.username}</p>
-                            <p className='mu_riqi'>2019-12-10</p>
+                            <p className='mu_riqi'>{this.state.data.time}</p>
                         </div>
                         <div>
                             <WingBlank className='mu_zw'>{this.state.data.tzcontent}
                             </WingBlank>
-                            <p className='mu_xue'>#清华大学</p>
+                            <p className='mu_xue'>{this.state.data.lable}</p>
                         </div>
                         <div style={{marginTop:'5vh',marginLeft:'4vw'}}>
                             <input type='text' placeholder="输入评论" onChange={this.commentChange} />
