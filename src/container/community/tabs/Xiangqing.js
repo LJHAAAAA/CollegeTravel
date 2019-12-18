@@ -43,9 +43,9 @@ export default class Xiangqing extends Component {
             a: e.target.value
         })
     }
-    onkeyDown = (e)=>{
-        if(e.keyCode === 13){
-            return this.sComment() ;
+    onkeyDown = (e) => {
+        if (e.keyCode === 13) {
+            return this.sComment();
         }
     }
     sComment = () => {
@@ -93,17 +93,25 @@ export default class Xiangqing extends Component {
                         <div>
                             <WingBlank className='mu_zw'>{this.state.data.tzcontent}
                             </WingBlank>
-                            <p className='mu_xue'>{this.state.data.lable}</p>
+                            <p style={{
+                                border: '1px solid gray',
+                                borderRadius: '2vw',
+                                width: '35vw',
+                                textAlign: 'center',
+                                height: '3vh',
+                                marginLeft: '60%',
+                                marginTop: '3vh'
+                            }}>#{this.state.data.lable}</p>
                         </div>
-                        <div style={{ marginTop: '5vh', marginLeft: '4vw' }}>
-                            <input type='text' placeholder="输入评论" onChange={this.commentChange} onKeyDown={this.onkeyDown}/>
+                        <div style={{ marginTop: '1vh', marginLeft: '8vw' }}>
+                            <input style={{ width: '70vw', marginBottom: '1vh', marginTop: '1vh' }} type='text' placeholder="输入评论" onChange={this.commentChange} onKeyDown={this.onkeyDown} />
                             <button onClick={() => { return this.sComment() }}>提交</button>
                             <p>{this.state.mycomment}</p>
                         </div>
                         <ul>
                             {
                                 this.state.comment.map((item, idx) =>
-                                    <li key={idx} style={{ marginLeft: '4vw',marginTop:'1vh' }}>
+                                    <li key={idx} style={{ marginLeft: '8vw', marginTop: '1vh' }}>
                                         {item.context}
                                     </li>)
                             }
