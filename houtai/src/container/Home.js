@@ -5,6 +5,7 @@ import Admin from './Admin';
 import User from './User';
 import College from './College';
 import Strategy from './Strategy';
+import Tiezi from './Tiezi';
 
 export default class Home extends Component {
     constructor(props){
@@ -128,6 +129,7 @@ export default class Home extends Component {
                         <Route path="/home/admin/:name" exact component={Admin}></Route>
                         <Route path="/home/user" component={User}></Route>
                         <Route path="/home/college" component={College}/>
+                        <Route path="/home/message" component={Tiezi} />
                         <Route path="/home/strategy" component={Strategy}/>
                     </div>
                 </div>
