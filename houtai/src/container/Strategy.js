@@ -64,7 +64,7 @@ export default class Strategy extends Component {
                                 <img src={item.rImg} alt="" className="liu_upic"/>
                                 <p className="liu_uc4">{item.schoolName}</p>
                                 <p className="liu_uc5">{item.rTag}</p>
-                                <p className="liu_uc6">{item.rDetai1}</p>
+                                <p className="liu_str6">{item.rDetai1}</p>
                             </div>
                         ))
                     }
