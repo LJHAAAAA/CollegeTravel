@@ -65,6 +65,8 @@ export default class Mine extends Component {
     }
 
     render() {
+        let src = this.state.data.Pic ? this.state.data.Pic : "https://s2.ax1x.com/2019/12/17/QoDw1P.jpg";
+        let sig = this.state.data.Signature ? this.state.data.Signature : "暂未编辑";
         return (
             <Fragment>
                 <NavBar
@@ -77,11 +79,11 @@ export default class Mine extends Component {
                 </div>
                 <div style={{ backgroundColor: 'white' }}>
                     <div className="lv_touxiang">
-                        <img src="https://s2.ax1x.com/2019/12/17/QoDw1P.jpg" />
+                        <img src={src}/>
                     </div>
 
                     <p style={{ position: 'relative', top: '-6vh', textAlign: 'center' }}>{this.state.data.username}</p>
-                    <p style={{ position: 'relative', top: '-5vh', textAlign: 'center' }}>{this.state.data.Signature}</p>
+                    <p style={{ position: 'relative', top: '-5vh', textAlign: 'center' }}>{sig}</p>
                 </div>
                 <div className='qinMineContent'>
                     <div className='qinMineEvery'>
