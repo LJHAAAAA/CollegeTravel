@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom';
-import {createBrowserHistory} from 'history';
-const his = createBrowserHistory();
+
+
 
 export default class User extends Component {
     constructor(props){
