@@ -43,9 +43,14 @@ export default class Xiangqing extends Component {
             a: e.target.value
         })
     }
+    onkeyDown = (e)=>{
+        if(e.keyCode === 13){
+            return this.sComment() ;
+        }
+    }
     sComment = () => {
         this.setState({
-            mycomment: this.state.a
+            mycomment: this.state.a,
         })
         let text = {
             title: this.state.data.title,
@@ -66,15 +71,13 @@ export default class Xiangqing extends Component {
                     }
                 )
         }
-
     }
     fanhui = () => {
         his.push('/communityTab');
         window.location.reload();
     }
     render() {
-        // console.log(this.state.data);
-        if(this.state.data&&this.state.data.title){
+        if (this.state.data && this.state.data.title) {
             return (
                 <div style={{ width: '100%', backgroundColor: '#fff' }} >
                     <div className='mu_shoucangtop'>
@@ -92,16 +95,15 @@ export default class Xiangqing extends Component {
                             </WingBlank>
                             <p className='mu_xue'>{this.state.data.lable}</p>
                         </div>
-                        <div style={{marginTop:'5vh',marginLeft:'4vw'}}>
-                            <input type='text' placeholder="输入评论" onChange={this.commentChange} />
+                        <div style={{ marginTop: '5vh', marginLeft: '4vw' }}>
+                            <input type='text' placeholder="输入评论" onChange={this.commentChange} onKeyDown={this.onkeyDown}/>
                             <button onClick={() => { return this.sComment() }}>提交</button>
-    
-                            {/* <p style={{marginLeft:'4vw'}}>{this.state.mycomment}</p> */}
+                            <p>{this.state.mycomment}</p>
                         </div>
                         <ul>
                             {
                                 this.state.comment.map((item, idx) =>
-                                    <li key={idx}>
+                                    <li key={idx} style={{ marginLeft: '4vw',marginTop:'1vh' }}>
                                         {item.context}
                                     </li>)
                             }
@@ -110,8 +112,8 @@ export default class Xiangqing extends Component {
                 </div>
             )
         }
-        else{
-            return(
+        else {
+            return (
                 <div>
                 </div>
             )
