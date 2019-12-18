@@ -774,40 +774,47 @@
     float: left;
   }
   /* content */
-  .mu_remen{
-    width:100%;
-    height:26vw;
-    background:#fff;
-    margin-bottom: 3vw;
-    border:1px solid #BBBBBB;
+  .qin_remen{
+    width:95%;
+    margin: 0 auto;
+    margin-top: 1vh;
+    height:35vw;
+    background-color: rgba(90, 168, 241, 0.205);
+    border-radius: 5vw;
     font-size: 3vw;
     position: relative;
+    
   }
-  .mu_user{
-    width:100%;
-    height:8vw;
-    position: absolute;
-    top:3vw;
+  .qinremenTitle{
+    width:60%;
+    height: 5.3vh;
+    overflow: hidden;
+    padding-top: 2vh;
+    margin-left: 5vw;
+    font-size: 5vw;
+    color: rgb(26, 85, 119);
+    text-shadow:rgba(42, 129, 209, 0.397) 1px 1px 2px;
   }
   .mu_usertou{
-    float:left;
-    margin:1vw 2vw;
+    /* float:left; */
+    /* margin:1vw 2vw;
     width:6vw;
-    height:6vw;
+    height:6vw; */
   }
   .mu_userming{
-    float:left;
-    margin:2vw 3vw 1vw;
+    /* float:left;
+    margin-top: 2vh;
+    margin:2vw 3vw 1vw; */
   }
   .mu_yhwenzi{
-    height: 6.5vw;
+    /* height: 6.5vw;
     overflow: hidden;
     position: absolute;
-    top:11vw;
+    top:11vw; */
   }
   .mu_zan{
     float: right;
-    top:19vw;
+    margin-top:4vh;
     right:3vw;
     position: absolute;
   }
@@ -832,7 +839,7 @@
   }
   .mu_lankuai{
     width: 100%;
-    height: 25vw;
+    height: 15vh;  
     background-color: cornflowerblue;
   }
   .mu_neirong{
@@ -1400,7 +1407,7 @@
 /**************** shoucang ************/
 .mu_shoucangtop{
   width:100%;
-  height: 10vw;
+  height: 7vh;
   background-color: white;
 }
 .mu_fanhui{
@@ -1450,6 +1457,7 @@
 /****************** 帖子详情 **********************/
 .mu_t{
   width:100%;
+  padding-bottom: 10vh;
   background-color: blanchedalmond;
   /* height:90vw; */
   position: relative;
@@ -1500,6 +1508,7 @@
     padding:1vw;
 }
 
+/* ********************************************* */
 /* ********************************************* */
 /* 修改资料 */
 .qinEditorContent{
@@ -1612,4 +1621,18 @@
   margin-top: 30%;
   margin-left: 60%;
   font-size: 4.5vw;
+}
+/* ************************************************** */
+/* 忘记密码 */
+
+.lv_forget{
+  width: 48vw;
+  height: 5vh;
+  background-color: rgba(255,255,255,0.5);
+  border-radius: 5vw;
+
+}
+.lv_forget p{
+  margin: 0 auto;
+  line-height: 5vh;
 }

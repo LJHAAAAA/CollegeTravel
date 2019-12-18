@@ -39,7 +39,7 @@ export default class Register extends Component {
         })
     }
     getConnect=()=>{
-        let text = {username:this.state.username,password:this.state.password,repassword:this.state.repassword};
+        let text = {username:this.state.username,password:this.state.password,repassword:this.state.repassword,mobile:this.state.mobile};
         let send = JSON.stringify(text);
         console.log(this.state.checkNum);
         console.log(this.state.trueNum);

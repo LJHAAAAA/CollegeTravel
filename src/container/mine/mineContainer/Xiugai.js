@@ -9,7 +9,7 @@ export default class Xiugai extends Component {
         super(props);
         this.state={
             data:[]
-        } 
+        }
     }
 
     changeName = (e)=>{

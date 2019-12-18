@@ -21,6 +21,8 @@ export default class Login extends Component {
             password:e.target.value
         })
     }
+
+    
     getConnect=()=>{
         let text = {username:this.state.username,password:this.state.password};
         let send = JSON.stringify(text);  //需要把对象转换成JSON字符串去进行传输
@@ -33,7 +35,7 @@ export default class Login extends Component {
         .then(
             data=>{
                 if(data.success){
-                    his.push('/home');
+                    his.push(`/home?username=${this.state.username}`);
                     window.location.reload();
                 }
                 else{
@@ -51,9 +53,9 @@ export default class Login extends Component {
                             <input type="text" name="username" className="Login-1" placeholder="请输入用户名" onChange={this.userChange}/>
                         </div>
                         <div className="Login_img1 iconfont icon-mimasuo">
-                            <input type="password" name="pwd" className="Login-2" placeholder="请输入密码" onChange={this.pwdChange}/>
+                            <input type="password" name="pwd" className="Login-2" placeholder="请输入密码" onChange={this.pwdChange} />
                         </div>
-                        <input type="button" value="登 录" className="Login-3" onClick={this.getConnect}/>
+                        <input type="button" value="登 录" className="Login-3"  onClick={this.getConnect}/>
                     </div>
                 </div>
             </div>
