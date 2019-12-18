@@ -101,7 +101,7 @@ export default class Xiangqing extends Component {
                                 height: '3vh',
                                 marginLeft: '60%',
                                 marginTop: '3vh'
-                            }}>#{this.state.data.lable}</p>
+                            }}>{this.state.data.lable}</p>
                         </div>
                         <div style={{ marginTop: '1vh', marginLeft: '8vw' }}>
                             <input style={{ width: '70vw', marginBottom: '1vh', marginTop: '1vh' }} type='text' placeholder="输入评论" onChange={this.commentChange} onKeyDown={this.onkeyDown} />
