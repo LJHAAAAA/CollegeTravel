@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<!-- saved from url=(0097)https://free.modao.cc/app/7b12d452a66e52f63abfde7f536b6e15588b2d25#screen=s4401f987912f52f66694b8 -->
+<html class="mb-event windows" data-server-country="CN" lang="zh-Hans-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="yes" name="mobile-web-app-capable">
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+<meta content="webkit" name="renderer">
+<meta content="#F55D54" name="theme-color">
+<title>后台登陆界面副本</title>
+<link href="https://free.modao.cc/images/icon_android.png" rel="icon" sizes="192x192">
+<link href="https://free.modao.cc/images/icon_retina.png" rel="apple-touch-icon" sizes="120x120">
+<link href="https://free.modao.cc/images/icon_retina3x.png" rel="apple-touch-icon" sizes="180x180">
+<link href="https://free.modao.cc/images/icon_ipad.png" rel="apple-touch-icon" sizes="144x144">
+<link href="https://free.modao.cc/images/icon_ipad.png" rel="apple-touch-icon" sizes="152x152">
+<link href="./后台登陆界面副本_files/splash_1571303439.png" media="(device-width: 320px) and (device-height: 568px)" rel="apple-touch-startup-image">
+<link href="./后台登陆界面副本_files/splash_1571303439.png" media="(device-width: 375px) and (device-height: 667px)" rel="apple-touch-startup-image">
+<link href="./后台登陆界面副本_files/splash_1571303439.png" media="(device-width: 414px) and (device-height: 736px)" rel="apple-touch-startup-image">
+<link href="./后台登陆界面副本_files/splash_1571303439.png" media="(device-width: 375px) and (device-height: 812px)" rel="apple-touch-startup-image">
+<link href="./后台登陆界面副本_files/splash_1571303439.png" media="(device-width: 414px) and (device-height: 896px)" rel="apple-touch-startup-image">
+<link href="./后台登陆界面副本_files/splash_1571303439.png" media="(device-width: 768px) and (device-height: 1024px)  and (orientation:portrait)" rel="apple-touch-startup-image">
+<link href="./后台登陆界面副本_files/splash_1571303439.png" media="(device-width: 768px) and (device-height: 1024px)  and (orientation:landscape)" rel="apple-touch-startup-image">
+<style>
+  /* line 1, (__TEMPLATE__) */
+  html, body {
+    font-family: -apple-system, "SF UI Text", "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Zen Hei", sans-serif;
+    font-weight: normal;
+    line-height: 18px;
+    overflow: hidden;
+    height: 100%; }
+  
+  @media screen and (-webkit-min-device-pixel-ratio: 2), screen and (min-resolution: 2 dppx) {
+    /* line 9, (__TEMPLATE__) */
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale; } }
+  /* line 14, (__TEMPLATE__) */
+  html.is-full-screen {
+    height: 100vh; }
+  
+  /* line 17, (__TEMPLATE__) */
+  body {
+    font-size: 12px;
+    background: #F5F5F5;
+    color: #525E71; }
+    /* line 21, (__TEMPLATE__) */
+    body.mobile {
+      background-color: white; }
+  
+  /* line 24, (__TEMPLATE__) */
+  #download, #header {
+    display: none; }
+  
+  /* line 26, (__TEMPLATE__) */
+  #notification {
+    position: fixed;
+    top: -70px;
+    left: 0; }
+  
+  /* line 31, (__TEMPLATE__) */
+  .notice {
+    padding: 10px;
+    font-size: 14px; }
+    /* line 34, (__TEMPLATE__) */
+    .notice p {
+      margin-bottom: 10px; }
+  
+  /* line 36, (__TEMPLATE__) */
+  .spinner {
+    width: 30px;
+    height: 30px;
+    border-width: 3px;
+    border-style: solid;
+    border-color: rgba(51, 54, 58, 0.6) transparent;
+    border-radius: 100%;
+    transform-origin: 50% 50% 0px;
+    -webkit-animation: mb-spin 0.8s infinite linear;
+    animation: mb-spin 0.8s infinite linear;
+    display: inline-block; }
+  
+  @-webkit-keyframes mb-spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg); }
+    100% {
+      -webkit-transform: rotate(359deg);
+      transform: rotate(359deg); } }
+  @keyframes mb-spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg); }
+    100% {
+      -webkit-transform: rotate(359deg);
+      transform: rotate(359deg); } }
+  /* line 63, (__TEMPLATE__) */
+  #safemode, #logo, #device {
+    display: none; }
+  
+  /* line 65, (__TEMPLATE__) */
+  #font-preload {
+    position: absolute;
+    top: -65535px;
+    left: -65535px;
+    font-size: 12px;
+    pointer-events: none; }
+    /* line 71, (__TEMPLATE__) */
+    #font-preload .aw {
+      position: absolute;
+      width: auto;
+      white-space: nowrap; }
+    /* line 75, (__TEMPLATE__) */
+    #font-preload .ah {
+      position: absolute;
+      height: auto;
+      word-break: break-word;
+      word-wrap: break-word; }
+      /* line 80, (__TEMPLATE__) */
+      #font-preload .ah p {
+        margin-bottom: 5px;
+        white-space: pre-wrap; }
+        /* line 83, (__TEMPLATE__) */
+        #font-preload .ah p:last-child {
+          margin-bottom: 0px; }
+    /* line 85, (__TEMPLATE__) */
+    #font-preload .auto-size {
+      white-space: pre;
+      width: -webkit-fit-content;
+      width: -moz-fit-content;
+      width: fit-content; }
+    /* line 90, (__TEMPLATE__) */
+    #font-preload .auto-height {
+      white-space: pre-wrap;
+      word-break: break-word;
+      word-wrap: break-word; }
+  
+  /* line 95, (__TEMPLATE__) */
+  #loading {
+    width: 86px;
+    height: 86px;
+    z-index: 2;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    margin-left: -43px;
+    text-align: center;
+    font-size: 12px; }
+    /* line 105, (__TEMPLATE__) */
+    #loading .logo, #loading .indicator {
+      position: absolute;
+      top: -3px;
+      left: -3px;
+      width: 86px;
+      height: 86px;
+      overflow: hidden;
+      background: url("/images/logo-lg.svg");
+      background-size: 86px 86px; }
+    /* line 114, (__TEMPLATE__) */
+    #loading .logo {
+      opacity: 0.3; }
+    /* line 116, (__TEMPLATE__) */
+    #loading .indicator {
+      opacity: 1;
+      -webkit-transition: all 0.5s ease-in-out;
+      -moz-transition: all 0.5s ease-in-out;
+      transition: all 0.5s ease-in-out;
+      height: 0%; }
+    /* line 122, (__TEMPLATE__) */
+    #loading span {
+      position: absolute;
+      width: 300px;
+      left: 50%;
+      top: 110px;
+      margin-left: -150px;
+      font-size: 14px;
+      line-height: 28px;
+      color: #F77D77; }
+</style>
+<style>
+  /* line 1, (__TEMPLATE__) */
+  ::-webkit-scrollbar-track {
+    background-color: transparent; }
+  
+  /* line 4, (__TEMPLATE__) */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px; }
+  
+  /* line 8, (__TEMPLATE__) */
+  ::-webkit-scrollbar-thumb {
+    background-color: #DEDEE4;
+    border-radius: 4px; }
+  
+  /* line 12, (__TEMPLATE__) */
+  ::-webkit-scrollbar-corner {
+    background-color: transparent; }
+</style>
+
+<style>
+  /* line 1, (__TEMPLATE__) */
+  #splash {
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #f0f0f2; }
+    /* line 10, (__TEMPLATE__) */
+    #splash.is-landscape img {
+      top: 50%;
+      left: 50%;
+      width: 100vh;
+      height: 100vw;
+      transform: translate(-50%, -50%) rotate(-90deg); }
+    /* line 17, (__TEMPLATE__) */
+    #splash img {
+      position: absolute;
+      top: 0px;
+      left: 0;
+      width: 100%;
+      height: 100%; }
+    /* line 24, (__TEMPLATE__) */
+    #splash .spinner {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -15px;
+      margin-left: -15px; }
+</style>
+
+<link rel="stylesheet" media="screen" href="./后台登陆界面副本_files/animate.css">
+
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="D39ZBZQmGbOK1NH6c7TGycemvkIvomNPxkFjzBqJjcw8k/IMQoP4j13KJ7qyGbJNy+3l/538mATHIDCrgDm4yA==">
+<style data-styled="" data-styled-version="4.3.2"></style><style type="text/css">.--mb--rich-text-editor {
+  outline: none;
+  border-color: transparent;
+  user-select: text;
+}
+
+  .--mb--rich-text-editor p {
+    margin: 0;
+  }
+
+  .--mb--rich-text-editor p:last-child {
+    margin-bottom: 0 !important;
+  }
+</style></head>
+<body data-server-country="CN" data-server="free.modao.cc" data-user-id="1484145">
+<div id="font-preload">
+<span class="dora">check</span>
+<span class="md">check</span>
+<span class="mb icon-save"></span>
+<span class="fa fa-user"></span>
+<span class="lh"></span>
+<span class="fa5 fas fa-user"></span>
+<span class="fa5 far fa-user"></span>
+<span class="fa5 fab fa-user"></span>
+<div class="aw"></div>
+<div class="ah" style="font-size: 1px; line-height: 100%;">a</div>
+<div class="auto-size"></div>
+<div class="auto-height"></div>
+</div>
+
+<div id="loading" style="display: none;">
+<div class="logo" deluminate_imagetype="unknown"></div>
+<div class="indicator" style="height: 100%;" deluminate_imagetype="unknown"></div>
+<span>
+正在读取 后台登陆界面副本…
+</span>
+</div>
+<div id="workspace" style="display: block;"><div class="_2YuJcr1wPA2XDaMiaXqdFf"><header class="_3kKqNauE-PaVHPIZg_7k-D"><div class="toolbar-left"><span class="project-name">后台登陆界面副本</span></div><div class="toolbar-main"><div class="_2nN0xGcLm4nwqxIkoQCnMF preview-zoom-btn"><a id="zoomout" title="缩小" class="scale-icon"><svg xmlns="http://www.w3.org/2000/svg" class="svg-icon icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 7h8a1 1 0 0 0 0-2H2a1 1 0 1 0 0 2z"></path></svg></a><span>59%</span><a id="zoomin" title="放大" class="scale-icon"><svg xmlns="http://www.w3.org/2000/svg" class="svg-icon icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M5 5V2a1 1 0 1 1 2 0v3h3a1 1 0 0 1 0 2H7v3a1 1 0 0 1-2 0V7H2a1 1 0 1 1 0-2h3z"></path></svg></a></div><div class="toolbar-main-wrapper"><ol type="slide-nav" class="xnJdrPjsJoJrp1VupFyUM preview-toolbar-nav"><li class="_3UspVqDrjxaWG9BSMdj9jf active"><div class="background-cube" style="transform: translateX(0%); border-left-color: transparent;"></div><div class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" class="svg-icon icon" viewBox="0 0 28 28" aria-hidden="true"><path d="M0 14c-.022-2.314 5.81-9 14-9 8.19 0 13.998 6.776 14 9 .002 2.224-5.607 9-14 9S.022 16.314 0 14zm14 6a6 6 0 1 0 0-12 6 6 0 0 0 0 12zm.261-8.989a2 2 0 0 0 2.728 2.728 3 3 0 1 1-2.728-2.728z"></path></svg></div><span class="nav-label">预览</span></li><li class="_3UspVqDrjxaWG9BSMdj9jf"><div class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" class="svg-icon icon" viewBox="0 0 28 28" aria-hidden="true"><path d="M7.584 7.43a1.502 1.502 0 0 1 0 2.075L3.232 14l4.352 4.495a1.502 1.502 0 0 1 0 2.075 1.388 1.388 0 0 1-2.008 0L.555 15.383a2.002 2.002 0 0 1 0-2.766l5.02-5.187a1.388 1.388 0 0 1 2.009 0zM20.416 7.43a1.388 1.388 0 0 1 2.008 0l5.021 5.187c.74.764.74 2.002 0 2.766l-5.02 5.187a1.388 1.388 0 0 1-2.009 0 1.502 1.502 0 0 1 0-2.075L24.768 14l-4.352-4.495a1.502 1.502 0 0 1 0-2.075z" fill-rule="nonzero"></path><path d="M17.666 3.613a1 1 0 0 1 .62 1.271l-6.68 19.4a1 1 0 0 1-1.891-.651l6.68-19.4a1 1 0 0 1 1.27-.62z"></path></svg></div><span class="nav-label">标注</span></li><li class="_3UspVqDrjxaWG9BSMdj9jf"><div class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" class="svg-icon icon" viewBox="0 0 28 28" aria-hidden="true"><path d="M6 4h16a3 3 0 0 1 3 3v11a3 3 0 0 1-3 3h-4.972L14 24l-3.028-3H6a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3zm2 11a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm12 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm-6 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"></path></svg></div><span class="nav-label">评论</span></li></ol></div></div><div class="toolbar-right"><label class="Dropdown"><button type="button"><span class="Tooltip"><span class="icon dora">cog</span></span></button></label><span class="line"></span><span class="Tooltip"><span class="icon dora share-icon">share</span></span><span class="line"></span><span class="Tooltip" style="line-height: 0; cursor: pointer;"><div class="_3YRMjyxR7LqBuoCfeQbKFK"><svg xmlns="http://www.w3.org/2000/svg" class="svg-icon icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 5l5 2-5 2z"></path><path d="M7 14v-2H1.875A.875.875 0 0 1 1 11.125v-8.25C1 2.392 1.392 2 1.875 2h12.25c.483 0 .875.392.875.875v8.25a.875.875 0 0 1-.875.875H9v2h3v1H4v-1h3zm2-4h4V4H3v6h6z" fill-rule="nonzero"></path></svg></div></span></div></header><div id="preview-content-container" class="preview-content-container"><div id="mb-preview-leftpane" class="styles__StyledLeftPane-uzp97l-0 gIyDsK" style="width: 240px;"><div class="preview-panel-wrapper"><div class="preview-panel styles__StyledPreviewPanel-snkhg3-0 dABowH"><header><ol type="slide-nav" class="xnJdrPjsJoJrp1VupFyUM preview-panel-nav"><li class="_3UspVqDrjxaWG9BSMdj9jf active" title="页面"><div class="background-cube" style="transform: translateX(0%);"></div><div class="nav-icon"><span class="icon dora screen-icon">file_text</span></div></li></ol></header><div class="_2acqq9r0j1_EMjnbcJAZI7"><div class="screen-actions"><div type="search" class="styles__StyledSearchBar-jsl19y-0 eKpWjv"><span class="icon dora search-icon">scale</span><input type="text" placeholder="搜索页面" value=""></div><ol class="radio-line viewmode style__StyledRadioLine-sc-15893ui-0 bnFsGW"><li class="radio-option active" data-value="literal"><div class="move-cube active" style="transform: translateX(0%); border-left-color: transparent;"></div><div class="radio-content"><svg xmlns="http://www.w3.org/2000/svg" class="svg-icon icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M4.81 12h6.38c.447 0 .81-.448.81-1s-.363-1-.81-1H4.81c-.447 0-.81.448-.81 1s.363 1 .81 1zm0-10h6.38c.447 0 .81-.448.81-1s-.363-1-.81-1H4.81C4.363 0 4 .448 4 1s.363 1 .81 1zm0 5h6.38c.447 0 .81-.448.81-1s-.363-1-.81-1H4.81C4.363 5 4 5.448 4 6s.363 1 .81 1zM0 0h2v2H0V0zm0 5h2v2H0V5zm0 5h2v2H0v-2z"></path></svg></div></li><li class="radio-option" data-value="thumbnail"><div class="radio-content"><svg xmlns="http://www.w3.org/2000/svg" class="svg-icon design/thumbnail icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 7h3a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1zm7-7h3a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V1a1 1 0 0 1 1-1z"></path><path d="M8 7h3a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1z" fill-opacity=".4"></path><path d="M1 0h3a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V1a1 1 0 0 1 1-1z"></path></svg></div></li></ol></div><div class="screen-list-container literal"><ul class="styles__StyledScreenList-sc-1v51q5m-0 gtvWMJ"><li data-cid="s4401f987912f52f66694b8" class="rn-content-item"><div type="linkable" data-cid="s4401f987912f52f66694b8" data-link-target-cid="s4401f987912f52f66694b8" class="rn-list-item active styles__StyledScreenItem-sc-1v51q5m-1 lhJkrQ" style="padding-left: 14px;"><div class="screen-name"><svg xmlns="http://www.w3.org/2000/svg" class="svg-icon icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 0v3a2 2 0 0 0 2 2h2v5a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V1a.996.996 0 0 1 1-1h3zm1 .103a1 1 0 0 1 .298.224L9.74 3.014a1 1 0 0 1 .26.673V4H8a1 1 0 0 1-1-1V.103z"></path></svg><span class="_3T6BxPiFZaywEaKQKLyVc9 editable-span">主页</span></div></div></li><li data-cid="s8d980fc4dce7d9e877022f" class="rn-content-item"><div type="linkable" data-cid="s8d980fc4dce7d9e877022f" data-link-target-cid="s8d980fc4dce7d9e877022f" class="rn-list-item styles__StyledScreenItem-sc-1v51q5m-1 lhJkrQ" style="padding-left: 14px;"><div class="screen-name"><svg xmlns="http://www.w3.org/2000/svg" class="svg-icon icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 1H3v9h6V5H8a2 2 0 0 1-2-2V1zm1 .487V3a1 1 0 0 0 1 1h1v-.313l-2-2.2zM3 0h3.558a1 1 0 0 1 .74.327L9.74 3.014a1 1 0 0 1 .26.673V10a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V1a.996.996 0 0 1 1-1z"></path></svg><span class="_3T6BxPiFZaywEaKQKLyVc9 editable-span">页面 2</span></div></div></li><li data-cid="se7e6122ae961db7a057d7d" class="rn-content-item"><div type="linkable" data-cid="se7e6122ae961db7a057d7d" data-link-target-cid="se7e6122ae961db7a057d7d" class="rn-list-item styles__StyledScreenItem-sc-1v51q5m-1 lhJkrQ" style="padding-left: 14px;"><div class="screen-name"><svg xmlns="http://www.w3.org/2000/svg" class="svg-icon icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 1H3v9h6V5H8a2 2 0 0 1-2-2V1zm1 .487V3a1 1 0 0 0 1 1h1v-.313l-2-2.2zM3 0h3.558a1 1 0 0 1 .74.327L9.74 3.014a1 1 0 0 1 .26.673V10a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V1a.996.996 0 0 1 1-1z"></path></svg><span class="_3T6BxPiFZaywEaKQKLyVc9 editable-span">页面 3</span></div></div></li><li data-cid="s68b6ee8ac255fecb01b016" class="rn-content-item"><div type="linkable" data-cid="s68b6ee8ac255fecb01b016" data-link-target-cid="s68b6ee8ac255fecb01b016" class="rn-list-item styles__StyledScreenItem-sc-1v51q5m-1 lhJkrQ" style="padding-left: 14px;"><div class="screen-name"><svg xmlns="http://www.w3.org/2000/svg" class="svg-icon icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 1H3v9h6V5H8a2 2 0 0 1-2-2V1zm1 .487V3a1 1 0 0 0 1 1h1v-.313l-2-2.2zM3 0h3.558a1 1 0 0 1 .74.327L9.74 3.014a1 1 0 0 1 .26.673V10a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V1a.996.996 0 0 1 1-1z"></path></svg><span class="_3T6BxPiFZaywEaKQKLyVc9 editable-span">页面 4</span></div></div></li><li data-cid="s4E94E596A41571826360857" class="rn-content-item"><div type="linkable" data-cid="s4E94E596A41571826360857" data-link-target-cid="s4E94E596A41571826360857" class="rn-list-item styles__StyledScreenItem-sc-1v51q5m-1 lhJkrQ" style="padding-left: 14px;"><div class="screen-name"><svg xmlns="http://www.w3.org/2000/svg" class="svg-icon icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 1H3v9h6V5H8a2 2 0 0 1-2-2V1zm1 .487V3a1 1 0 0 0 1 1h1v-.313l-2-2.2zM3 0h3.558a1 1 0 0 1 .74.327L9.74 3.014a1 1 0 0 1 .26.673V10a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V1a.996.996 0 0 1 1-1z"></path></svg><span class="_3T6BxPiFZaywEaKQKLyVc9 editable-span">页面 5</span></div></div></li></ul></div></div></div></div><div class="right styles__StyledToggleButton-sc-1g67xqq-0 eokPlO"><span class="icon fa fa-angle-left toggle-icon"></span></div></div><div id="simulator-container" class=""><div class="screen-viewport" style="width: 1440px; height: 1024px; min-width: 1440px; min-height: 1024px; transform: matrix(1, 0, 0, 1, 0, 0);"><div class="zoom-area" style="transform: scale(0.589695);"><div id="simulator" class="mb-screen others web desktop portrait" style="width: 1440px; height: 1024px;"><div id="app" style="display: block; touch-action: auto; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><div id="pscreens4401f987912f52f66694b8" data-cid="s4401f987912f52f66694b8" data-orientation="portrait" class="pcanvas portrait active" style="background-color: rgb(255, 255, 255); z-index: 3; transform: none;"><div class="screen-header" style="height: 0px;"></div><div class="screen-content"><div class="widgets" style="height: 968px; left: 0px; top: 0px;"><div class="scontainer" style="height: 1024px; margin-top: 0px;"><div data-cid="w38370dcdd2777a03963a979c" data-link_cid="" class="widget image_view" id="widgetw38370dcdd2777a03963a979cp" style="width: 1442px; height: 1030px; left: -2px; top: -6px; z-index: 16; border-width: 0px; border-style: solid; font-weight: normal; font-style: normal; opacity: 1;"><div class="image-wrapper undefined"><span style="display: none;"><svg xmlns="http://www.w3.org/2000/svg" class="svg-icon icon" viewBox="0 0 24 22" aria-hidden="true" style="width: 24px; height: 22px;"><path d="M2.273.1h17.454c1.205 0 2.182.977 2.182 2.182v15.436a2.182 2.182 0 0 1-2.182 2.182H2.273A2.182 2.182 0 0 1 .09 17.718V2.282C.09 1.077 1.068.1 2.273.1zm0 3.29v13.22c0 .602.488 1.09 1.09 1.09h15.273a1.09 1.09 0 0 0 1.091-1.09V3.39a1.09 1.09 0 0 0-1.09-1.09H3.363a1.09 1.09 0 0 0-1.091 1.09zm1.09 12.172V14.4l2.905-2.928a1.09 1.09 0 0 1 1.664.137l1.108 1.565a1.09 1.09 0 0 0 1.766.02l3.023-4.064a1.09 1.09 0 0 1 1.82.105l2.987 5.165v1.113c0 .601-.486 1.089-1.086 1.091l-13.091.05a1.09 1.09 0 0 1-1.095-1.092zM7.183 7.8a1.643 1.643 0 0 1-1.637-1.65c0-.911.733-1.65 1.637-1.65s1.636.739 1.636 1.65c0 .911-.732 1.65-1.636 1.65z" fill="#8D9EA7" fill-rule="evenodd"></path></svg></span><div class="wrapper"><img src="./后台登陆界面副本_files/v2_pzrqhr.png" draggable="false" style="display: block; height: 100%; filter: contrast(1.1) saturate(1.2) blur(0px);"></div></div><div class="region gesture "></div></div><div data-cid="g59c0e36f587865c2b57c46df" data-link_cid="" class="group" style="left: 452px; top: 214px; width: 541px; height: 353px; position: absolute; z-index: 17; opacity: 0.74;"><div data-cid="w9722567091d62ac73b8cfd81" data-link_cid="" class="widget rounded_rect hcenter vmiddle" id="widgetw9722567091d62ac73b8cfd81p" style="width: 541px; height: 353px; left: 0px; top: 0px; z-index: 5; font-size: 14px; padding: 0px; border-width: 1px; border-style: solid; text-align: center; line-height: 20px; font-weight: normal; font-style: normal; opacity: 1;"><div class="text" style="padding: 0px;"><p>&nbsp;</p></div><div class="region gesture "></div></div><div data-cid="w10d29cf746087dd3f1c3fc04" data-link_cid="" class="widget rich_text hleft vtop auto" id="widgetw10d29cf746087dd3f1c3fc04p" style="width: 64px; height: 19px; left: 62px; top: 167px; z-index: 6; font-size: 14px; text-align: left; line-height: 0px; font-weight: normal; font-style: normal; opacity: 1;"><div class="rich-text"><p style="line-height:0; margin-bottom:5px;"><span class="--mb--rich-text" data-boldtype="0" style="font-family:SourceHanSansSC; font-weight:400; font-size:16px; color:rgb(16, 16, 16); font-style:normal; letter-spacing:0px; line-height:19px; text-decoration:none;">用户名：</span></p></div><div class="region gesture "></div></div><div data-cid="we0a460042ee19573e3d03e3b" data-link_cid="" class="widget rich_text hleft vtop auto" id="widgetwe0a460042ee19573e3d03e3bp" style="width: 48px; height: 24px; left: 62px; top: 215px; z-index: 7; font-size: 14px; text-align: left; line-height: 0px; font-weight: normal; font-style: normal; opacity: 1;"><div class="rich-text"><p style="line-height:0; margin-bottom:5px;"><span class="--mb--rich-text" data-boldtype="0" style="font-family:SourceHanSansSC; font-weight:400; font-size:16px; color:rgb(16, 16, 16); font-style:normal; letter-spacing:0px; line-height:24px; text-decoration:none;">密码：</span></p></div><div class="region gesture "></div></div><div data-cid="wee9b392830e33c4ba49a0208" data-link_cid="" class="widget mtext_input hleft" id="widgetwee9b392830e33c4ba49a0208p" style="width: 322px; height: 27px; left: 141px; top: 163px; z-index: 8; background-color: rgba(215, 215, 215, 0.35); font-size: 14px; border-width: 1px; border-style: solid; text-align: left; font-weight: normal; font-style: normal; opacity: 1;"><input type="text" placeholder="单行输入"><div class="region gesture "></div></div><div data-cid="w812dc3cafc17b6631c70557c" data-link_cid="" class="widget mtext_input hleft" id="widgetw812dc3cafc17b6631c70557cp" style="width: 322px; height: 27px; left: 141px; top: 214px; z-index: 9; background-color: rgba(215, 215, 215, 0.35); font-size: 14px; border-width: 1px; border-style: solid; text-align: left; font-weight: normal; font-style: normal; opacity: 1;"><input type="text" placeholder="单行输入"><div class="region gesture "></div></div><div data-cid="w1aa1af32f60cd788b0d1ccf0" data-link_cid="" class="widget svg_icon_button" id="widgetw1aa1af32f60cd788b0d1ccf0p" style="width: 53px; height: 53px; left: 244px; top: 42px; z-index: 10; color: rgb(16, 16, 16); border-width: 0px; border-style: solid; font-weight: normal; font-style: normal; opacity: 1;"><span class="icon svg-icon-wrap svg-md svg-md-account_circle-wrap utils__StyledSvgIcon-sc-199ue8j-0 daehEJ" color="#101010" size="53"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="svg-icon fa-svg-icon svg-fa-account_circle" width="53" height="53" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2a7.2 7.2 0 0 1-6-3.22c.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08a7.2 7.2 0 0 1-6 3.22z"></path></svg></span><div class="region gesture "></div></div><div data-cid="we413c664384ac2d8d6da4f0d" data-link_cid="l92765286218445b936d27f5e" class="widget button hcenter vmiddle clickable" id="widgetwe413c664384ac2d8d6da4f0dp" style="width: 390px; height: 37px; left: 86px; top: 280px; z-index: 11; border-radius: 4px; font-size: 14px; border-width: 1px; border-style: solid; text-align: center; font-weight: normal; font-style: normal; opacity: 1;"><div class="button-wrapper"><span class="text">登陆</span></div><div class="region gesture "></div></div><div data-cid="we02166138957570565fb3c5a" data-link_cid="" class="widget android_radio" id="widgetwe02166138957570565fb3c5ap" style="width: 11px; height: 11px; left: 141px; top: 248px; z-index: 12; font-weight: normal; font-style: normal;"><label class="Android-Radio"><input type="radio" name="g59c0e36f587865c2b57c46df" checked=""><span class="CheckState"></span></label><div class="region gesture "></div></div><div data-cid="w5fe67420317cb126badc59b0" data-link_cid="" class="widget rich_text hleft vtop auto" id="widgetw5fe67420317cb126badc59b0p" style="width: 48px; height: 18px; left: 156px; top: 244px; z-index: 13; font-size: 14px; text-align: left; line-height: 0px; font-weight: normal; font-style: normal; opacity: 1;"><div class="rich-text"><p style="line-height:0; margin-bottom:5px;"><span class="--mb--rich-text" data-boldtype="0" style="font-family:SourceHanSansSC; font-weight:400; font-size:12px; color:rgb(16, 16, 16); font-style:normal; letter-spacing:0px; line-height:18px; text-decoration:none;">记住密码</span></p></div><div class="region gesture "></div></div><div data-cid="wec6bd9e344c26b77e21b41a9" data-link_cid="" class="widget rich_text hleft vtop auto" id="widgetwec6bd9e344c26b77e21b41a9p" style="width: 90px; height: 27px; left: 225px; top: 108px; z-index: 14; font-size: 14px; text-align: left; line-height: 0px; font-weight: normal; font-style: normal; opacity: 1;"><div class="rich-text"><p style="line-height:0; margin-bottom:5px;"><span class="--mb--rich-text" data-boldtype="1" style="font-family:SourceHanSansSC; font-weight:700; font-size:18px; color:rgb(16, 16, 16); font-style:normal; letter-spacing:0px; line-height:27px; text-decoration:none;">高校畅游通</span></p></div><div class="region gesture "></div></div><div class="region gesture "></div></div></div></div><div class="iScrollVerticalScrollbar iScrollLoneScrollbar" style="position: absolute; z-index: 9999; width: 7px; bottom: 2px; top: 2px; right: 1px; overflow: hidden; transition-duration: 0ms; opacity: 0;"><div class="iScrollIndicator" style="box-sizing: border-box; position: absolute; background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.9); border-radius: 3px; width: 100%; transition-duration: 0ms; display: none; height: 960px; left: 0px; top: 0px;"></div></div></div><div class="screen-footer" style="height: 56px;"><div class="footer-widgets" style="margin-top: -968px;"><div data-cid="w38370dcdd2777a03963a979c" data-link_cid="" class="widget image_view" id="widgetw38370dcdd2777a03963a979cp" style="width: 1442px; height: 1030px; left: -2px; top: -6px; z-index: 16; border-width: 0px; border-style: solid; font-weight: normal; font-style: normal; opacity: 1;"><div class="image-wrapper undefined"><span style="display: none;"><svg xmlns="http://www.w3.org/2000/svg" class="svg-icon icon" viewBox="0 0 24 22" aria-hidden="true" style="width: 24px; height: 22px;"><path d="M2.273.1h17.454c1.205 0 2.182.977 2.182 2.182v15.436a2.182 2.182 0 0 1-2.182 2.182H2.273A2.182 2.182 0 0 1 .09 17.718V2.282C.09 1.077 1.068.1 2.273.1zm0 3.29v13.22c0 .602.488 1.09 1.09 1.09h15.273a1.09 1.09 0 0 0 1.091-1.09V3.39a1.09 1.09 0 0 0-1.09-1.09H3.363a1.09 1.09 0 0 0-1.091 1.09zm1.09 12.172V14.4l2.905-2.928a1.09 1.09 0 0 1 1.664.137l1.108 1.565a1.09 1.09 0 0 0 1.766.02l3.023-4.064a1.09 1.09 0 0 1 1.82.105l2.987 5.165v1.113c0 .601-.486 1.089-1.086 1.091l-13.091.05a1.09 1.09 0 0 1-1.095-1.092zM7.183 7.8a1.643 1.643 0 0 1-1.637-1.65c0-.911.733-1.65 1.637-1.65s1.636.739 1.636 1.65c0 .911-.732 1.65-1.636 1.65z" fill="#8D9EA7" fill-rule="evenodd"></path></svg></span><div class="wrapper"><img src="./后台登陆界面副本_files/v2_pzrqhr.png" draggable="false" style="display: block; height: 100%; filter: contrast(1.1) saturate(1.2) blur(0px);"></div></div><div class="region gesture "></div></div></div></div></div></div><div class="splash" style="background-color: rgb(255, 255, 255); display: none;"><img src="./后台登陆界面副本_files/splash_1571303439.png" style="top: -1440px; width: 1024px; height: 1440px;"><div class="loading"><div class="spinner"></div></div></div></div><div class="xQWL5y1StSdX9vRfMCP2i default"></div><div id="sticky-container"><div id="stickies" style="margin-top: 0px;"></div></div></div><div class="no-zoom-area-wrapper" style="width: 58.9695%; height: 58.9695%;"><div class="no-zoom-area"><div id="ui-layers" class="ui-layers"></div><div id="ui-comment-marker-panel"></div></div></div></div></div><div id="preview_scrollBar_viewport" class="styles__StyledMainContent-t5mjug-0 yBAJZ"><div class="styles__StyledResetButton-t5mjug-1 YyDeh">点我回原点</div><div class="styles__StyledScrollBar-sc-1i763xb-0 lAtyK"><div data-axis="x" class="track x-track" style="left: 0px;"><div class="handler" data-axis="x" style="width: 28.5714%; left: 35.7143%;"><div class="thumb"></div></div></div><div data-axis="y" class="track y-track" style="top: 0px;"><div class="handler y-handler" data-axis="y" style="height: 28.5714%; top: 35.7143%;"><div class="thumb"></div></div></div></div><iframe class="p677pQqCIRS-SsEhJWgV4" src="./后台登陆界面副本_files/saved_resource.html"></iframe></div></div><div></div></div></div>
+<div class="safe-mask" id="safemode">
+<div class="indicator restore" style="height: 100%;">
+<div class="spinner"></div>
+<div class="text">
+此操作可能需要几分钟，请您耐心等待…
+<span class="progress">0%</span>
+</div>
+</div>
+</div>
+
+
+<link rel="stylesheet" media="screen" href="./后台登陆界面副本_files/hosted-fonts.css">
+
+<link rel="stylesheet" media="screen" href="./后台登陆界面副本_files/vendor-e0fbb40c9f811b96c0ae.css">
+<link rel="stylesheet" media="screen" href="./后台登陆界面副本_files/preview-9d0d755c87283092945d.css">
+<script type="text/javascript" async="" src="./后台登陆界面副本_files/ec.js.下载"></script><script type="text/javascript" id="zhuge-js" async="" src="./后台登陆界面副本_files/zhuge.min.js.下载"></script><script async="" src="./后台登陆界面副本_files/analytics.js.下载"></script><script>
+  document.getElementsByClassName('indicator')[0].style.height = '30%'
+  var MBSketchPluginDownloadURL = 'https://cdn.modao.cc/sketch/2.5.09/MockingBot.zh.sketchplugin.zip'
+</script>
+<script>
+  var RELEASE_HASH = "7b2883068596b3330d3ff2f785f3e6bf49f71483"
+  var MBServer = "free.modao.cc"
+  
+  window.MB = window.MB || {}
+  MB.serverCountry = "CN"
+  MB.INSPECTABLES = {"carousel":["v","locked","top","left","width","height","z","ro","o","primary_fixed","fixed","fixed_type","ha","va","data"],"group":["v","locked","top","left","width","height","z","ro","primary_fixed","ani_name","ani_delay","ani_count","ani_duration","o","expanded"],"rich_text":["v","locked","text","fs","ha","va","width","height","top","left","z","th","lh","td","bo","i","tc","o","text_shadow","ro","primary_fixed","fixed","fixed_type","ani_name","ani_delay","ani_count","ani_duration","clip","size_type"],"label":["v","locked","text","fs","br","border_radius","bs","ha","va","width","height","top","left","z","th","lh","td","bo","i","bg","bc","tc","o","ts","text_shadow","tsc","ds","sc","ro","padding","ls","primary_fixed","fixed","fixed_type","ani_name","ani_delay","ani_count","ani_duration"],"text_view":["v","locked","text","fs","br","border_radius","bs","ha","va","width","height","top","left","z","th","lh","td","bo","i","bg","bc","tc","o","ts","text_shadow","tsc","ds","sc","ro","padding","ls","primary_fixed","fixed","fixed_type","ani_name","ani_delay","ani_count","ani_duration","clip"],"sticky":["v","locked","text","fs","ha","lh","bo","i","td","width","height","top","left","bg","tc","th","slw","slt","padding"],"button":["v","locked","text","fs","br","border_radius","bs","ha","va","width","height","top","left","z","th","td","bo","i","bg","bc","tc","o","ts","tsc","ds","box_shadow","sc","ro","ls","icon","is","primary_fixed","fixed","fixed_type","ani_name","ani_delay","ani_count","ani_duration"],"icon_button":["v","locked","is","icon","br","border_radius","bs","top","left","width","height","z","th","bg","bc","tc","o","ds","text_shadow","sc","ro","ls","primary_fixed","fixed","fixed_type","ani_name","ani_delay","ani_count","ani_duration"],"text_field":["v","locked","text","fs","br","border_radius","bs","ha","va","width","height","top","left","z","th","bg","bc","tc","o","ds","box_shadow","sc","ro","td","bo","i","ls","primary_fixed","fixed","fixed_type","ani_name","ani_delay","ani_count","ani_duration"],"mtext_input":["v","locked","text","fs","br","border_radius","bs","ha","width","height","top","left","z","th","bg","bc","tc","o","ds","box_shadow","sc","td","bo","i","ls","primary_fixed","fixed","fixed_type","input_type"],"mtextarea":["v","locked","text","fs","br","border_radius","bs","ha","width","height","top","left","z","th","lh","bg","bc","tc","o","ds","box_shadow","sc","td","bo","i","ls","primary_fixed","fixed","fixed_type","padding"],"mselect":["v","locked","text","fs","bs","width","height","top","left","z","th","bg","bc","tc","o","ds","box_shadow","sc","td","bo","i","ls","primary_fixed","fixed","fixed_type"],"switch":["v","locked","top","left","z","checked","primary_fixed","fixed","fixed_type","ani_name","ani_delay","ani_count","ani_duration"],"ios_switch":["v","locked","top","left","z","width","height","checked","primary_fixed","fixed","fixed_type","ani_name","ani_delay","ani_count","ani_duration"],"android_switch":["v","locked","top","left","z","width","height","checked","primary_fixed","fixed","fixed_type","ani_name","ani_delay","ani_count","ani_duration"],"ios_check":["v","locked","top","left","z","width","height","checked","primary_fixed","fixed","fixed_type","ani_name","ani_delay","ani_count","ani_duration"],"android_check":["v","locked","top","left","z","width","height","checked","primary_fixed","fixed","fixed_type","ani_name","ani_delay","ani_count","ani_duration"],"android_radio":["v","locked","top","left","z","width","height","checked","primary_fixed","fixed","fixed_type","ani_name","ani_delay","ani_count","ani_duration"],"mcheckbox2":["v","locked","top","left","width","height","z","o","checked","primary_fixed","fixed","fixed_type"],"mradiobutton":["v","locked","top","left","width","height","z","o","checked","primary_fixed","fixed","fixed_type"],"mfile_input":["v","locked","top","left","width","height","z","o","primary_fixed","fixed","fixed_type"],"image_view":["v","locked","bs","br","border_radius","width","height","top","left","image","z","th","bg","bc","tc","o","p","ds","box_shadow","sc","ro","ls","primary_fixed","fixed","fixed_type","ani_name","ani_delay","ani_count","ani_duration","clip","filter"],"map_view":["v","locked","width","height","top","left","z","primary_fixed","fixed","fixed_type"],"navigation_bar":["v","locked","text","fs","top","left","z","width","height","th","td","bo","i","bg","tc","bc","o","ts","tsc","ds","box_shadow","sc","primary_fixed","fixed","fixed_type"],"nav_bar":["v","locked","text","fs","top","left","z","width","height","th","td","bo","i","bg","tc","bc","o","ts","tsc","ds","box_shadow","sc","primary_fixed","fixed","fixed_type"],"search_bar":["v","locked","text","fs","top","left","width","ha","z","th","bg","tc","bc","o","ds","box_shadow","sc","ro","primary_fixed","fixed","fixed_type","ani_name","ani_delay","ani_count","ani_duration"],"tab_item":["v","locked","text","is","icon","width","left","top","fs","z","th","bg","tc","o","ds","box_shadow","sc","primary_fixed","fixed","fixed_type","ani_name","ani_delay","ani_count","ani_duration"],"tab_bar":["v","locked","height","z","th","bg","bc","o","ds","box_shadow","sc","ani_name","ani_delay","ani_count","ani_duration"],"hr":["v","locked","width","height","top","left","o","z","th","bc","ls","ro","primary_fixed","fixed","fixed_type","ani_name","ani_delay","ani_count","ani_duration"],"line":["v","locked","bs","bc","ls","width","height","top","left","points","box_shadow","o","z","th","primary_fixed","ani_name","ani_delay","ani_count","ani_duration"],"ve":["v","locked","width","height","top","left","o","z","th","bc","ls","ro","primary_fixed","fixed","fixed_type","ani_name","ani_delay","ani_count","ani_duration"],"keyboard":["v","locked","z","numeric","primary_fixed"],"iphone_keyboard":["v","locked","width","height","top","left","z","numeric","primary_fixed","fixed","fixed_type"],"ipad_keyboard":["v","locked","width","height","top","left","z","numeric","primary_fixed","fixed","fixed_type"],"android_keyboard":["v","locked","width","height","top","left","z","numeric","primary_fixed","fixed","fixed_type"],"status_bar":["v","locked","text","th","bg","tc","bc","o","z","primary_fixed"],"ios_status_bar":["v","locked","text","th","bg","tc","bc","o","width","height","top","left","z","primary_fixed","fixed","fixed_type"],"iphone_x_status_bar":["v","locked","text","th","bg","tc","bc","o","width","height","top","left","z","primary_fixed","fixed","fixed_type"],"android_status_bar":["v","locked","text","th","bg","tc","bc","o","width","height","top","left","z","primary_fixed","fixed","fixed_type"],"rectangle":["v","locked","height","top","left","z","th","bg","bc","o","ds","box_shadow","sc","ro","primary_fixed","fixed","fixed_type","ani_name","ani_delay","ani_count","ani_duration"],"rounded_rect":["v","locked","text","fs","br","border_radius","bs","ha","va","width","height","top","left","z","lh","th","td","bo","i","bg","bc","tc","o","ts","tsc","ds","box_shadow","sc","ro","padding","ls","primary_fixed","fixed","fixed_type","ani_name","ani_delay","ani_count","ani_duration"],"circle_rect":["v","locked","text","fs","bs","ha","va","width","height","top","left","z","lh","th","td","bo","i","bg","bc","tc","o","ts","tsc","ds","box_shadow","sc","ro","padding","ls","primary_fixed","fixed","fixed_type","ani_name","ani_delay","ani_count","ani_duration"],"triangleb":["v","locked","width","height","top","left","z","th","tc","o","ro","primary_fixed","fixed","fixed_type","ani_name","ani_delay","ani_count","ani_duration"],"triangletl":["v","locked","width","height","top","left","z","th","tc","o","ro","primary_fixed","fixed","fixed_type","ani_name","ani_delay","ani_count","ani_duration"],"lr":["v","locked","width","height","top","left","z","primary_fixed","fixed","fixed_type"],"webpage":["v","locked","width","height","top","left","z","text"],"pg":["v","locked","icon"],"mtooltip":["v","locked","text","fs","br","border_radius","ha","va","width","height","top","left","z","th","lh","td","bo","i","bg","tc","o","ts","tsc","ds","box_shadow","sc","bs","bc","ro","padding","tt_placement","tt_offset","tt_arrow_size","primary_fixed","fixed","fixed_type","ani_name","ani_delay","ani_count","ani_duration"],"svg_icon_button":["v","locked","is","icon","br","border_radius","bs","top","left","width","height","z","th","bg","bc","tc","o","ds","text_shadow","sc","ro","ls","primary_fixed","fixed","fixed_type","ani_name","ani_delay","ani_count","ani_duration"]}
+  MB.INSPECTABLES.pg = ['left', 'top']
+</script>
+
+<script src="./后台登陆界面副本_files/webpack-runtime-be8727c714b181969b6d.js.下载"></script>
+<script src="./后台登陆界面副本_files/i18n-zh-CN-b73409e43cbcd87f91af.js.下载"></script>
+<script src="./后台登陆界面副本_files/vendor-b7ed81f115c346164771.js.下载"></script>
+<script src="./后台登陆界面副本_files/preview-08cacb98b0a788bf4a74.js.下载"></script><div id="IBOT_DROPDOWN_MENU_ROOT"><div class="DropdownMenuPortal"><div class="DropdownMenuBase"><div class="DropdownMenu light is-upward x-right _1FA8P7EgiQtr3ukFbj9cuo"><div class="content"><div class="line"><label>内容区滚动</label><label class="Switch regular is-checked"><button type="button"></button></label></div><div class="line"><label>链接高亮</label><label class="Switch regular is-checked"><button type="button"></button></label></div><div class="line"><label>批注</label><label class="Switch regular is-checked"><button type="button"></button></label></div><div class="line"><label>边框</label><span class="RadioGroup small"><label class="Radio small is-checked"><input type="radio" name="gbgeii2ba1v" checked=""><span class="Check-state"></span><span class="Check-label">默认</span></label><label class="Radio small"><input type="radio" name="gbgeii2ba1v"><span class="Check-state"></span><span class="Check-label">无边框</span></label></span></div></div></div></div></div></div><div id="IBOT_TOOLTIP_ROOT"></div><div id="IBOT_SELECT_MENU_ROOT"></div><div id="IBOT_GUIDE_GUIDE_ROOT"></div><div id="IBOT_MODAL_ROOT"><div class="ModalPortal global-alert-portal"></div></div><div id="IBOT_OVERLAY_ROOT"><div class="OverlayPortal SharingOverlayPortal"></div></div><div id="MB_PORTAL_ROOT"><div class="ToastListPortal"><ul class="ToastList"></ul></div></div>
+<script>
+  $(function () {
+    if (MB.isMobile()) {
+      $('body').addClass('mobile')
+      MB.event('ga-0', 'send', 'event', 'goal', '在移动端打开了应用')
+    }
+  
+    MB.isInApp = false
+    MB.user = {"id":1484145,"name":"typhoon","email":"1002463595@qq.com","plan":"solo","period":"","current_plan":"free","expired":true,"paid":false,"next_billing_on":"2019-10-09T23:59:59+08:00","trial":false,"created_at":"2019-09-29 02:20:00","value":0.0,"email_validated":true,"mobile":"18231804128","referral_code":"6837f35d9014d0","referrer":"https://www.baidu.com/link?url=kuNpQcKoxrn41t6wWCCVl8M5FLJCLHPFbo57SuYaZ03\u0026wd=\u0026eqid=c9a789e20064197a","login_times":14,"avatar":"https://s3.cn-north-1.amazonaws.com.cn/mb-fog/uploads4/avatars/148/1484145/forum_avatar_1569724037.jpeg","assets":23000,"channel":"1002463595qqcom1484145","limitation":{"collaborators":0,"storage":100,"exportable":[],"encryptable":false,"inspectable":false,"slices":false,"projects":3,"screens":20,"commentable":false},"partner_id":null,"created_orgs_count":1,"unlimited_trial_orgs":false,"trial_org_total_seats":0,"trial_org_expired_on":"2019-09-29","is_wechat_bound":false,"is_wps_bound":false,"can_have_gt3_projects_when_expired":false,"has_customer_support":false,"current_project_version":"v2"} || {}
+    MB.preferenceData = {"id":1461097,"workspace":"ok1zs4vplgih7x8bx","link_line":true,"link_display":1,"grid":true,"grid_size":10,"ruler":true,"guide":true,"dashboard_guides":"[\"switch_workspace\",\"persion_team_mode\",\"team_accesses\",\"manage_team_member_ok1zs4vplgih7x8bx\",\"design_mode\"]","app_order":"asc","layout":"recommend","theme":"light","canvas_bg":null,"contain_select":false,"show_tooltip":true,"show_fs_warning":true,"show_toolbar_text":true,"show_drag_mode":true,"layout_information":null,"recent_icons":"[\"fa-angle-left\",\"fa5-angle-left-fas\",\"fa5-angle-left-fas\",\"fa5-angle-left-fas\",\"fa5-angle-left-fas\",\"fa5-angle-left-fas\"]","icon_size":null,"icon_color":null,"notification_status_filter":"all"} || {}
+  
+    MB.load({
+      projectAccessToken        : '7b12d452a66e52f63abfde7f536b6e15588b2d25',
+      projectEncryptedPassword  : '',
+      projectName               : '后台登陆界面副本',
+      projectIconUrl            : '/images/icon_retina3x.png',
+      projectUpdatedAt          : '2019-10-24T10:51:45+08:00',
+      isPasswordRequired        : false,
+      isProjectExportable       : false,
+      urlClientIOS              : 'https://itunes.apple.com/cn/app/mockingbot/id1050565468?ls=1&amp;mt=8',
+      urlClientAndroid          : 'http://a.app.qq.com/o/simple.jsp?pkgname=com.mockingbot'
+    })
+  })
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  
+  ga('create', 'UA-29613374-2', 'auto');
+  ga('set', 'userId', '1484145');
+  window.navigator && window.navigator.sendBeacon && ga('set','transport','beacon');
+  ga('require', 'ec');
+  ga('send', 'pageview');
+</script>
+<script>
+  (function() {
+    var allowAutoTrack = ['/', '/features', '/downloads', '/pricing', '/tutorials']
+    window.zhuge = window.zhuge || [];
+    window.zhuge.methods = "_init identify track getDid getSid getKey setSuperProperty setUserProperties setWxProperties setPlatform".split(" ");
+    window.zhuge.factory = function(b) {
+      return function() {
+        var a = Array.prototype.slice.call(arguments);
+        a.unshift(b);
+        window.zhuge.push(a);
+        return window.zhuge;
+      }
+    };
+    for (var i = 0; i < window.zhuge.methods.length; i++) {
+      var key = window.zhuge.methods[i];
+      window.zhuge[key] = window.zhuge.factory(key);
+    }
+    window.zhuge.load = function(b, x) {
+      if (!document.getElementById("zhuge-js")) {
+        var a = document.createElement("script");
+        var verDate = new Date();
+        var verStr = verDate.getFullYear().toString() + verDate.getMonth().toString() + verDate.getDate().toString();
+  
+        a.type = "text/javascript";
+        a.id = "zhuge-js";
+        a.async = !0;
+        a.src = (location.protocol == 'http:' ? "http://sdk.zhugeio.com/zhuge.min.js?v=": 'https://zgsdk.zhugeio.com/zhuge.min.js?v=') + verStr;
+        a.onerror = function() {
+          window.zhuge.identify = window.zhuge.track = function(ename, props, callback) {
+            if(callback && Object.prototype.toString.call(callback) === '[object Function]') {
+              callback();
+            } else if (Object.prototype.toString.call(props) === '[object Function]') {
+              props();
+            }
+          };
+        };
+        var c = document.getElementsByTagName("script")[0];
+        c.parentNode.insertBefore(a, c);
+        window.zhuge._init(b, x)
+      }
+    };
+    window.zhuge.load('aba85b5beedb447fa178bc1eaeab81b7', { //配置应用的AppKey
+      superProperty: { //全局的事件属性(选填)
+        'appName': 'zhugeio'
+      },
+      adTrack: false,//广告监测开关，默认为false
+      autoTrack: allowAutoTrack.indexOf(location.pathname) !== -1,
+      //启用全埋点采集（选填，默认false）
+      singlePage: location.pathname === '/tutorials',
+      //是否是单页面应用（SPA），启用autoTrack后生效（选填，默认false）
+      debug: false,
+    });
+  })();
+</script>
+
+
+
+<div></div></body></html>
