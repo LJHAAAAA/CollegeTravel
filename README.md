@@ -22,8 +22,52 @@ GitHub:[https://github.com/LJHAAAAA/CollegeTravel](https://github.com/LJHAAAAA/C
     * [https://github.com/lvshufeng520](https://github.com/lvshufeng520)
 ## 项目截图
 
+##### 注册登录：
 
+![01](./img/01.png)
 
+![02](./img/02.png)
 
+![03](./img/03.png)
 
+![04](./img/04.png)
 
+##### 首页：
+
+![H01](./img/H01.png)
+
+![H02](./img/H02.png)
+
+![H02_1](./img/H02_1.png)
+
+![H03](./img/H03.png)
+
+![H04](./img/H04.png)
+
+![H05](./img/H05.png)
+
+##### 攻略：
+
+![I01](./img/I01.png)
+
+![I02](./img/I02.png)
+
+![I03](./img/I03.png)
+
+##### 圈子：
+
+![Q01](./img/Q01.png)
+
+![Q02](./img/Q02.png)
+
+![Q03](./img/Q03.png)
+
+![Q04](./img/Q04.png)
+
+![Q05](./img/Q05.png)
+
+##### 我的：
+
+![Z01](./img/Z01.png)
+
+![Z02](./img/Z02.png)
